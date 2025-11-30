@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: ${({ theme }) => theme.spacing[150]};
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  border-radius: 8px;
+
   margin-bottom: ${({ theme }) => theme.spacing[100]};
+
+  background: ${({ theme }) => theme.colors.neutral[800]};
+
+  border-radius: 8px;
+
   cursor: pointer;
-  transition: background-color 0.2s;
 
   &:hover {
     background: ${({ theme }) => theme.colors.neutral[700]};
