@@ -1,5 +1,3 @@
-import { ArrowLeft } from "lucide-react";
-
 import { TagList } from "@/components/Tag/TagList";
 import { NoteActions } from "@/components/Note/NoteActions";
 import { useNotesStore } from "@/store/notes";
@@ -23,13 +21,6 @@ export const NoteDetail = ({ noteId, onBack }: Types.NoteDetailType) => {
   return (
     <S.Container>
       <S.MainContent>
-        <S.Header>
-          <S.BackButton onClick={onBack}>
-            <ArrowLeft size={20} strokeWidth={1.5} />
-            <span>Go Back</span>
-          </S.BackButton>
-        </S.Header>
-
         <S.Content>
           <S.Title>{note.title}</S.Title>
           <S.MetaInfo>

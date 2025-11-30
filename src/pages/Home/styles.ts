@@ -4,6 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  padding: ${({ theme }) => theme.spacing[200]};
 `;
 
 export const Header = styled.header`
@@ -52,7 +54,6 @@ export const SearchInput = styled.input`
 `;
 
 export const NotesList = styled.div`
-  padding: ${({ theme }) => theme.spacing[200]};
   flex: 1;
   overflow-y: auto;
 `;

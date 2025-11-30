@@ -12,20 +12,21 @@ export const App = () => {
     setSelectedNoteId(noteId);
   };
 
-  const handleNoteClose = () => {
+  const handleCloseNote = () => {
     setSelectedNoteId(null);
   };
 
   return (
     <ThemeProvider>
       <MainLayout
-        rightContent={
-          selectedNoteId ? (
-            <NoteDetail noteId={selectedNoteId} onBack={handleNoteClose} />
-          ) : null
-        }
+        selectedNoteId={selectedNoteId}
+        handleCloseNote={handleCloseNote}
       >
         <Home onNoteSelect={handleNoteSelect} />
+
+        {selectedNoteId ? (
+          <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />
+        ) : null}
       </MainLayout>
     </ThemeProvider>
   );

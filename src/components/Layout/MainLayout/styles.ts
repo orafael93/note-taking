@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 250px auto;
+
   min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.neutral[900]};
   color: ${({ theme }) => theme.colors.neutral[100]};
@@ -11,10 +13,12 @@ export const Container = styled.div`
   }
 `;
 
-export const MainContent = styled.div`
-  flex: 1;
-  display: flex;
+export const MainContent = styled.main`
   position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 
   @media (max-width: 1024px) {
     height: calc(100vh - 64px);
@@ -22,13 +26,35 @@ export const MainContent = styled.div`
   }
 `;
 
-export const SearchContainer = styled.div`
-  position: absolute;
-  top: ${({ theme }) => theme.spacing[200]};
-  right: ${({ theme }) => theme.spacing[200]};
+export const MainHeaderWrapper = styled.div`
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 30px;
+`;
+
+export const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 28px;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  border: 1px solid ${({ theme }) => theme.colors.neutral[400]};
+
+  border-radius: 0.5rem;
+
   z-index: 10;
+
+  &:focus-within {
+    border: 1px solid;
+    border-color: ${({ theme }) => theme.colors.blue[500]};
+  }
 
   @media (max-width: 1024px) {
     position: fixed;
@@ -47,13 +73,15 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
-  background: ${({ theme }) => theme.colors.neutral[800]};
+  background: transparent;
+
   color: ${({ theme }) => theme.colors.neutral[100]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
-  border-radius: 8px;
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
-  padding-right: ${({ theme }) => theme.spacing[400]};
-  width: 300px;
+  padding-left: 0;
+
+  field-sizing: content;
+
+  border: none;
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -65,13 +93,15 @@ export const SearchInput = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.blue[500]};
   }
 `;
 
 export const SearchIcon = styled.div`
-  position: absolute;
-  right: ${({ theme }) => theme.spacing[150]};
+  display: flex;
+  align-items: center;
+
+  padding: 5px;
+
   color: ${({ theme }) => theme.colors.neutral[400]};
   pointer-events: none;
 
@@ -80,13 +110,10 @@ export const SearchIcon = styled.div`
   }
 `;
 
-type LeftSectionType = {
-  hasRightContent: boolean;
-};
+export const LeftSection = styled.div`
+  display: grid;
+  grid-template-columns: 290px 1fr;
 
-export const LeftSection = styled.div<LeftSectionType>`
-  width: 400px;
-  min-width: 400px;
   border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   overflow-y: auto;
@@ -97,7 +124,6 @@ export const LeftSection = styled.div<LeftSectionType>`
     min-width: 100%;
     height: calc(100vh - 128px);
     border: none;
-    display: ${({ hasRightContent }) => (hasRightContent ? "none" : "block")};
     margin-top: 64px;
   }
 `;
@@ -112,4 +138,17 @@ export const RightSection = styled.div`
     height: calc(100vh - 128px);
     margin-top: 64px;
   }
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+`;
+
+export const Title = styled.h1`
+  ${({ theme }) => theme.typography.presets.heading1}
+  color: ${({ theme }) => theme.colors.neutral[100]};
 `;
