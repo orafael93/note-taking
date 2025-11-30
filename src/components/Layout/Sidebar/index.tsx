@@ -1,5 +1,6 @@
 import { Home, Archive, Tag } from "lucide-react";
 
+import { Logo } from "@/components/Logo";
 import { useNotesStore } from "@/store/notes";
 
 import * as S from "./styles";
@@ -13,10 +14,7 @@ export const Sidebar = () => {
 
   return (
     <S.Container>
-      <S.Logo>
-        <img src="/notes-icon.svg" alt="Notes" />
-        <span>Notes</span>
-      </S.Logo>
+      <Logo />
 
       <S.NavSection>
         <S.NavItem href="/" active="true">

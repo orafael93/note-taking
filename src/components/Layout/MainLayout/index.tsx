@@ -1,8 +1,9 @@
 import { Search, Settings } from "lucide-react";
 
-import { NoteDetail } from "@/pages/NoteDetail";
 import { Sidebar } from "@/components/Layout/Sidebar";
+import { NoteDetail } from "@/pages/NoteDetail";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
+import { Logo } from "@/components/Logo";
 
 import * as Types from "./types";
 import * as S from "./styles";
@@ -14,6 +15,10 @@ export const MainLayout = (props: Types.MainLayoutType) => {
     <S.Container>
       <Sidebar />
       <S.MainContent>
+        <S.LogoWrapper>
+          <Logo />
+        </S.LogoWrapper>
+
         <S.MainHeaderWrapper>
           <S.Header>
             <S.Title>All Notes</S.Title>

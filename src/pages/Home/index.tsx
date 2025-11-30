@@ -20,6 +20,10 @@ export const Home = (props: Types.HomeType) => {
         Create New Note
       </S.CreateButton>
 
+      <S.TitleWrapper>
+        <S.Title>All Notes</S.Title>
+      </S.TitleWrapper>
+
       <S.NotesList>
         {notes.map((note) => (
           <NoteCard

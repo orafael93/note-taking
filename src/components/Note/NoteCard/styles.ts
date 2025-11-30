@@ -11,6 +11,12 @@ export const Container = styled.div`
   &:hover {
     background: ${({ theme }) => theme.colors.neutral[700]};
   }
+
+  @media (max-width: 1024px) {
+    background: transparent;
+
+    border-bottom: 2px solid ${({ theme }) => theme.colors.neutral[800]};
+  }
 `;
 
 export const Title = styled.h2`

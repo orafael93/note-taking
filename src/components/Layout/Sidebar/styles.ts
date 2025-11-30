@@ -13,25 +13,6 @@ export const Container = styled.aside`
   }
 `;
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing[100]};
-
-  padding-bottom: ${({ theme }) => theme.spacing[200]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-
-  span {
-    ${({ theme }) => theme.typography.presets.heading2}
-    color: ${({ theme }) => theme.colors.neutral[100]};
-  }
-`;
-
 export const NavSection = styled.nav`
   display: flex;
   flex-direction: column;
@@ -42,7 +23,7 @@ export const NavItem = styled.a<{ active?: string }>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[100]};
-  padding: ${({ theme }) => theme.spacing[100]};
+  /* padding: ${({ theme }) => theme.spacing[100]}; */
   border-radius: 4px;
   color: ${({ theme, active }) =>
     active === "true" ? theme.colors.neutral[100] : theme.colors.neutral[400]};

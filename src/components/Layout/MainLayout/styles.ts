@@ -9,7 +9,15 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.colors.neutral[100]};
 
   @media (max-width: 1024px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const LogoWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
   }
 `;
 
@@ -21,8 +29,10 @@ export const MainContent = styled.main`
   grid-template-rows: auto 1fr;
 
   @media (max-width: 1024px) {
-    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
     overflow: hidden;
+
+    grid-column: 1 / -1;
   }
 `;
 
@@ -32,12 +42,22 @@ export const MainHeaderWrapper = styled.div`
   justify-content: space-between;
 
   padding: 30px;
+
+  border-bottom: 2px solid #525866;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 28px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -124,7 +144,8 @@ export const LeftSection = styled.div`
     min-width: 100%;
     height: calc(100vh - 128px);
     border: none;
-    margin-top: 64px;
+
+    grid-template-columns: 1fr;
   }
 `;
 

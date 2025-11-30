@@ -16,6 +16,10 @@ export const Header = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
+export const TitleWrapper = styled.div`
+  padding: 12px;
+`;
+
 export const Title = styled.h1`
   ${({ theme }) => theme.typography.presets.heading1}
   color: ${({ theme }) => theme.colors.neutral[100]};
@@ -25,17 +29,26 @@ export const CreateButton = styled.button`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[100]};
+
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   background: ${({ theme }) => theme.colors.blue[500]};
   border: none;
+
   border-radius: 8px;
+
   color: ${({ theme }) => theme.colors.neutral[0]};
+
   ${({ theme }) => theme.typography.presets.body1};
+
   cursor: pointer;
   transition: background-color 0.2s;
 
   &:hover {
     background: ${({ theme }) => theme.colors.blue[700]};
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -54,6 +67,5 @@ export const SearchInput = styled.input`
 `;
 
 export const NotesList = styled.div`
-  flex: 1;
   overflow-y: auto;
 `;
