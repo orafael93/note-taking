@@ -1,0 +1,36 @@
+import styled from "styled-components";
+
+export const Button = styled.button`
+  position: fixed;
+  bottom: ${({ theme }) => theme.spacing[400]};
+  right: ${({ theme }) => theme.spacing[400]};
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  background: ${({ theme }) => theme.colors.blue[500]};
+  border: none;
+  color: ${({ theme }) => theme.colors.neutral[0]};
+
+  display: flex;
+  font-size: 24px;
+
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+
+  transition: transform 0.2s;
+  z-index: 101;
+
+  @media (max-width: 768px) {
+    bottom: 84px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    background: ${({ theme }) => theme.colors.blue[700]};
+  }
+`;
