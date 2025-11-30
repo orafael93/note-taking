@@ -6,7 +6,7 @@ import { useNotesStore } from "@/store/notes";
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const Home = (props: Types.HomeType) => {
+export const AllNotes = (props: Types.AllNotesType) => {
   const { onNoteSelect } = props;
 
   const notes = useNotesStore((state) =>
@@ -16,7 +16,7 @@ export const Home = (props: Types.HomeType) => {
   return (
     <S.Container>
       <S.CreateButton style={{ marginBottom: "16px" }}>
-        <Plus size={20} />
+        <Plus size={16} strokeWidth={3} />
         Create New Note
       </S.CreateButton>
 

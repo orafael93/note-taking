@@ -1,9 +1,9 @@
 import { Search, Settings } from "lucide-react";
 
+import { Logo } from "@/components/Logo";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { NoteDetail } from "@/pages/NoteDetail";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
-import { Logo } from "@/components/Logo";
 
 import * as Types from "./types";
 import * as S from "./styles";

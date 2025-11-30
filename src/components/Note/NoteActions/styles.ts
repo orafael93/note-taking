@@ -37,11 +37,11 @@ export const ActionButton = styled.button`
 `;
 
 export const DeleteButton = styled(ActionButton)`
-  color: ${({ theme }) => theme.colors.red[500]};
-  border-color: ${({ theme }) => theme.colors.red[500]};
+  color: ${({ theme }) => theme.colors.neutral[300]};
+  border-color: ${({ theme }) => theme.colors.neutral[800]};
 
   &:hover {
-    background: ${({ theme }) => theme.colors.red[500]};
+    background: ${({ theme }) => theme.colors.neutral[700]};
     color: ${({ theme }) => theme.colors.neutral[0]};
   }
 `;

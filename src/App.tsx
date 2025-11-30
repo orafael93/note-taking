@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Home } from "@/pages/Home";
+import { AllNotes } from "@/pages/AllNotes";
 import { NoteDetail } from "@/pages/NoteDetail";
 import { MainLayout } from "@/components/Layout/MainLayout";
 import { ThemeProvider } from "@/styles/ThemeProvider";
@@ -22,7 +22,7 @@ export const App = () => {
         selectedNoteId={selectedNoteId}
         handleCloseNote={handleCloseNote}
       >
-        <Home onNoteSelect={handleNoteSelect} />
+        <AllNotes onNoteSelect={handleNoteSelect} />
 
         {selectedNoteId ? (
           <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />

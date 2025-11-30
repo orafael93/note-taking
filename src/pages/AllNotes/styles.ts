@@ -28,9 +28,10 @@ export const Title = styled.h1`
 export const CreateButton = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[100]};
+  justify-content: center;
+  gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
+  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
   background: ${({ theme }) => theme.colors.blue[500]};
   border: none;
 
@@ -38,7 +39,7 @@ export const CreateButton = styled.button`
 
   color: ${({ theme }) => theme.colors.neutral[0]};
 
-  ${({ theme }) => theme.typography.presets.body1};
+  font-weight: bold;
 
   cursor: pointer;
   transition: background-color 0.2s;
