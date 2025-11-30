@@ -1,4 +1,4 @@
-import { TagList } from "@/components/Tag/TagList";
+import { TagList } from "@/components/Tag";
 
 import * as Types from "./types";
 import * as S from "./styles";

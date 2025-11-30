@@ -94,9 +94,13 @@ export const Title = styled.h1`
 `;
 
 export const MetaInfo = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   justify-content: space-between;
   align-items: center;
+
+  gap: 10px 30px;
+
   margin-bottom: ${({ theme }) => theme.spacing[300]};
 `;
 

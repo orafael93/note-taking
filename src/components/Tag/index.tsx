@@ -5,10 +5,10 @@ export const TagList = (props: Types.TagListType) => {
   const { tags } = props;
 
   return (
-    <S.Container>
+    <S.TagContainer>
       {tags.map((tag) => (
-        <S.Tag key={tag}>{tag}</S.Tag>
+        <S.TagItem key={tag}>{tag}</S.TagItem>
       ))}
-    </S.Container>
+    </S.TagContainer>
   );
 };
