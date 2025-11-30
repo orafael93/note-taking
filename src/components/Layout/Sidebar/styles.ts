@@ -19,17 +19,24 @@ export const NavSection = styled.nav`
   gap: ${({ theme }) => theme.spacing[75]};
 `;
 
-export const NavItem = styled.a<{ active?: string }>`
+export const NavItem = styled.button<{ active?: string }>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[100]};
-  /* padding: ${({ theme }) => theme.spacing[100]}; */
+
+  background: transparent;
+  border: none;
+
   border-radius: 4px;
   color: ${({ theme, active }) =>
-    active === "true" ? theme.colors.neutral[100] : theme.colors.neutral[400]};
+    active === "true" ? theme.colors.neutral[100] : theme.colors.neutral[200]};
   ${({ theme }) => theme.typography.presets.body1}
+
   text-decoration: none;
+
   transition: all 0.2s;
+
+  padding: 12px 14px;
 
   &:hover {
     background: ${({ theme }) => theme.colors.neutral[800]};
@@ -37,11 +44,14 @@ export const NavItem = styled.a<{ active?: string }>`
   }
 `;
 
-export const TagSection = styled.div`
+export const TagSection = styled.nav`
   display: flex;
   flex-direction: column;
+
   gap: ${({ theme }) => theme.spacing[100]};
+
   padding-top: ${({ theme }) => theme.spacing[200]};
+
   border-top: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 
   h3 {

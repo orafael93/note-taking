@@ -17,11 +17,11 @@ export const Sidebar = () => {
       <Logo />
 
       <S.NavSection>
-        <S.NavItem href="/" active="true">
+        <S.NavItem onClick={() => console.log("go to /")} active="true">
           <Home size={20} strokeWidth={1.5} />
           <span>All Notes</span>
         </S.NavItem>
-        <S.NavItem href="/archived">
+        <S.NavItem onClick={() => console.log("go to /archived")}>
           <Archive size={20} strokeWidth={1.5} />
           <span>Archived Notes</span>
         </S.NavItem>
@@ -30,7 +30,10 @@ export const Sidebar = () => {
       <S.TagSection>
         <h3>Tags</h3>
         {uniqueTags.map((tag) => (
-          <S.NavItem key={tag} href={`/tags/${tag}`}>
+          <S.NavItem
+            key={tag}
+            onClick={() => console.log(`go to /tags/${tag}`)}
+          >
             <Tag size={20} strokeWidth={1.5} />
             <span>{tag}</span>
           </S.NavItem>
