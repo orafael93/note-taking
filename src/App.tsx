@@ -22,11 +22,13 @@ export const App = () => {
         selectedNoteId={selectedNoteId}
         handleCloseNote={handleCloseNote}
       >
-        <AllNotes onNoteSelect={handleNoteSelect} />
+        {selectedNoteId && window.innerWidth <= 1024 ? null : (
+          <AllNotes onNoteSelect={handleNoteSelect} />
+        )}
 
-        {selectedNoteId ? (
+        {selectedNoteId && (
           <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />
-        ) : null}
+        )}
       </MainLayout>
     </ThemeProvider>
   );

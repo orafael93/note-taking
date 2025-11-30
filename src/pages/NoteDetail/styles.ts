@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100%;
   display: flex;
+  height: 100%;
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -114,4 +114,48 @@ export const NoteContent = styled.div`
   color: ${({ theme }) => theme.colors.neutral[300]};
   white-space: pre-line;
   line-height: 1.6;
+`;
+
+export const MobileCardHeader = styled.div`
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px 16px;
+  }
+`;
+
+export const GoBackWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  background: transparent;
+  border: none;
+
+  color: ${({ theme }) => theme.colors.neutral[100]};
+  cursor: pointer;
+`;
+
+export const GoBackText = styled.span`
+  font-size: 14px;
+`;
+
+export const ActionsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const CancelText = styled.span`
+  font-size: 14px;
+`;
+
+export const SaveNote = styled.span`
+  font-size: 14px;
+
+  color: ${({ theme }) => theme.colors.blue[500]};
 `;

@@ -10,6 +10,10 @@ export const Container = styled.div`
 
   padding: ${({ theme }) => theme.spacing[200]};
   border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const ActionButton = styled.button`
