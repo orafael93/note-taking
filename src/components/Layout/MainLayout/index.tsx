@@ -1,8 +1,7 @@
-import { Search, Settings } from "lucide-react";
-
 import { Logo } from "@/components/Logo";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { NoteDetail } from "@/pages/NoteDetail";
+import { SearchInput } from "@/components/SearchInput";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
 
 import * as Types from "./types";
@@ -24,22 +23,10 @@ export const MainLayout = (props: Types.MainLayoutType) => {
             <S.Title>All Notes</S.Title>
           </S.Header>
 
-          <S.SearchWrapper>
-            <S.InputWrapper>
-              <S.SearchIcon>
-                <Search size={20} />
-              </S.SearchIcon>
-
-              <S.SearchInput
-                type="text"
-                placeholder="Search by title, content, or tags..."
-              />
-            </S.InputWrapper>
-
-            <Settings size={20} style={{ cursor: "pointer" }} />
-          </S.SearchWrapper>
+          <SearchInput />
         </S.MainHeaderWrapper>
         <S.LeftSection>{children}</S.LeftSection>
+
         {selectedNoteId && (
           <S.RightSection>
             <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />

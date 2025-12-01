@@ -10,6 +10,8 @@ type NotesStoreType = {
   editNote: (title: string, data: Partial<NoteType>) => void;
   toggleArchive: (title: string) => void;
   searchNotes: (query: string) => NoteType[];
+  isSearchingNotes: boolean;
+  onSearchingNotes: (param: boolean) => void;
 };
 
 export const useNotesStore = create<NotesStoreType>((set, get) => ({
@@ -47,4 +49,9 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
         note.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
     );
   },
+  isSearchingNotes: false,
+  onSearchingNotes: (isSearching) =>
+    set(() => ({
+      isSearchingNotes: isSearching,
+    })),
 }));

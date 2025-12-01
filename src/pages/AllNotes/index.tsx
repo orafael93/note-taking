@@ -1,12 +1,15 @@
 import { Plus } from "lucide-react";
 
 import { NoteCard } from "@/components/Note/NoteCard";
+import { SearchInput } from "@/components/SearchInput";
 import { useNotesStore } from "@/store/notes";
 
 import * as Types from "./types";
 import * as S from "./styles";
 
 export const AllNotes = (props: Types.AllNotesType) => {
+  const isSearchingNotes = useNotesStore((store) => store.isSearchingNotes);
+
   const { onNoteSelect } = props;
 
   const notes = useNotesStore((state) =>
@@ -20,9 +23,13 @@ export const AllNotes = (props: Types.AllNotesType) => {
         Create New Note
       </S.CreateButton>
 
-      <S.TitleWrapper>
-        <S.Title>All Notes</S.Title>
-      </S.TitleWrapper>
+      {isSearchingNotes ? null : (
+        <S.TitleWrapper>
+          <S.Title>All Notes</S.Title>
+        </S.TitleWrapper>
+      )}
+
+      {isSearchingNotes && <SearchInput />}
 
       <S.NotesList>
         {notes.map((note) => (
