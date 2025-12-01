@@ -1,14 +1,25 @@
+import { useRef, useState } from "react";
+
 import { Logo } from "@/components/Logo";
 import { Sidebar } from "@/components/Layout/Sidebar";
+import { AllNotes } from "@/pages/AllNotes";
 import { NoteDetail } from "@/pages/NoteDetail";
 import { SearchInput } from "@/components/SearchInput";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
 
-import * as Types from "./types";
 import * as S from "./styles";
 
-export const MainLayout = (props: Types.MainLayoutType) => {
-  const { children, selectedNoteId, handleCloseNote } = props;
+export const MainLayout = () => {
+  const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null);
+  const contentWrapperRef = useRef<HTMLDivElement | null>(null);
+
+  const handleSelectNote = (noteId: string) => {
+    setSelectedNoteId(noteId);
+  };
+
+  const handleCloseNote = () => {
+    setSelectedNoteId(null);
+  };
 
   return (
     <S.Container>
@@ -25,13 +36,16 @@ export const MainLayout = (props: Types.MainLayoutType) => {
 
           <SearchInput />
         </S.MainHeaderWrapper>
-        <S.LeftSection>{children}</S.LeftSection>
 
-        {selectedNoteId && (
-          <S.RightSection>
+        <S.ContentWrapper ref={contentWrapperRef}>
+          {selectedNoteId && window.innerWidth <= 1024 ? null : (
+            <AllNotes onNoteSelect={handleSelectNote} />
+          )}
+
+          {selectedNoteId && (
             <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />
-          </S.RightSection>
-        )}
+          )}
+        </S.ContentWrapper>
       </S.MainContent>
       <BottomNavigation />
     </S.Container>

@@ -50,34 +50,21 @@ export const MainHeaderWrapper = styled.div`
   }
 `;
 
-export const LeftSection = styled.div`
+export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
   border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   overflow-y: auto;
+
   height: 100vh;
 
   @media (max-width: 1024px) {
-    width: 100%;
-    min-width: 100%;
     height: calc(100vh - 128px);
     border: none;
 
     grid-template-columns: 1fr;
-  }
-`;
-
-export const RightSection = styled.div`
-  flex: 1;
-  overflow-y: auto;
-  height: 100vh;
-
-  @media (max-width: 1024px) {
-    width: 100%;
-    height: calc(100vh - 128px);
-    margin-top: 64px;
   }
 `;
 
