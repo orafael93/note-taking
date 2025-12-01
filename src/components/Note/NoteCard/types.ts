@@ -1,6 +1,6 @@
-import { Note } from "@/types/note";
+import { NoteType } from "@/types/note";
 
 export type NoteCardType = {
-  note: Note;
+  note: NoteType;
   onClick: () => void;
 };
