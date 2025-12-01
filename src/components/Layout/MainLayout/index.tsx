@@ -14,6 +14,11 @@ export const MainLayout = () => {
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const handleSelectNote = (noteId: string) => {
+    contentWrapperRef.current?.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
     setSelectedNoteId(noteId);
   };
 
