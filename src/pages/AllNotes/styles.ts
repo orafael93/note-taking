@@ -69,4 +69,8 @@ export const SearchInput = styled.input`
 
 export const NotesList = styled.div`
   overflow-y: auto;
+
+  & > div:last-child {
+    border-bottom: none;
+  }
 `;
