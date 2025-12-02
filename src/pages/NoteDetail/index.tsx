@@ -58,6 +58,10 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
             ))}
           </S.MetaInfo>
           <S.NoteContent>{note.content}</S.NoteContent>
+
+          <S.NoteFooter>
+            <S.SaveButton>Save note</S.SaveButton>
+          </S.NoteFooter>
         </S.Content>
       </S.MainContent>
       <NoteActions noteId={note.title} />

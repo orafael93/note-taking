@@ -97,9 +97,16 @@ export const DeleteButton = styled(ActionButton)`
 `;
 
 export const Content = styled.div`
+  position: relative;
+
   flex: 1;
   padding: ${({ theme }) => theme.spacing[200]};
   overflow-y: auto;
+`;
+
+export const NoteFooter = styled.footer`
+  position: absolute;
+  bottom: 20px;
 `;
 
 export const Title = styled.h1`
@@ -173,4 +180,32 @@ export const SaveNote = styled.span`
   font-size: 14px;
 
   color: ${({ theme }) => theme.colors.blue[500]};
+`;
+
+export const SaveButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  background: ${({ theme }) => theme.colors.blue[500]};
+  border: none;
+
+  border-radius: 8px;
+
+  color: ${({ theme }) => theme.colors.neutral[0]};
+
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.blue[700]};
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;

@@ -56,12 +56,13 @@ export const ContentWrapper = styled.div`
 
   border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+
   overflow-y: auto;
 
-  height: 100vh;
+  height: 100%;
 
   @media (max-width: 1024px) {
-    height: calc(100vh - 128px);
+    height: calc(100dvh - 128px);
     border: none;
 
     grid-template-columns: 1fr;
