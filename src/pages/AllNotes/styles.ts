@@ -6,6 +6,8 @@ export const Container = styled.div`
   height: 100%;
 
   padding: ${({ theme }) => theme.spacing[200]};
+
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
 export const Header = styled.header`

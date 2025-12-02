@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.aside`
   width: 250px;
+
   background: ${({ theme }) => theme.colors.neutral[950]};
   padding: ${({ theme }) => theme.spacing[200]};
+
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[200]};
