@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -10,10 +10,25 @@ export const Container = styled.div`
   }
 `;
 
+const translateContent = keyframes`
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
 export const MainContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+
+  animation: ${translateContent} 0.8s forwards
+    cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
 export const Header = styled.div`

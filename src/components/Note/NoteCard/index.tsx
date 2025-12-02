@@ -14,9 +14,6 @@ export const NoteCard = ({ note, onClick }: Types.NoteCardType) => {
     <S.Container
       onClick={() => {
         onClick();
-        scrollTo({
-          top: 0,
-        });
       }}
     >
       <S.Title>{note.title}</S.Title>

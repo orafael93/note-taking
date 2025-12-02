@@ -16,7 +16,6 @@ export const MainLayout = () => {
   const handleSelectNote = (noteId: string) => {
     contentWrapperRef.current?.scrollTo({
       top: 0,
-      behavior: "smooth",
     });
 
     setSelectedNoteId(noteId);
@@ -48,7 +47,11 @@ export const MainLayout = () => {
           )}
 
           {selectedNoteId && (
-            <NoteDetail noteId={selectedNoteId} onBack={handleCloseNote} />
+            <NoteDetail
+              noteId={selectedNoteId}
+              onBack={handleCloseNote}
+              key={selectedNoteId}
+            />
           )}
         </S.ContentWrapper>
       </S.MainContent>
