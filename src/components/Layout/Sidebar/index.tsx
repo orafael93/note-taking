@@ -1,4 +1,5 @@
 import { Home, Archive, Tag } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
 import { useNotesStore } from "@/store/notes";
@@ -7,6 +8,7 @@ import * as S from "./styles";
 
 export const Sidebar = () => {
   const notes = useNotesStore((state) => state.notes);
+  const navigate = useNavigate();
 
   const uniqueTags = Array.from(
     new Set(notes.flatMap((note) => note.tags))
@@ -14,14 +16,19 @@ export const Sidebar = () => {
 
   return (
     <S.Container>
-      <Logo />
+      <div
+        onClick={() => navigate("/")}
+        style={{ width: "fit-content", cursor: "pointer" }}
+      >
+        <Logo />
+      </div>
 
       <S.NavSection>
-        <S.NavItem onClick={() => console.log("go to /")} active="true">
+        <S.NavItem onClick={() => navigate("/")} active="true">
           <Home size={20} strokeWidth={1.5} />
           <span>All Notes</span>
         </S.NavItem>
-        <S.NavItem onClick={() => console.log("go to /archived")}>
+        <S.NavItem onClick={() => navigate("/archived")}>
           <Archive size={20} strokeWidth={1.5} />
           <span>Archived Notes</span>
         </S.NavItem>
