@@ -12,6 +12,8 @@ type NotesStoreType = {
   searchNotes: (query: string) => NoteType[];
   isSearchingNotes: boolean;
   onSearchingNotes: (param: boolean) => void;
+  selectedNoteId: string | null;
+  onUpdateSelectedNote: (param: string | null) => void;
 };
 
 export const useNotesStore = create<NotesStoreType>((set, get) => ({
@@ -53,5 +55,10 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
   onSearchingNotes: (isSearching) =>
     set(() => ({
       isSearchingNotes: isSearching,
+    })),
+  selectedNoteId: null,
+  onUpdateSelectedNote: (selectedNoteId) =>
+    set(() => ({
+      selectedNoteId,
     })),
 }));

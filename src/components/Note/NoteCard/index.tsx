@@ -11,11 +11,7 @@ export const NoteCard = ({ note, onClick }: Types.NoteCardType) => {
   }).format(new Date(note.lastEdited));
 
   return (
-    <S.Container
-      onClick={() => {
-        onClick();
-      }}
-    >
+    <S.Container onClick={onClick}>
       <S.Title>{note.title}</S.Title>
       <S.Footer>
         <TagList tags={note.tags} />

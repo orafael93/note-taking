@@ -1,16 +1,21 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { Logo } from "@/components/Logo";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { AllNotes } from "@/pages/AllNotes";
 import { NoteDetail } from "@/pages/NoteDetail";
 import { SearchInput } from "@/components/SearchInput";
+import { useNotesStore } from "@/store/notes";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
 
 import * as S from "./styles";
 
 export const MainLayout = () => {
-  const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null);
+  const selectedNoteId = useNotesStore((state) => state.selectedNoteId);
+  const onUpdateSelectedNote = useNotesStore(
+    (state) => state.onUpdateSelectedNote
+  );
+
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const handleSelectNote = (noteId: string) => {
@@ -18,11 +23,11 @@ export const MainLayout = () => {
       top: 0,
     });
 
-    setSelectedNoteId(noteId);
+    onUpdateSelectedNote(noteId);
   };
 
   const handleCloseNote = () => {
-    setSelectedNoteId(null);
+    onUpdateSelectedNote(null);
   };
 
   return (
