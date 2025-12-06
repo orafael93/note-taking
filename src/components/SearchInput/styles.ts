@@ -55,7 +55,7 @@ export const SearchInput = styled.input`
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   padding-left: 0;
 
-  field-sizing: content;
+  min-width: 250px;
 
   border: none;
 
