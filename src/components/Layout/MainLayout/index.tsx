@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Settings } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { Sidebar } from "@/components/Layout/Sidebar";
@@ -43,7 +44,13 @@ export const MainLayout = () => {
             <S.Title>All Notes</S.Title>
           </S.Header>
 
-          <SearchInput />
+          <S.SearchInputAndSettingsIconWrapper>
+            <SearchInput />
+
+            <S.SettingsIconWrapper>
+              <Settings size={20} style={{ cursor: "pointer" }} />
+            </S.SettingsIconWrapper>
+          </S.SearchInputAndSettingsIconWrapper>
         </S.MainHeaderWrapper>
 
         <S.ContentWrapper ref={contentWrapperRef}>

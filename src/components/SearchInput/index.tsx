@@ -1,4 +1,4 @@
-import { Search, Settings } from "lucide-react";
+import { Search } from "lucide-react";
 import { Fragment } from "react";
 
 import * as S from "./styles.ts";
@@ -20,10 +20,6 @@ export const SearchInput = () => {
             placeholder="Search by title, content, or tags..."
           />
         </S.InputWrapper>
-
-        <S.SettingsIconWrapper>
-          <Settings size={20} style={{ cursor: "pointer" }} />
-        </S.SettingsIconWrapper>
       </S.SearchWrapper>
     </Fragment>
   );
