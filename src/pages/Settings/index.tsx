@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
+import { Font } from "@/pages/Settings/components/Font";
 import { Logo } from "@/components/Logo";
 import { Theme } from "@/pages/Settings/components/Theme";
-import { Font } from "@/pages/Settings/components/Font";
+import { Password } from "@/pages/Settings/components/Password";
 
 import * as S from "./styles";
 
@@ -114,6 +115,10 @@ export const Settings = () => {
 
         {activeItem && canActiveItem("font") && (
           <Font onClearActiveItem={() => onActiveItem(null)} />
+        )}
+
+        {activeItem && canActiveItem("password") && (
+          <Password onClearActiveItem={() => onActiveItem(null)} />
         )}
       </S.ContentWrapper>
     </S.MainContent>
