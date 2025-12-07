@@ -2,22 +2,23 @@ import { useState } from "react";
 import { ChevronLeft, Moon, Sun } from "lucide-react";
 
 import { Option } from "@/pages/Settings/components/Option";
-import { OptionType } from "../Option/types";
+import { OptionType } from "@/pages/Settings/components/Option/types";
 
+import * as Types from "./types";
 import * as S from "./styles";
 
-type ActiveMode = "light" | "dark" | "device";
+export const Theme = (props: Types.ThemeType) => {
+  const { onClearActiveItem } = props;
 
-export const Theme = () => {
-  const [activeMode, setActiveMode] = useState<ActiveMode>("light");
+  const [activeMode, setActiveMode] = useState<Types.ActiveMode>("light");
 
-  const onUpdateActiveMode = (param: ActiveMode) => {
+  const onUpdateActiveMode = (param: Types.ActiveMode) => {
     setActiveMode(param);
   };
 
-  const canActiveItem = (param: ActiveMode) => activeMode === param;
+  const canActiveItem = (param: Types.ActiveMode) => activeMode === param;
 
-  const options: OptionType<ActiveMode>[] = [
+  const options: OptionType<Types.ActiveMode>[] = [
     {
       onActiveOption: () => onUpdateActiveMode("light"),
       itemIsActive: canActiveItem("light"),
@@ -63,7 +64,7 @@ export const Theme = () => {
     <S.Container>
       <S.MainContent>
         <S.MobileCardHeader>
-          <S.GoBackWrapper onClick={() => ({})}>
+          <S.GoBackWrapper onClick={onClearActiveItem}>
             <ChevronLeft size={18} />
             Settings
           </S.GoBackWrapper>
