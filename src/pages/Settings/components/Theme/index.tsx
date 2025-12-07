@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ChevronLeft, Moon, Sun } from "lucide-react";
 
+import { Option } from "@/pages/Settings/components/Option";
+import { OptionType } from "../Option/types";
+
 import * as S from "./styles";
 
 type ActiveMode = "light" | "dark" | "device";
@@ -13,6 +16,48 @@ export const Theme = () => {
   };
 
   const canActiveItem = (param: ActiveMode) => activeMode === param;
+
+  const options: OptionType<ActiveMode>[] = [
+    {
+      onActiveOption: () => onUpdateActiveMode("light"),
+      itemIsActive: canActiveItem("light"),
+      inputId: "light",
+      inputName: "theme",
+      Icon: () => <Sun size={16} strokeWidth={3} color="#fff" />,
+      children: (
+        <div>
+          <p>Light mode</p>
+          <p>Pick a clean and classic light theme</p>
+        </div>
+      ),
+    },
+    {
+      onActiveOption: () => onUpdateActiveMode("dark"),
+      itemIsActive: canActiveItem("dark"),
+      inputId: "dark",
+      inputName: "theme",
+      Icon: () => <Moon size={16} strokeWidth={3} color="#fff" />,
+      children: (
+        <div>
+          <p>Dark mode</p>
+          <p>Pick a sleek and modern dark theme</p>
+        </div>
+      ),
+    },
+    {
+      onActiveOption: () => onUpdateActiveMode("device"),
+      itemIsActive: canActiveItem("device"),
+      inputId: "device",
+      inputName: "theme",
+      Icon: () => <Sun size={16} strokeWidth={3} color="#fff" />,
+      children: (
+        <div>
+          <p>System</p>
+          <p>Adapts to your device's theme</p>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <S.Container>
@@ -31,62 +76,18 @@ export const Theme = () => {
           </div>
 
           <S.OptionsWrapper>
-            <label htmlFor="light" onClick={() => onUpdateActiveMode("light")}>
-              <S.Option active={canActiveItem("light")}>
-                <S.IconWrapper>
-                  <Sun size={16} strokeWidth={3} color="#fff" />
-                </S.IconWrapper>
-                <div>
-                  <p>Light mode</p>
-                  <p>Pick a clean and classic light theme</p>
-                </div>
-                <input
-                  type="radio"
-                  name="theme"
-                  id="light"
-                  checked={canActiveItem("light")}
-                />
-              </S.Option>
-            </label>
-
-            <label htmlFor="dark" onClick={() => onUpdateActiveMode("dark")}>
-              <S.Option active={canActiveItem("dark")}>
-                <S.IconWrapper>
-                  <Moon size={16} strokeWidth={3} color="#fff" />
-                </S.IconWrapper>
-                <div>
-                  <p>Dark mode</p>
-                  <p>Pick a sleek and modern dark theme</p>
-                </div>
-                <input
-                  type="radio"
-                  name="theme"
-                  id="dark"
-                  checked={canActiveItem("dark")}
-                />
-              </S.Option>
-            </label>
-
-            <label
-              htmlFor="device"
-              onClick={() => onUpdateActiveMode("device")}
-            >
-              <S.Option active={canActiveItem("device")}>
-                <S.IconWrapper>
-                  <Sun size={16} strokeWidth={3} color="#fff" />
-                </S.IconWrapper>
-                <div>
-                  <p>System</p>
-                  <p>Adapts to your device's theme</p>
-                </div>
-                <input
-                  type="radio"
-                  name="theme"
-                  id="device"
-                  checked={canActiveItem("device")}
-                />
-              </S.Option>
-            </label>
+            {options.map((param) => (
+              <Option
+                key={param.inputId}
+                onActiveOption={param.onActiveOption}
+                itemIsActive={param.itemIsActive}
+                inputId={param.inputId}
+                inputName={param.inputName}
+                Icon={param.Icon}
+              >
+                {param.children}
+              </Option>
+            ))}
           </S.OptionsWrapper>
 
           <S.ApplyChangesButton style={{ marginTop: "24px" }}>
