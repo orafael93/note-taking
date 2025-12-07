@@ -1,4 +1,4 @@
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Info } from "lucide-react";
 
 import { PasswordInput } from "@/pages/Settings/components/PasswordInput";
 
@@ -25,7 +25,22 @@ export const Password = (props: Types.ThemeType) => {
 
           <S.InputWrapper>
             <PasswordInput id="old-pasword" label="Old Password" />
-            <PasswordInput id="new-password" label="New Password" />
+            <div>
+              <PasswordInput id="new-password" label="New Password" />
+              <span
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  color: "#99A0AE",
+                  marginTop: "8px",
+                  fontSize: "12px",
+                }}
+              >
+                <Info size={14} color="#99A0AE" />
+                At least 8 characters
+              </span>
+            </div>
             <PasswordInput
               id="confirm-new-password"
               label="Confirm New Password"
