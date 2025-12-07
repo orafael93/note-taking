@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -50,8 +50,12 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  ul, li {
+    list-style: none;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
   }
-`
+`;

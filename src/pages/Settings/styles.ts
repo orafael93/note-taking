@@ -5,9 +5,47 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100%;
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: 16px 25px;
 
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  & button {
+    background: transparent;
+    outline: none;
+    border: none;
+
+    color: ${({ theme }) => theme.colors.neutral[100]};
+    font-size: 14px;
+  }
+`;
+
+type SettingItemType = {
+  active: boolean;
+};
+
+export const SettingItem = styled.li<SettingItemType>`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  padding: 10px;
+
+  background-color: ${({ active, theme }) =>
+    active ? theme.colors.neutral[800] : "transparent"};
+
+  & svg:last-child {
+    margin-left: auto;
+  }
 `;
 
 export const Header = styled.header`
