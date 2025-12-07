@@ -3,6 +3,7 @@ import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { Theme } from "@/pages/Settings/components/Theme";
+import { FontTheme } from "@/pages/Settings/components/FontTheme";
 
 import * as S from "./styles";
 
@@ -108,6 +109,7 @@ export const Settings = () => {
         )}
 
         {activeItem && canActiveItem("theme") && <Theme />}
+        {activeItem && canActiveItem("font") && <FontTheme />}
       </S.ContentWrapper>
     </S.MainContent>
   );
