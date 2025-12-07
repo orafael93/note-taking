@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
+import { Login } from "@/pages/Login";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { AllNotes } from "@/pages/AllNotes";
 import { Settings } from "@/pages/Settings";
@@ -15,6 +16,7 @@ export const MainLayout = () => (
 
       <Routes>
         <Route path="/" element={<AllNotes />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/archived" element={<ArchivedNotes />} />
         <Route path="*?" element={<AllNotes />} />
