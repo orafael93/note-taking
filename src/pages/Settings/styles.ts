@@ -76,7 +76,12 @@ export const Header = styled.header`
 `;
 
 export const TitleWrapper = styled.div`
-  padding: 12px;
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+    padding: 12px;
+  }
 `;
 
 export const Title = styled.h1`
