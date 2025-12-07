@@ -36,8 +36,8 @@ export const InputWrapper = styled.div`
   z-index: 10;
 
   &:focus-within {
-    border: 1px solid;
-    border-color: ${({ theme }) => theme.colors.blue[500]};
+    border-color: transparent;
+    outline: 2px solid ${({ theme }) => theme.colors.blue[500]};
   }
 
   @media (max-width: 1024px) {
