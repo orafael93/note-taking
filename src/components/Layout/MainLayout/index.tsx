@@ -19,8 +19,8 @@ export const MainLayout = () => (
         <Route path="/archived" element={<ArchivedNotes />} />
         <Route path="*?" element={<AllNotes />} />
       </Routes>
-    </BrowserRouter>
 
-    <BottomNavigation />
+      <BottomNavigation />
+    </BrowserRouter>
   </S.Container>
 );
