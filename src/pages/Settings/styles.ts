@@ -1,13 +1,26 @@
 import styled from "styled-components";
 
+export const MainContent = styled.main`
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+
+  @media (max-width: 1024px) {
+    height: calc(100dvh - 64px);
+    overflow: hidden;
+
+    grid-column: 1 / -1;
+  }
+`;
+
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   height: 100%;
 
-  padding: 16px 25px;
-
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+
+  padding: 20px;
 
   & ul {
     display: flex;
@@ -22,6 +35,12 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.colors.neutral[100]};
     font-size: 14px;
+  }
+
+  @media (max-width: 1024px) {
+    border: none;
+
+    padding: 0;
   }
 `;
 
@@ -115,21 +134,6 @@ export const NotesList = styled.div`
   }
 `;
 
-export const MainContent = styled.main`
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-
-  @media (max-width: 1024px) {
-    height: calc(100dvh - 64px);
-    overflow: hidden;
-
-    grid-column: 1 / -1;
-  }
-`;
-
 export const LogoWrapper = styled.div`
   display: none;
 
@@ -190,5 +194,7 @@ export const ContentWrapper = styled.div`
     border: none;
 
     grid-template-columns: 1fr;
+
+    padding: 24px;
   }
 `;

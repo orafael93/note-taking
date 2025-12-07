@@ -1,4 +1,4 @@
-import { Fragment, useRef } from "react";
+import { useRef } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -38,63 +38,61 @@ export const AllNotes = () => {
   );
 
   return (
-    <Fragment>
-      <S.MainContent>
-        <S.LogoWrapper>
-          <Logo />
-        </S.LogoWrapper>
+    <S.MainContent>
+      <S.LogoWrapper>
+        <Logo />
+      </S.LogoWrapper>
 
-        <S.MainHeaderWrapper>
-          <S.Header>
-            <S.Title>All Notes</S.Title>
-          </S.Header>
+      <S.MainHeaderWrapper>
+        <S.Header>
+          <S.Title>All Notes</S.Title>
+        </S.Header>
 
-          <S.SearchInputAndSettingsIconWrapper>
-            <SearchInput />
+        <S.SearchInputAndSettingsIconWrapper>
+          <SearchInput />
 
-            <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
-              <Settings size={20} style={{ cursor: "pointer" }} />
-            </S.SettingsIconWrapper>
-          </S.SearchInputAndSettingsIconWrapper>
-        </S.MainHeaderWrapper>
+          <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
+            <Settings size={20} style={{ cursor: "pointer" }} />
+          </S.SettingsIconWrapper>
+        </S.SearchInputAndSettingsIconWrapper>
+      </S.MainHeaderWrapper>
 
-        <S.ContentWrapper ref={contentWrapperRef}>
-          {selectedNoteId && window.innerWidth <= 1024 ? null : (
-            <S.Container>
-              <S.CreateButton style={{ marginBottom: "16px" }}>
-                <Plus size={16} strokeWidth={3} />
-                Create New Note
-              </S.CreateButton>
+      <S.ContentWrapper ref={contentWrapperRef}>
+        {selectedNoteId && window.innerWidth <= 1024 ? null : (
+          <S.Container>
+            <S.CreateButton style={{ marginBottom: "16px" }}>
+              <Plus size={16} strokeWidth={3} />
+              Create New Note
+            </S.CreateButton>
 
-              {isSearchingNotes ? null : (
-                <S.TitleWrapper>
-                  <S.Title>All Notes</S.Title>
-                </S.TitleWrapper>
-              )}
+            {isSearchingNotes ? null : (
+              <S.TitleWrapper>
+                <S.Title>All Notes</S.Title>
+              </S.TitleWrapper>
+            )}
 
-              {isSearchingNotes && <SearchInput />}
+            {isSearchingNotes && <SearchInput />}
 
-              <S.NotesList>
-                {notes.map((note) => (
-                  <NoteCard
-                    key={note.title}
-                    note={note}
-                    onClick={() => handleSelectNote(note.title)}
-                  />
-                ))}
-              </S.NotesList>
-            </S.Container>
-          )}
+            <S.NotesList>
+              {notes.map((note) => (
+                <NoteCard
+                  key={note.title}
+                  note={note}
+                  onClick={() => handleSelectNote(note.title)}
+                />
+              ))}
+            </S.NotesList>
+          </S.Container>
+        )}
 
-          {selectedNoteId && (
-            <NoteDetail
-              noteId={selectedNoteId}
-              onBack={handleCloseNote}
-              key={selectedNoteId}
-            />
-          )}
-        </S.ContentWrapper>
-      </S.MainContent>
-    </Fragment>
+        {selectedNoteId && (
+          <NoteDetail
+            noteId={selectedNoteId}
+            onBack={handleCloseNote}
+            key={selectedNoteId}
+          />
+        )}
+      </S.ContentWrapper>
+    </S.MainContent>
   );
 };

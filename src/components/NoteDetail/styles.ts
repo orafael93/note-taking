@@ -102,6 +102,11 @@ export const Content = styled.div`
   flex: 1;
   padding: ${({ theme }) => theme.spacing[200]};
   overflow-y: auto;
+
+  @media (max-width: 1024px) {
+    padding: ${({ theme }) => theme.spacing[200]} 0;
+    margin-top: 10px;
+  }
 `;
 
 export const NoteFooter = styled.footer`
@@ -144,8 +149,6 @@ export const MobileCardHeader = styled.div`
   @media (max-width: 1024px) {
     display: flex;
     justify-content: space-between;
-
-    padding: 20px 16px;
   }
 `;
 

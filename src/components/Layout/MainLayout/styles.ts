@@ -52,7 +52,7 @@ export const MainHeaderWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: 258px 1fr;
 
   border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};

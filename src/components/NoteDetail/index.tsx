@@ -50,6 +50,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
             <S.SaveNote>Save Note</S.SaveNote>
           </S.ActionsWrapper>
         </S.MobileCardHeader>
+
         <S.Content>
           <S.Title>{note.title}</S.Title>
           <S.MetaInfo>

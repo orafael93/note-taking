@@ -1,16 +1,16 @@
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
-import { Theme } from "./components/Theme";
+import { Theme } from "@/pages/Settings/components/Theme";
 
 import * as S from "./styles";
 
-type ActiveItemType = "theme" | "font" | "password" | "logout";
+type ActiveItemType = "theme" | "font" | "password" | "logout" | null;
 
 export const Settings = () => {
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [activeItem, setActiveItem] = useState<ActiveItemType>("theme");
+  const [activeItem, setActiveItem] = useState<ActiveItemType>(null);
 
   const onActiveItem = (param: ActiveItemType) => {
     setActiveItem(param);
@@ -19,20 +19,24 @@ export const Settings = () => {
   const canActiveItem = (param: ActiveItemType) => activeItem === param;
 
   return (
-    <Fragment>
-      <S.MainContent>
-        <S.LogoWrapper>
-          <Logo />
-        </S.LogoWrapper>
+    <S.MainContent>
+      <S.LogoWrapper>
+        <Logo />
+      </S.LogoWrapper>
 
-        <S.MainHeaderWrapper>
-          <S.Header>
-            <S.Title>Settings</S.Title>
-          </S.Header>
-        </S.MainHeaderWrapper>
+      <S.MainHeaderWrapper>
+        <S.Header>
+          <S.Title>Settings</S.Title>
+        </S.Header>
+      </S.MainHeaderWrapper>
 
-        <S.ContentWrapper ref={contentWrapperRef}>
+      <S.ContentWrapper ref={contentWrapperRef}>
+        {activeItem && window.innerWidth <= 1024 ? null : (
           <S.Container>
+            <S.TitleWrapper>
+              <S.Title>Settings</S.Title>
+            </S.TitleWrapper>
+
             <nav>
               <ul>
                 <S.SettingItem
@@ -101,10 +105,10 @@ export const Settings = () => {
               </ul>
             </nav>
           </S.Container>
+        )}
 
-          {canActiveItem("theme") && <Theme />}
-        </S.ContentWrapper>
-      </S.MainContent>
-    </Fragment>
+        {activeItem && canActiveItem("theme") && <Theme />}
+      </S.ContentWrapper>
+    </S.MainContent>
   );
 };
