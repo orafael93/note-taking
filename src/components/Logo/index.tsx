@@ -1,9 +1,3 @@
-import { LogoIcon } from "../Icons";
+import { LogoIcon } from "@/components/Icons";
 
-import * as S from "./styles";
-
-export const Logo = () => (
-  <S.Wrapper>
-    <LogoIcon />
-  </S.Wrapper>
-);
+export const Logo = () => <LogoIcon />;

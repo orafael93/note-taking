@@ -15,6 +15,16 @@ export const Container = styled.aside`
   }
 `;
 
+export const LogoWrapper = styled.div`
+  width: fit-content;
+  cursor: pointer;
+
+  @media (max-width: 1024px) {
+    padding: 20px 30px;
+    background-color: #232530;
+  }
+`;
+
 export const NavSection = styled.nav`
   display: flex;
   flex-direction: column;

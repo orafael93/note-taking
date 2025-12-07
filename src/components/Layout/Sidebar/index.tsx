@@ -16,12 +16,9 @@ export const Sidebar = () => {
 
   return (
     <S.Container>
-      <div
-        onClick={() => navigate("/")}
-        style={{ width: "fit-content", cursor: "pointer" }}
-      >
+      <S.LogoWrapper onClick={() => navigate("/")}>
         <Logo />
-      </div>
+      </S.LogoWrapper>
 
       <S.NavSection>
         <S.NavItem onClick={() => navigate("/")} active="true">
