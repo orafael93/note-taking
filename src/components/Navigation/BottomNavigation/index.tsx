@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Home, Search, Archive, Tag, Settings } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { useNotesStore } from "@/store/notes";
 
@@ -10,10 +11,13 @@ export const BottomNavigation = () => {
   const [activeLink, setActiveLink] =
     useState<Types.NavigationLinksType>("home");
 
+  const navigate = useNavigate();
+
   const onSearchingNotes = useNotesStore((store) => store.onSearchingNotes);
 
   const onNavigate = (param: Types.NavigationLinksType) => {
     setActiveLink(param);
+    navigate(`/${param}`);
 
     onSearchingNotes(param === "search");
   };
