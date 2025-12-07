@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
+import { Theme } from "./components/Theme";
 
 import * as S from "./styles";
 
@@ -100,6 +101,8 @@ export const Settings = () => {
               </ul>
             </nav>
           </S.Container>
+
+          {canActiveItem("theme") && <Theme />}
         </S.ContentWrapper>
       </S.MainContent>
     </Fragment>
