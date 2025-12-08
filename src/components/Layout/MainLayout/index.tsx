@@ -6,6 +6,7 @@ import { AllNotes } from "@/pages/AllNotes";
 import { Settings } from "@/pages/Settings";
 import { ArchivedNotes } from "@/pages/ArchivedNotes";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
+import { ForgotPassword } from "@/pages/ForgotPassword";
 
 import * as S from "./styles";
 
@@ -17,6 +18,7 @@ export const MainLayout = () => (
       <Routes>
         <Route path="/" element={<AllNotes />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/archived" element={<ArchivedNotes />} />
         <Route path="*?" element={<AllNotes />} />
