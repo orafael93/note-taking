@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
 import { NoteCard } from "@/components/Note/NoteCard";
 import { NoteDetail } from "@/components/NoteDetail";
+import { CreateNote } from "@/components/CreateNote";
 import { SearchInput } from "@/components/SearchInput";
 import { useNotesStore } from "@/store/notes";
 
@@ -15,6 +16,7 @@ export const AllNotes = () => {
 
   const isSearchingNotes = useNotesStore((store) => store.isSearchingNotes);
   const selectedNoteId = useNotesStore((state) => state.selectedNoteId);
+  const [creatingNewNote, setCreatingNewNote] = useState(false);
   const onUpdateSelectedNote = useNotesStore(
     (state) => state.onUpdateSelectedNote
   );
@@ -25,6 +27,10 @@ export const AllNotes = () => {
     contentWrapperRef.current?.scrollTo({
       top: 0,
     });
+
+    if (creatingNewNote) {
+      setCreatingNewNote(false);
+    }
 
     onUpdateSelectedNote(noteId);
   };
@@ -60,7 +66,16 @@ export const AllNotes = () => {
       <S.ContentWrapper ref={contentWrapperRef}>
         {selectedNoteId && window.innerWidth <= 1024 ? null : (
           <S.Container>
-            <S.CreateButton style={{ marginBottom: "16px" }}>
+            <S.CreateButton
+              style={{ marginBottom: "16px" }}
+              onClick={() => {
+                setCreatingNewNote(true);
+
+                if (selectedNoteId) {
+                  handleCloseNote();
+                }
+              }}
+            >
               <Plus size={16} strokeWidth={3} />
               Create New Note
             </S.CreateButton>
@@ -91,6 +106,10 @@ export const AllNotes = () => {
             onBack={handleCloseNote}
             key={selectedNoteId}
           />
+        )}
+
+        {creatingNewNote && (
+          <CreateNote onBack={() => setCreatingNewNote(false)} />
         )}
       </S.ContentWrapper>
     </S.MainContent>
