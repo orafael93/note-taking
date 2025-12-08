@@ -5,8 +5,9 @@ import { Sidebar } from "@/components/Layout/Sidebar";
 import { AllNotes } from "@/pages/AllNotes";
 import { Settings } from "@/pages/Settings";
 import { ArchivedNotes } from "@/pages/ArchivedNotes";
-import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
+import { ResetPassword } from "@/pages/ResetPassword";
 import { ForgotPassword } from "@/pages/ForgotPassword";
+import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
 
 import * as S from "./styles";
 
@@ -19,6 +20,7 @@ export const MainLayout = () => (
         <Route path="/" element={<AllNotes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/archived" element={<ArchivedNotes />} />
         <Route path="*?" element={<AllNotes />} />
