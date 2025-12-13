@@ -58,7 +58,7 @@ export const AllNotes = () => {
           <SearchInput />
 
           <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
-            <Settings size={20} style={{ cursor: "pointer" }} />
+            <Settings size={20} color="#fff" style={{ cursor: "pointer" }} />
           </S.SettingsIconWrapper>
         </S.SearchInputAndSettingsIconWrapper>
       </S.MainHeaderWrapper>

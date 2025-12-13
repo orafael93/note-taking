@@ -141,7 +141,7 @@ export const SearchInputAndSettingsIconWrapper = styled.div`
   gap: 1.75rem;
 `;
 
-export const SettingsIconWrapper = styled.div`
+export const SettingsIconWrapper = styled.button`
   @media (max-width: 1024px) {
     display: none;
   }
