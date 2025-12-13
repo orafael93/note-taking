@@ -178,7 +178,6 @@ export const CreateButtonMobile = styled.button`
   border-radius: 50%;
 
   border: 2px solid transparent;
-  outline: none;
 
   position: fixed;
   right: 35px;

@@ -6,7 +6,6 @@ export const Container = styled.button`
   text-align: left;
 
   border: none;
-  outline: none;
 
   padding: ${({ theme }) => theme.spacing[150]};
 

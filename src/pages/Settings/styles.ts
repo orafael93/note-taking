@@ -30,16 +30,12 @@ export const Container = styled.div`
 
   & button {
     background: transparent;
-    outline: none;
-    border: none;
 
     color: ${({ theme }) => theme.colors.neutral[100]};
     font-size: 14px;
   }
 
   @media (max-width: 1024px) {
-    border: none;
-
     padding: 0;
   }
 `;

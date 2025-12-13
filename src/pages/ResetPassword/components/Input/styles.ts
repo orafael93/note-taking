@@ -46,7 +46,4 @@ export const Input = styled.input.attrs((props) => ({
   padding: 5px 0;
 
   font-weight: 500;
-
-  border: none;
-  outline: none;
 `;

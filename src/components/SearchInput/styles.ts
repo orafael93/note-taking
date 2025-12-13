@@ -63,7 +63,7 @@ export const SearchInput = styled.input`
     color: ${({ theme }) => theme.colors.neutral[500]};
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
   }
 

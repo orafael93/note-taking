@@ -120,7 +120,6 @@ export const TitleInput = styled.input`
   font-weight: bold;
 
   border: 2px solid transparent;
-  outline: none;
 
   padding: 2px 0;
 
@@ -185,7 +184,6 @@ export const NoteContent = styled.textarea`
 
   background: transparent;
 
-  outline: none;
   border: 2px solid transparent;
 
   padding: 10px 0;
