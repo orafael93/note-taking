@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
@@ -12,12 +13,17 @@ export const CreateNote = (props: Types.CreateNoteType) => {
     {
       Icon: Tag,
       name: "Tags",
-      content: "",
+      componentType: "input",
+      Component: S.TagsInput,
+      componentContent: "",
+      inputPlaceholder: "Add tags separated by commas (e.g. Work, Planning)",
     },
     {
       Icon: Clock,
       name: "Last edited",
-      content: "",
+      componentType: "text",
+      Component: S.LastEdited,
+      componentContent: "Not saved yet",
     },
   ];
 
@@ -38,13 +44,33 @@ export const CreateNote = (props: Types.CreateNoteType) => {
         </S.MobileCardHeader>
 
         <S.Content>
-          <S.Title>Enter a title...</S.Title>
+          <S.TitleInput
+            placeholder="Enter a title..."
+            name="title"
+            style={{ marginBottom: "20px" }}
+            autoFocus
+          />
           <S.MetaInfo>
             {metaContent.map((meta) => (
-              <Meta key={meta.name} {...meta} />
+              <Fragment>
+                <Meta.Description Icon={meta.Icon} name={meta.name} />
+                {meta.Component && meta.componentType === "input" && (
+                  <meta.Component
+                    name="tags"
+                    placeholder={meta.inputPlaceholder}
+                  />
+                )}
+
+                {meta.Component && meta.componentType !== "input" && (
+                  <meta.Component>{meta.componentContent}</meta.Component>
+                )}
+              </Fragment>
             ))}
           </S.MetaInfo>
-          <S.NoteContent>Start typing your note here...</S.NoteContent>
+          <S.NoteContent
+            placeholder="Start typing your note here..."
+            name="note-content"
+          />
 
           <S.NoteFooter>
             <S.SaveButton>Save note</S.SaveButton>

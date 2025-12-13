@@ -23,9 +23,9 @@ const translateContent = keyframes`
 `;
 
 export const MainContent = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   animation: ${translateContent} 0.8s forwards
     cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -35,8 +35,11 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: ${({ theme }) => theme.spacing[200]};
+
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+
   background: ${({ theme }) => theme.colors.neutral[900]};
 
   @media (max-width: 1024px) {
@@ -104,19 +107,62 @@ export const NoteFooter = styled.footer`
   bottom: 20px;
 `;
 
-export const Title = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1};
+export const TitleInput = styled.input`
+  ${({ theme }) => theme.typography.presets.body1}
+  background: transparent;
+
   color: ${({ theme }) => theme.colors.neutral[100]};
-  margin-bottom: ${({ theme }) => theme.spacing[200]};
+  padding-left: 0;
+
+  min-width: 300px;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  border: 2px solid transparent;
+  outline: none;
+
+  padding: 2px 0;
+
+  border-radius: 0.5rem;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.blue[500]};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral[0]};
+    font-weight: bold;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+export const TagsInput = styled(TitleInput)`
+  font-size: 0.8rem;
+
+  min-width: 350px;
+
+  padding: 5px;
+  padding-left: 0;
+
+  color: ${({ theme }) => theme.colors.neutral[100]};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral[400]};
+    font-weight: 500;
+  }
 `;
 
 export const MetaInfo = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: space-between;
+  grid-template-columns: auto auto;
+  justify-content: start;
   align-items: center;
 
-  gap: 10px 30px;
+  gap: 20px;
 
   margin-bottom: ${({ theme }) => theme.spacing[300]};
 `;
@@ -124,13 +170,36 @@ export const MetaInfo = styled.div`
 export const LastEdited = styled.span`
   ${({ theme }) => theme.typography.presets.body2};
   color: ${({ theme }) => theme.colors.neutral[400]};
+
+  font-size: 14px;
+  font-weight: 500;
 `;
 
-export const NoteContent = styled.div`
+export const NoteContent = styled.textarea`
   ${({ theme }) => theme.typography.presets.body1};
-  color: ${({ theme }) => theme.colors.neutral[300]};
-  white-space: pre-line;
-  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.neutral[100]};
+  font-weight: bold;
+
+  width: 100%;
+  height: calc(100dvh - 50%);
+
+  background: transparent;
+
+  outline: none;
+  border: 2px solid transparent;
+
+  padding: 10px 0;
+
+  resize: none;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.blue[500]};
+  }
+
+  &::placeholder {
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.neutral[300]};
+  }
 `;
 
 export const MobileCardHeader = styled.div`

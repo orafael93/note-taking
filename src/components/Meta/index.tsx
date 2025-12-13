@@ -1,19 +1,16 @@
-import { Fragment } from "react";
-
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const Meta = (props: Types.MetaType) => {
-  const { Icon, name, content } = props;
+const Description = ({ Icon, name }: Types.DescriptionType) => (
+  <S.MetaDescription>
+    <Icon size={14} />
+    <S.MetaName>{name}</S.MetaName>
+  </S.MetaDescription>
+);
 
-  return (
-    <Fragment>
-      <S.MetaDescription>
-        <Icon size={12} />
-        <S.MetaName>{name}</S.MetaName>
-      </S.MetaDescription>
+const Tag = ({ content }: Types.TagType) => <S.TagItem>{content}</S.TagItem>;
 
-      <S.TagItem>{content}</S.TagItem>
-    </Fragment>
-  );
-};
+export const Meta = () => null;
+
+Meta.Tag = Tag;
+Meta.Description = Description;

@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const MetaDescription = styled.div`
   display: flex;
+  align-items: center;
   gap: 6px;
 `;
 
 export const MetaName = styled.span`
-  font-size: 12px;
+  font-size: 14px;
+
+  color: ${({ theme }) => theme.colors.neutral[300]};
 `;
 
 export const TagItem = styled.span`
