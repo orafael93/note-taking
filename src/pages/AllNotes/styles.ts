@@ -142,6 +142,10 @@ export const SearchInputAndSettingsIconWrapper = styled.div`
 `;
 
 export const SettingsIconWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 1024px) {
     display: none;
   }
