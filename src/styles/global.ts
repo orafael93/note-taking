@@ -63,6 +63,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     border: none;
     background: transparent;
+    
+    padding: 4px;
+    border-radius: 4px;
   }
 
   button:focus, a:focus {
