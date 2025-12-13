@@ -60,15 +60,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button, a {
-    outline: none;
     border: none;
     background: transparent;
+    outline: 2px solid transparent;
     
     padding: 4px;
     border-radius: 4px;
   }
 
-  button:focus, a:focus {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[500]};
+  button:focus-visible, a:focus-visible {
+    outline-color: ${({ theme }) => theme.colors.blue[500]};;
   }
 `;
