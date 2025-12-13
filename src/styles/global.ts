@@ -58,4 +58,14 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  button, a {
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+  button:focus, a:focus {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[500]};
+  }
 `;

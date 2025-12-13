@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.button`
+  width: 100%;
+
+  text-align: left;
+
+  border: none;
+  outline: none;
+
   padding: ${({ theme }) => theme.spacing[150]};
 
   margin-bottom: ${({ theme }) => theme.spacing[100]};
@@ -13,6 +20,10 @@ export const Container = styled.div`
 
   &:hover {
     background: ${({ theme }) => theme.colors.neutral[700]};
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[500]};
   }
 
   @media (max-width: 1024px) {

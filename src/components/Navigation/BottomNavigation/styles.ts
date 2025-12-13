@@ -20,8 +20,6 @@ export const Nav = styled.nav`
 `;
 
 export const NavButton = styled.button<{ active?: boolean }>`
-  background: none;
-  border: none;
   color: ${({ theme, active }) =>
     active ? theme.colors.blue[500] : theme.colors.neutral[400]};
   ${({ theme }) => theme.typography.presets.body2}
@@ -30,4 +28,8 @@ export const NavButton = styled.button<{ active?: boolean }>`
   align-items: center;
   gap: ${({ theme }) => theme.spacing[50]};
   font-size: 12px;
-`; 
+
+  padding: 4px;
+
+  border-radius: 2px;
+`;

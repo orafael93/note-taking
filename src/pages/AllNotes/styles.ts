@@ -71,6 +71,10 @@ export const CreateButton = styled.button`
     background: ${({ theme }) => theme.colors.blue[700]};
   }
 
+  &:focus {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.neutral[100]};
+  }
+
   @media (max-width: 1024px) {
     display: none;
   }
@@ -91,8 +95,6 @@ export const SearchInput = styled.input`
 `;
 
 export const NotesList = styled.div`
-  overflow-y: auto;
-
   & > div:last-child {
     border-bottom: none;
   }
@@ -163,5 +165,42 @@ export const ContentWrapper = styled.div`
     grid-template-columns: 1fr;
 
     padding: 24px;
+  }
+`;
+
+export const CreateButtonMobile = styled.button`
+  background: ${({ theme }) => theme.colors.blue[500]};
+
+  border-radius: 50%;
+
+  border: 2px solid transparent;
+  outline: none;
+
+  position: fixed;
+  right: 35px;
+  bottom: 80px;
+
+  display: none;
+
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.colors.neutral[100]};
+  }
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 64px;
+    height: 64px;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
   }
 `;

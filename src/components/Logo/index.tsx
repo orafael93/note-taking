@@ -1,3 +1,9 @@
 import { LogoIcon } from "@/components/Icons";
 
-export const Logo = () => <LogoIcon />;
+import * as S from "./styles";
+
+export const Logo = () => (
+  <S.LogoButton>
+    <LogoIcon />
+  </S.LogoButton>
+);

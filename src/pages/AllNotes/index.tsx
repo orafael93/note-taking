@@ -111,6 +111,10 @@ export const AllNotes = () => {
         {creatingNewNote && (
           <CreateNote onBack={() => setCreatingNewNote(false)} />
         )}
+
+        <S.CreateButtonMobile tabIndex={0}>
+          <Plus color="#fff" />
+        </S.CreateButtonMobile>
       </S.ContentWrapper>
     </S.MainContent>
   );
