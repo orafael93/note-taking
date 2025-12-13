@@ -71,8 +71,8 @@ export const CreateButton = styled.button`
     background: ${({ theme }) => theme.colors.blue[700]};
   }
 
-  &:focus {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.neutral[100]};
+  &:focus-visible {
+    outline-color: ${({ theme }) => theme.colors.neutral[100]};
   }
 
   @media (max-width: 1024px) {
