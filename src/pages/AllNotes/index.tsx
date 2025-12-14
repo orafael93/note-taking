@@ -59,7 +59,7 @@ export const AllNotes = () => {
 
   return (
     <S.MainContent>
-      <S.LogoWrapper>
+      <S.LogoWrapper onClick={() => navigate("/")}>
         <Logo />
       </S.LogoWrapper>
 
