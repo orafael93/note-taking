@@ -27,9 +27,9 @@ export const Settings = () => {
       </S.LogoWrapper>
 
       <S.MainHeaderWrapper>
-        <S.Header>
+        <S.SectionTitleWrapper>
           <S.Title>Settings</S.Title>
-        </S.Header>
+        </S.SectionTitleWrapper>
       </S.MainHeaderWrapper>
 
       <S.ContentWrapper ref={contentWrapperRef}>

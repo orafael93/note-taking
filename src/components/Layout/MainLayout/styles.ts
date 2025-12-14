@@ -36,7 +36,7 @@ export const MainContent = styled.main`
   }
 `;
 
-export const MainHeaderWrapper = styled.div`
+export const MainHeaderWrapper = styled.header`
   display: flex;
 
   justify-content: space-between;

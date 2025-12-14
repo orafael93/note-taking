@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+type ContainerTypes = {
+  isActive?: boolean;
+};
+
+export const Container = styled.button<ContainerTypes>`
   width: 100%;
 
   text-align: left;
@@ -9,7 +13,8 @@ export const Container = styled.button`
 
   margin-bottom: ${({ theme }) => theme.spacing[100]};
 
-  background: ${({ theme }) => theme.colors.neutral[800]};
+  background: ${({ theme, isActive }) =>
+    isActive ? theme.colors.neutral[800] : "transparent"};
 
   border-radius: 8px;
 
@@ -51,14 +56,6 @@ export const MetaInfo = styled.div`
 export const DateText = styled.span`
   ${({ theme }) => theme.typography.presets.body2}
   color: ${({ theme }) => theme.colors.neutral[400]};
-`;
-
-export const ArchivedBadge = styled.span`
-  ${({ theme }) => theme.typography.presets.body2}
-  color: ${({ theme }) => theme.colors.blue[500]};
-  background: ${({ theme }) => theme.colors.blue[50]};
-  padding: ${({ theme }) => `${theme.spacing[25]} ${theme.spacing[75]}`};
-  border-radius: 4px;
 `;
 
 export const Actions = styled.div`

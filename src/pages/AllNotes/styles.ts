@@ -31,7 +31,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.header`
+export const SectionTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +111,7 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const MainHeaderWrapper = styled.div`
+export const MainHeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;

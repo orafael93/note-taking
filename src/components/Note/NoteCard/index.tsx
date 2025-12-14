@@ -3,7 +3,9 @@ import { TagList } from "@/components/Tag";
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const NoteCard = ({ note, onClick }: Types.NoteCardType) => {
+export const NoteCard = (props: Types.NoteCardType) => {
+  const { note, isActive, onClick } = props;
+
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "short",
@@ -11,12 +13,11 @@ export const NoteCard = ({ note, onClick }: Types.NoteCardType) => {
   }).format(new Date(note.lastEdited));
 
   return (
-    <S.Container onClick={onClick}>
+    <S.Container onClick={onClick} isActive={isActive}>
       <S.Title>{note.title}</S.Title>
       <S.Footer>
         <TagList tags={note.tags} />
         <S.MetaInfo>
-          {note.isArchived && <S.ArchivedBadge>Archived</S.ArchivedBadge>}
           <S.DateText>{formattedDate}</S.DateText>
         </S.MetaInfo>
       </S.Footer>

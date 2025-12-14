@@ -19,6 +19,7 @@ export const SearchInput = (param: Types.SearchInputType) => {
 
           <S.SearchInput
             type="text"
+            name="text"
             onChange={(e) => {
               onUpdateValue(e.target.value);
             }}

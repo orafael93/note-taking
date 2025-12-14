@@ -65,7 +65,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
           </S.NoteFooter>
         </S.Content>
       </S.MainContent>
-      <NoteActions noteId={note.title} />
+      <NoteActions note={note} />
     </S.Container>
   );
 };

@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useNotesStore } from "@/store/notes";
 
-export const useNotesFilter = () => {
+type UseNotesFilterType = {
+  filterBy: "all-notes" | "archived";
+};
+
+export const useNotesFilter = (param: UseNotesFilterType) => {
+  const { filterBy } = param;
+
   const storedNotes = useNotesStore((state) =>
-    state.notes.filter((note) => !note.isArchived)
+    state.notes.filter((note) =>
+      filterBy === "all-notes" ? note : note.isArchived
+    )
   );
 
   const [notes, setNotes] = useState(storedNotes);
@@ -24,6 +32,12 @@ export const useNotesFilter = () => {
 
     setNotes(filteredNotes);
   };
+
+  useEffect(() => {
+    if (storedNotes.length !== notes.length) {
+      setNotes(storedNotes);
+    }
+  }, [storedNotes.length]);
 
   return {
     notes,

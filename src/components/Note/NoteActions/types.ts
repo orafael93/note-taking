@@ -1,3 +1,5 @@
+import { NoteType } from "@/types/note";
+
 export type NoteActionsType = {
-  noteId: string;
+  note: NoteType;
 };

@@ -112,21 +112,23 @@ export const TitleInput = styled.input`
   background: transparent;
 
   color: ${({ theme }) => theme.colors.neutral[100]};
-  padding-left: 0;
+
+  padding: 5px;
+
+  outline: 2px solid transparent;
+  border: none;
 
   min-width: 300px;
 
   font-size: 1.5rem;
   font-weight: bold;
 
-  border: 2px solid transparent;
-
-  padding: 2px 0;
-
   border-radius: 0.5rem;
 
+  padding: 5px;
+
   &:focus {
-    border-color: ${({ theme }) => theme.colors.blue[500]};
+    outline-color: ${({ theme }) => theme.colors.blue[500]};
   }
 
   &::placeholder {
@@ -143,9 +145,6 @@ export const TagsInput = styled(TitleInput)`
   font-size: 0.8rem;
 
   min-width: 350px;
-
-  padding: 5px;
-  padding-left: 0;
 
   color: ${({ theme }) => theme.colors.neutral[100]};
 
@@ -182,16 +181,17 @@ export const NoteContent = styled.textarea`
   width: 100%;
   height: calc(100dvh - 50%);
 
+  border: none;
+  outline: 2px solid transparent;
+
   background: transparent;
 
-  border: 2px solid transparent;
-
-  padding: 10px 0;
+  padding: 10px;
 
   resize: none;
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.blue[500]};
+    outline-color: ${({ theme }) => theme.colors.blue[500]};
   }
 
   &::placeholder {

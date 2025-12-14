@@ -5,12 +5,12 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100%;
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: 20px;
 
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
-export const Header = styled.header`
+export const SectionTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,7 +103,7 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const MainHeaderWrapper = styled.div`
+export const MainHeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;

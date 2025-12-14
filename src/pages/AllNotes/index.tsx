@@ -17,7 +17,7 @@ export const AllNotes = () => {
   const navigate = useNavigate();
 
   const [searchValue, setSearchValue] = useState("");
-  const { notes, onNotesFilter } = useNotesFilter();
+  const { notes, onNotesFilter } = useNotesFilter({ filterBy: "all-notes" });
 
   const onUpdateSearchValue = (param: string) => {
     setSearchValue(param);
@@ -34,7 +34,7 @@ export const AllNotes = () => {
 
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
 
-  const handleSelectNote = (noteId: string) => {
+  const handleSelectNote = (noteId: string | null) => {
     contentWrapperRef.current?.scrollTo({
       top: 0,
     });
@@ -61,9 +61,9 @@ export const AllNotes = () => {
       </S.LogoWrapper>
 
       <S.MainHeaderWrapper>
-        <S.Header>
+        <S.SectionTitleWrapper>
           <S.Title>All Notes</S.Title>
-        </S.Header>
+        </S.SectionTitleWrapper>
 
         <S.SearchInputAndSettingsIconWrapper>
           <SearchInput
@@ -114,7 +114,12 @@ export const AllNotes = () => {
                 <NoteCard
                   key={note.title}
                   note={note}
-                  onClick={() => handleSelectNote(note.title)}
+                  isActive={note.title === selectedNoteId}
+                  onClick={() =>
+                    handleSelectNote(
+                      selectedNoteId === note.title ? null : note.title
+                    )
+                  }
                 />
               ))}
             </S.NotesList>
