@@ -1,38 +1,98 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-display: swap; 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/Inter/inter-300.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/Inter/inter-500.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/fonts/Inter/inter-800.woff2') format('woff2'); 
+  }
+
+  
+  @font-face {
+    font-display: swap;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/NotoSerif/noto-serif-300.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/NotoSerif/noto-serif-500.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/fonts/NotoSerif/noto-serif-800.woff2') format('woff2');
+  }
+
+  
+  @font-face {
+    font-display: swap;
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/SourceCodePro/source-code-pro-300.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-display: swap;
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/SourceCodePro/source-code-pro-500.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-display: swap;
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/fonts/SourceCodePro/source-code-pro-800.woff2') format('woff2');
+  }
+
+  :root {
+    --current-font: 'Inter', sans-serif;
+  }
+
+  [data-font="serif"] {
+    --current-font: 'Noto Serif', serif;
+  }
+
+  [data-font="monospace"] {
+    --current-font: 'Source Code Pro', monospace;
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
 
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+    font-family: var(--current-font);
   }
 
   body {
@@ -42,7 +102,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: ${({ theme }) => theme.typography.fonts.inter};
     font-weight: 400;
   }
 
