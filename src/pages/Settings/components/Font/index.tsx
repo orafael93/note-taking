@@ -60,6 +60,15 @@ export const Font = (props: Types.FontType) => {
     },
   ];
 
+  const onApplyFont = () => {
+    const activeFont = options.find((font) => font.itemIsActive);
+    const fontToUpdate = activeFont?.inputId;
+
+    if (fontToUpdate) {
+      document.documentElement.setAttribute("data-font", fontToUpdate);
+    }
+  };
+
   return (
     <S.Container>
       <S.MainContent>
@@ -91,7 +100,10 @@ export const Font = (props: Types.FontType) => {
             ))}
           </S.OptionsWrapper>
 
-          <S.ApplyChangesButton style={{ marginTop: "24px" }}>
+          <S.ApplyChangesButton
+            style={{ marginTop: "24px" }}
+            onClick={onApplyFont}
+          >
             Apply Changes
           </S.ApplyChangesButton>
         </S.Content>
