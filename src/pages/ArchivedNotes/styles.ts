@@ -22,6 +22,11 @@ export const TitleWrapper = styled.div`
   padding: 12px;
 `;
 
+export const PageTitle = styled.h1`
+  ${({ theme }) => theme.typography.presets.heading1}
+  color: ${({ theme }) => theme.colors.neutral[100]};
+`;
+
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.neutral[200]};
 
@@ -49,6 +54,10 @@ export const CreateButton = styled.button`
   cursor: pointer;
   transition: background-color 0.2s;
 
+  &:focus-visible {
+    outline-color: ${({ theme }) => theme.colors.neutral[100]};
+  }
+
   &:hover {
     background: ${({ theme }) => theme.colors.blue[700]};
   }
@@ -73,8 +82,6 @@ export const SearchInput = styled.input`
 `;
 
 export const NotesList = styled.div`
-  overflow-y: auto;
-
   & > div:last-child {
     border-bottom: none;
   }
@@ -136,7 +143,11 @@ export const SearchInputAndSettingsIconWrapper = styled.div`
   gap: 1.75rem;
 `;
 
-export const SettingsIconWrapper = styled.div`
+export const SettingsIconWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 1024px) {
     display: none;
   }
@@ -158,5 +169,37 @@ export const ContentWrapper = styled.div`
     border: none;
 
     grid-template-columns: 1fr;
+  }
+`;
+
+export const NoArchivedNotesWrapper = styled.div`
+  background: ${({ theme }) => theme.colors.neutral[800]};
+  padding: 8px;
+
+  margin: 0 10px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: ${({ theme }) => theme.colors.neutral[100]};
+
+  & p {
+    display: inline;
+  }
+`;
+
+export const CreateNewNoteButton = styled.button`
+  text-decoration: underline;
+  display: inline;
+
+  word-break: break-all;
+
+  color: inherit;
+
+  &:focus-visible {
+    color: ${({ theme }) => theme.colors.blue[500]};
+    outline: none;
   }
 `;

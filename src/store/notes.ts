@@ -11,6 +11,17 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
     filteredNotes: [],
     searchTerms: [],
   },
+  getNotes: (page) => {
+    const filteredNotesByPage =
+      page === "all-notes"
+        ? get().notes.allNotes
+        : get().notes.allNotes.filter((note) => note.isArchived);
+
+    const hasSearch =
+      get().notes.searchTerms.length && get().notes.filteredNotes.length;
+
+    return hasSearch ? get().notes.filteredNotes : filteredNotesByPage;
+  },
   addNote: (note) =>
     set((state) => ({
       notes: {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,11 +16,10 @@ import * as S from "./styles";
 export const AllNotes = () => {
   const navigate = useNavigate();
 
-  const [searchValue, setSearchValue] = useState("");
   const { notes, onNotesFilter } = useNotesFilter({ filterBy: "all-notes" });
 
   const onUpdateSearchValue = (param: string) => {
-    setSearchValue(param);
+    onNotesFilter(param);
   };
 
   const debouncedFunction = useDebounce(onUpdateSearchValue, 300);
@@ -49,10 +48,6 @@ export const AllNotes = () => {
   const handleCloseNote = () => {
     onUpdateSelectedNote(null);
   };
-
-  useEffect(() => {
-    onNotesFilter(searchValue);
-  }, [searchValue]);
 
   return (
     <S.MainContent>

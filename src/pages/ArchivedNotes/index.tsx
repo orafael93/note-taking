@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -25,11 +25,10 @@ export const ArchivedNotes = () => {
     (state) => state.onUpdateSelectedNote
   );
 
-  const [searchValue, setSearchValue] = useState("");
   const { notes, onNotesFilter } = useNotesFilter({ filterBy: "archived" });
 
   const onUpdateSearchValue = (param: string) => {
-    setSearchValue(param);
+    onNotesFilter(param);
   };
 
   const handleCloseNote = () => {
@@ -52,10 +51,6 @@ export const ArchivedNotes = () => {
 
   const debouncedFunction = useDebounce(onUpdateSearchValue, 300);
 
-  useEffect(() => {
-    onNotesFilter(searchValue);
-  }, [searchValue]);
-
   return (
     <S.MainContent>
       <S.LogoWrapper>
@@ -64,7 +59,7 @@ export const ArchivedNotes = () => {
 
       <S.MainHeaderWrapper>
         <S.SectionTitleWrapper>
-          <S.Title>Archived</S.Title>
+          <S.PageTitle>Archived</S.PageTitle>
         </S.SectionTitleWrapper>
 
         <S.SearchInputAndSettingsIconWrapper>
@@ -83,19 +78,17 @@ export const ArchivedNotes = () => {
       <S.ContentWrapper ref={contentWrapperRef}>
         {selectedNoteId && window.innerWidth <= 1024 ? null : (
           <S.Container>
-            <S.CreateButton
-              style={{ marginBottom: "16px" }}
-              onClick={() => {
-                setCreatingNewNote(true);
-
-                if (selectedNoteId) {
-                  handleCloseNote();
-                }
-              }}
-            >
-              <Plus size={16} strokeWidth={3} />
-              Create New Note
-            </S.CreateButton>
+            {notes.length > 0 && (
+              <S.CreateButton
+                style={{ marginBottom: "16px" }}
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                <Plus size={16} strokeWidth={3} />
+                Create New Note
+              </S.CreateButton>
+            )}
 
             {isSearchingNotes ? null : (
               <S.TitleWrapper>
@@ -104,6 +97,18 @@ export const ArchivedNotes = () => {
                   delete them anytime.
                 </S.Title>
               </S.TitleWrapper>
+            )}
+
+            {notes.length < 1 && (
+              <S.NoArchivedNotesWrapper>
+                <p>
+                  No notes have been archived yet. Move notes here for
+                  safekeeping, or
+                </p>
+                <S.CreateNewNoteButton onClick={() => navigate("/")}>
+                  create a new note
+                </S.CreateNewNoteButton>
+              </S.NoArchivedNotesWrapper>
             )}
 
             {isSearchingNotes && (
@@ -119,6 +124,7 @@ export const ArchivedNotes = () => {
                 <NoteCard
                   key={note.title}
                   note={note}
+                  isActive={note.title === selectedNoteId}
                   onClick={() => handleSelectNote(note.title)}
                 />
               ))}
