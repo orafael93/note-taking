@@ -5,8 +5,6 @@ export const Container = styled.button`
 
   text-align: left;
 
-  border: none;
-
   padding: ${({ theme }) => theme.spacing[150]};
 
   margin-bottom: ${({ theme }) => theme.spacing[100]};
@@ -21,8 +19,8 @@ export const Container = styled.button`
     background: ${({ theme }) => theme.colors.neutral[700]};
   }
 
-  &:focus {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[500]};
+  &:focus-visible {
+    outline-color: ${({ theme }) => theme.colors.blue[500]};
   }
 
   @media (max-width: 1024px) {
