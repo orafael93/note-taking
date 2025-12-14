@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
 import { NoteCard } from "@/components/Note/NoteCard";
-import { SearchInput } from "@/components/SearchInput";
 import { NoteDetail } from "@/components/NoteDetail";
+import { SearchInput } from "@/components/SearchInput";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNotesStore } from "@/store/notes";
 import { useNotesFilter } from "@/hooks/useNotesFilter";

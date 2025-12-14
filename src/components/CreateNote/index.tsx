@@ -36,10 +36,18 @@ export const CreateNote = (props: Types.CreateNoteType) => {
             Go Back
           </S.GoBackWrapper>
           <S.ActionsWrapper>
-            <Trash2 size={18} />
-            <Download size={18} />
-            <S.CancelText>Cancel</S.CancelText>
-            <S.SaveNote>Save Note</S.SaveNote>
+            <S.ActionsButton>
+              <Trash2 size={18} />
+            </S.ActionsButton>
+            <S.ActionsButton>
+              <Download size={18} />
+            </S.ActionsButton>
+            <S.ActionsButton>
+              <S.CancelText>Cancel</S.CancelText>
+            </S.ActionsButton>
+            <S.ActionsButton>
+              <S.SaveNote>Save Note</S.SaveNote>
+            </S.ActionsButton>
           </S.ActionsWrapper>
         </S.MobileCardHeader>
 
@@ -48,7 +56,7 @@ export const CreateNote = (props: Types.CreateNoteType) => {
             placeholder="Enter a title..."
             name="title"
             style={{ marginBottom: "20px" }}
-            autoFocus
+            autoFocus={window.innerWidth >= 1024}
           />
           <S.MetaInfo>
             {metaContent.map((meta) => (

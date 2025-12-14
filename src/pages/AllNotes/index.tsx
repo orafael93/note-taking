@@ -45,6 +45,14 @@ export const AllNotes = () => {
     onUpdateSelectedNote(noteId);
   };
 
+  const onCreateNewNote = () => {
+    setCreatingNewNote(true);
+
+    if (selectedNoteId) {
+      handleCloseNote();
+    }
+  };
+
   const handleCloseNote = () => {
     onUpdateSelectedNote(null);
   };
@@ -74,17 +82,12 @@ export const AllNotes = () => {
       </S.MainHeaderWrapper>
 
       <S.ContentWrapper ref={contentWrapperRef}>
-        {selectedNoteId && window.innerWidth <= 1024 ? null : (
+        {(selectedNoteId || creatingNewNote) &&
+        window.innerWidth <= 1024 ? null : (
           <S.Container>
             <S.CreateButton
               style={{ marginBottom: "16px" }}
-              onClick={() => {
-                setCreatingNewNote(true);
-
-                if (selectedNoteId) {
-                  handleCloseNote();
-                }
-              }}
+              onClick={onCreateNewNote}
             >
               <Plus size={16} strokeWidth={3} />
               Create New Note
@@ -133,9 +136,11 @@ export const AllNotes = () => {
           <CreateNote onBack={() => setCreatingNewNote(false)} />
         )}
 
-        <S.CreateButtonMobile tabIndex={0}>
-          <Plus color="#fff" />
-        </S.CreateButtonMobile>
+        {!creatingNewNote && (
+          <S.CreateButtonMobile onClick={onCreateNewNote}>
+            <Plus color="#fff" />
+          </S.CreateButtonMobile>
+        )}
       </S.ContentWrapper>
     </S.MainContent>
   );

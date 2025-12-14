@@ -93,8 +93,8 @@ export const Content = styled.div`
   position: relative;
 
   flex: 1;
+
   padding: ${({ theme }) => theme.spacing[200]};
-  overflow-y: auto;
 
   @media (max-width: 1024px) {
     padding: ${({ theme }) => theme.spacing[200]} 0;
@@ -230,6 +230,10 @@ export const ActionsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+`;
+
+export const ActionsButton = styled.button`
+  color: inherit;
 `;
 
 export const CancelText = styled.span`
