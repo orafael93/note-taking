@@ -23,8 +23,11 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: ${({ theme }) => theme.colors.neutral[200]};
+
+  font-size: 14px;
+
+  font-weight: 500;
 `;
 
 export const CreateButton = styled.button`

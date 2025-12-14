@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { OptionType } from "./types";
 
-export const Option = styled.div<Pick<OptionType, "itemIsActive">>`
+export const Option = styled.div<Pick<OptionType<string>, "itemIsActive">>`
   padding: 16px;
 
   display: flex;

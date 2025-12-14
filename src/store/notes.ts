@@ -2,42 +2,114 @@ import { create } from "zustand";
 
 import notesData from "@/data.json";
 
-import { NotesStoreType } from "./types";
+import { NoteType } from "@/types/note";
+import { NotesStoreType, SearchTerms } from "@/store/types";
 
 export const useNotesStore = create<NotesStoreType>((set, get) => ({
-  notes: notesData.notes,
+  notes: {
+    allNotes: notesData.notes,
+    filteredNotes: [],
+    searchTerms: [],
+  },
   addNote: (note) =>
     set((state) => ({
-      notes: [...state.notes, note],
+      notes: {
+        allNotes: [...state.notes.allNotes, note],
+        filteredNotes: [...state.notes.filteredNotes],
+        searchTerms: [],
+      },
     })),
   deleteNote: (title) =>
     set((state) => ({
-      notes: state.notes.filter((note) => note.title !== title),
+      notes: {
+        allNotes: state.notes.allNotes.filter((note) => note.title !== title),
+        filteredNotes: state.notes.allNotes.filter(
+          (note) => note.title !== title
+        ),
+        searchTerms: [],
+      },
     })),
   editNote: (title, data) =>
     set((state) => ({
-      notes: state.notes.map((note) =>
-        note.title === title
-          ? { ...note, ...data, lastEdited: new Date().toISOString() }
-          : note
-      ),
+      notes: {
+        allNotes: state.notes.allNotes.map((note) =>
+          note.title === title
+            ? { ...note, ...data, lastEdited: new Date().toISOString() }
+            : note
+        ),
+        filteredNotes: [],
+        searchTerms: [],
+      },
     })),
   toggleArchive: (title) =>
     set((state) => ({
-      notes: state.notes.map((note) =>
-        note.title === title ? { ...note, isArchived: !note.isArchived } : note
-      ),
+      notes: {
+        allNotes: state.notes.allNotes.map((note) =>
+          note.title === title
+            ? { ...note, isArchived: !note.isArchived }
+            : note
+        ),
+        filteredNotes: [],
+        searchTerms: [],
+      },
     })),
-  searchNotes: (query) => {
+  searchNotes: (query, filterBy) => {
     const state = get();
-    const searchTerm = query.toLowerCase();
+    const search = query.toLowerCase();
 
-    return state.notes.filter(
-      (note) =>
-        note.title.toLowerCase().includes(searchTerm) ||
-        note.content.toLowerCase().includes(searchTerm) ||
-        note.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
-    );
+    const filteredNotesByPage =
+      filterBy === "all-notes"
+        ? state.notes.allNotes
+        : state.notes.allNotes.filter((currentNote) => currentNote.isArchived);
+
+    if (!search) {
+      return set((state) => ({
+        notes: {
+          allNotes: state.notes.allNotes,
+          filteredNotes: filteredNotesByPage,
+          searchTerms: [],
+        },
+      }));
+    }
+
+    let filteredNotes: NoteType[] = [];
+    let searchTerms: SearchTerms[] = [];
+
+    for (let i = 0; i < filteredNotesByPage.length; i++) {
+      const currentNote = filteredNotesByPage[i];
+
+      if (currentNote.content.toLowerCase().includes(search)) {
+        filteredNotes = filteredNotesByPage.filter((currentNote) =>
+          currentNote.content.toLowerCase().includes(search)
+        );
+        searchTerms.push("content");
+        break;
+      }
+
+      if (currentNote.title.toLowerCase().includes(search)) {
+        filteredNotes = filteredNotesByPage.filter((currentNote) =>
+          currentNote.title.toLowerCase().includes(search)
+        );
+        searchTerms.push("title");
+        break;
+      }
+
+      if (currentNote.tags.join(",").toLowerCase().includes(search)) {
+        filteredNotes = filteredNotesByPage.filter((currentNote) =>
+          currentNote.tags.join(",").toLowerCase().includes(search)
+        );
+        searchTerms.push("tags");
+        break;
+      }
+    }
+
+    return set((state) => ({
+      notes: {
+        allNotes: state.notes.allNotes,
+        filteredNotes,
+        searchTerms,
+      },
+    }));
   },
   isSearchingNotes: false,
   onSearchingNotes: (isSearching) =>

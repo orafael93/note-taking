@@ -1,36 +1,35 @@
 import { useEffect, useState } from "react";
 
 import { useNotesStore } from "@/store/notes";
+import type { NotesStoreType } from "@/store/types";
 
-type UseNotesFilterType = {
-  filterBy: "all-notes" | "archived";
-};
+type FilterByType = "all-notes" | "archived";
 
-export const useNotesFilter = (param: UseNotesFilterType) => {
+export const useNotesFilter = (param: { filterBy: FilterByType }) => {
   const { filterBy } = param;
 
+  const getNotesByFilter = (filter: FilterByType, store: NotesStoreType) => {
+    const filteredNotesByPage =
+      filter === "all-notes"
+        ? store.notes.allNotes
+        : store.notes.allNotes.filter((currentNote) => currentNote.isArchived);
+
+    const hasSearch =
+      store.notes.searchTerms.length && store.notes.filteredNotes.length;
+
+    return hasSearch ? store.notes.filteredNotes : filteredNotesByPage;
+  };
+
   const storedNotes = useNotesStore((state) =>
-    state.notes.filter((note) =>
-      filterBy === "all-notes" ? note : note.isArchived
-    )
+    getNotesByFilter(filterBy, state)
   );
+
+  const searchNotes = useNotesStore((state) => state.searchNotes);
 
   const [notes, setNotes] = useState(storedNotes);
 
   const onNotesFilter = (searchValue: string) => {
-    const filteredNotes = storedNotes.filter((currentNote) => {
-      const currentNoteContent = [
-        currentNote.content,
-        currentNote.title,
-        currentNote.tags.join(" "),
-      ];
-
-      return currentNoteContent.some((currentContent) =>
-        currentContent.toLowerCase().includes(searchValue.toLowerCase())
-      );
-    });
-
-    setNotes(filteredNotes);
+    searchNotes(searchValue, filterBy);
   };
 
   useEffect(() => {

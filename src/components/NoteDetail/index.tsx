@@ -11,7 +11,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
   const { noteId, onBack } = props;
 
   const note = useNotesStore((state) =>
-    state.notes.find((n) => n.title === noteId)
+    state.notes.allNotes.find((n) => n.title === noteId)
   );
 
   if (!note) return null;

@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { NoteCard } from "@/components/Note/NoteCard";
 import { SearchInput } from "@/components/SearchInput";
+import { NoteDetail } from "@/components/NoteDetail";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNotesStore } from "@/store/notes";
 import { useNotesFilter } from "@/hooks/useNotesFilter";
 
 import * as S from "./styles";
-import { NoteDetail } from "@/components/NoteDetail";
 
 export const ArchivedNotes = () => {
   const navigate = useNavigate();
@@ -99,7 +99,10 @@ export const ArchivedNotes = () => {
 
             {isSearchingNotes ? null : (
               <S.TitleWrapper>
-                <S.Title>All Notes</S.Title>
+                <S.Title>
+                  All your archived notes are stored here. You can restore or
+                  delete them anytime.
+                </S.Title>
               </S.TitleWrapper>
             )}
 

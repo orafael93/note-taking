@@ -11,7 +11,7 @@ export const Sidebar = () => {
   const navigate = useNavigate();
 
   const uniqueTags = Array.from(
-    new Set(notes.flatMap((note) => note.tags))
+    new Set(notes.allNotes.flatMap((note) => note.tags))
   ).sort();
 
   return (
