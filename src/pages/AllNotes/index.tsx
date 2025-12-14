@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,12 +7,23 @@ import { NoteCard } from "@/components/Note/NoteCard";
 import { NoteDetail } from "@/components/NoteDetail";
 import { CreateNote } from "@/components/CreateNote";
 import { SearchInput } from "@/components/SearchInput";
+import { useDebounce } from "@/hooks/useDebounce";
 import { useNotesStore } from "@/store/notes";
+import { useNotesFilter } from "@/hooks/useNotesFilter";
 
 import * as S from "./styles";
 
 export const AllNotes = () => {
   const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState("");
+  const { notes, onNotesFilter } = useNotesFilter();
+
+  const onUpdateSearchValue = (param: string) => {
+    setSearchValue(param);
+  };
+
+  const debouncedFunction = useDebounce(onUpdateSearchValue, 300);
 
   const isSearchingNotes = useNotesStore((store) => store.isSearchingNotes);
   const selectedNoteId = useNotesStore((state) => state.selectedNoteId);
@@ -39,9 +50,9 @@ export const AllNotes = () => {
     onUpdateSelectedNote(null);
   };
 
-  const notes = useNotesStore((state) =>
-    state.notes.filter((note) => !note.isArchived)
-  );
+  useEffect(() => {
+    onNotesFilter(searchValue);
+  }, [searchValue]);
 
   return (
     <S.MainContent>
@@ -55,7 +66,11 @@ export const AllNotes = () => {
         </S.Header>
 
         <S.SearchInputAndSettingsIconWrapper>
-          <SearchInput />
+          <SearchInput
+            onUpdateValue={(e) => {
+              debouncedFunction(e);
+            }}
+          />
 
           <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
             <Settings size={20} color="#fff" style={{ cursor: "pointer" }} />
@@ -86,7 +101,13 @@ export const AllNotes = () => {
               </S.TitleWrapper>
             )}
 
-            {isSearchingNotes && <SearchInput />}
+            {isSearchingNotes && (
+              <SearchInput
+                onUpdateValue={(e) => {
+                  debouncedFunction(e);
+                }}
+              />
+            )}
 
             <S.NotesList>
               {notes.map((note) => (

@@ -1,9 +1,12 @@
 import { Search } from "lucide-react";
 import { Fragment } from "react";
 
+import * as Types from "./types.ts";
 import * as S from "./styles.ts";
 
-export const SearchInput = () => {
+export const SearchInput = (param: Types.SearchInputType) => {
+  const { onUpdateValue } = param;
+
   return (
     <Fragment>
       <S.SearchText>Search</S.SearchText>
@@ -16,6 +19,9 @@ export const SearchInput = () => {
 
           <S.SearchInput
             type="text"
+            onChange={(e) => {
+              onUpdateValue(e.target.value);
+            }}
             autoFocus={window.innerWidth <= 1024}
             placeholder="Search by title, content, or tags..."
           />
