@@ -15,9 +15,10 @@ export const InputWrapper = styled.div`
 
   border: 1px solid #525866;
 
+  outline: 2px solid transparent;
+
   &:focus-within {
-    border-color: transparent;
-    outline: 2px solid ${({ theme }) => theme.colors.blue[500]};
+    outline-color: ${({ theme }) => theme.colors.blue[500]};
   }
 `;
 
@@ -40,4 +41,6 @@ export const Input = styled.input.attrs((props) => ({
   font-size: 0.85rem;
 
   font-weight: 500;
+  border: none;
+  outline: none;
 `;

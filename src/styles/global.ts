@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-weight: 400;
+    border: none;
   }
 
   button {

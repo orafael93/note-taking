@@ -106,7 +106,8 @@ export const ApplyChangesButton = styled.button`
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
   background: ${({ theme }) => theme.colors.blue[500]};
-  border: none;
+
+  outline: 2px solid transparent;
 
   border-radius: 8px;
 
@@ -116,6 +117,10 @@ export const ApplyChangesButton = styled.button`
 
   cursor: pointer;
   transition: background-color 0.2s;
+
+  &:focus-visible {
+    outline-color: ${({ theme }) => theme.colors.neutral[100]};
+  }
 
   &:hover {
     background: ${({ theme }) => theme.colors.blue[700]};
