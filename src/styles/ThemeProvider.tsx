@@ -1,14 +1,16 @@
+import { useEffect } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 import { theme } from "@/styles/theme";
 import { GlobalStyle } from "@/styles/global";
 import { useThemeStore } from "@/store/theme";
+import { initProjectFont } from "@/utils";
 
 type ThemeProviderType = {
   children: React.ReactNode;
 };
 
-export function ThemeProvider({ children }: ThemeProviderType) {
+export const ThemeProvider = ({ children }: ThemeProviderType) => {
   const mode = useThemeStore((state) => state.mode);
 
   const currentTheme = {
@@ -35,10 +37,14 @@ export function ThemeProvider({ children }: ThemeProviderType) {
     },
   };
 
+  useEffect(() => {
+    initProjectFont();
+  }, []);
+
   return (
     <StyledThemeProvider theme={currentTheme}>
       <GlobalStyle />
       {children}
     </StyledThemeProvider>
   );
-}
+};
