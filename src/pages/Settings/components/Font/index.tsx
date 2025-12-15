@@ -7,7 +7,7 @@ import { OptionType } from "@/pages/Settings/components/Option/types";
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const Font = (props: Types.FontType) => {
+const Font = (props: Types.FontType) => {
   const { onClearActiveItem } = props;
 
   const [activeMode, setActiveMode] = useState<Types.ActiveFont>("sans-serif");
@@ -111,3 +111,5 @@ export const Font = (props: Types.FontType) => {
     </S.Container>
   );
 };
+
+export default Font;

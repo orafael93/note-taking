@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
-import { Font } from "@/pages/Settings/components/Font";
 import { Logo } from "@/components/Logo";
-import { Theme } from "@/pages/Settings/components/Theme";
-import { Password } from "@/pages/Settings/components/Password";
+
+const Theme = lazy(() => import("@/pages/Settings/components/Theme"));
+const Font = lazy(() => import("@/pages/Settings/components/Font"));
+const Password = lazy(() => import("@/pages/Settings/components/Password"));
 
 import * as S from "./styles";
 
@@ -109,17 +110,23 @@ export const Settings = () => {
           </S.Container>
         )}
 
-        {activeItem && canActiveItem("theme") && (
-          <Theme onClearActiveItem={() => onActiveItem(null)} />
-        )}
+        <Suspense fallback={null}>
+          {activeItem && canActiveItem("theme") && (
+            <Theme onClearActiveItem={() => onActiveItem(null)} />
+          )}
+        </Suspense>
 
-        {activeItem && canActiveItem("font") && (
-          <Font onClearActiveItem={() => onActiveItem(null)} />
-        )}
+        <Suspense fallback={null}>
+          {activeItem && canActiveItem("font") && (
+            <Font onClearActiveItem={() => onActiveItem(null)} />
+          )}
+        </Suspense>
 
-        {activeItem && canActiveItem("password") && (
-          <Password onClearActiveItem={() => onActiveItem(null)} />
-        )}
+        <Suspense fallback={null}>
+          {activeItem && canActiveItem("password") && (
+            <Password onClearActiveItem={() => onActiveItem(null)} />
+          )}
+        </Suspense>
       </S.ContentWrapper>
     </S.MainContent>
   );

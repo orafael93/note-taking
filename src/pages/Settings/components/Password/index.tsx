@@ -5,7 +5,7 @@ import { PasswordInput } from "@/pages/Settings/components/PasswordInput";
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const Password = (props: Types.ThemeType) => {
+const Password = (props: Types.ThemeType) => {
   const { onClearActiveItem } = props;
 
   return (
@@ -55,3 +55,5 @@ export const Password = (props: Types.ThemeType) => {
     </S.Container>
   );
 };
+
+export default Password;

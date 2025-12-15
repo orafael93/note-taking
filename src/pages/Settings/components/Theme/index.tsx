@@ -7,7 +7,7 @@ import { OptionType } from "@/pages/Settings/components/Option/types";
 import * as Types from "./types";
 import * as S from "./styles";
 
-export const Theme = (props: Types.ThemeType) => {
+const Theme = (props: Types.ThemeType) => {
   const { onClearActiveItem } = props;
 
   const [activeMode, setActiveMode] = useState<Types.ActiveMode>("light");
@@ -99,3 +99,5 @@ export const Theme = (props: Types.ThemeType) => {
     </S.Container>
   );
 };
+
+export default Theme;
