@@ -6,7 +6,7 @@ import { useNotesStore } from "@/store/notes";
 
 import * as S from "./styles";
 
-export const Sidebar = () => {
+export default () => {
   const notes = useNotesStore((state) => state.notes);
   const navigate = useNavigate();
 

@@ -3,7 +3,7 @@ import { Input } from "@/pages/Login/components/Input";
 
 import * as S from "./styles";
 
-export const Login = () => {
+export default () => {
   return (
     <S.Wrapper>
       <S.Content>

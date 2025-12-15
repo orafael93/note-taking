@@ -12,7 +12,7 @@ import { useNotesFilter } from "@/hooks/useNotesFilter";
 
 import * as S from "./styles";
 
-export const ArchivedNotes = () => {
+export default () => {
   const navigate = useNavigate();
 
   const selectedNoteId = useNotesStore((state) => state.selectedNoteId);

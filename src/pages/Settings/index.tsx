@@ -11,7 +11,7 @@ import * as S from "./styles";
 
 type ActiveItemType = "theme" | "font" | "password" | "logout" | null;
 
-export const Settings = () => {
+export default () => {
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
   const [activeItem, setActiveItem] = useState<ActiveItemType>(null);
 
