@@ -18,7 +18,7 @@ export const MainContent = styled.main`
 export const Container = styled.div`
   height: 100%;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-right: 1px solid var(--color-neutral-200);
 
   padding: 20px;
 
@@ -31,12 +31,14 @@ export const Container = styled.div`
   & button {
     background: transparent;
 
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    color: var(--color-neutral-100);
     font-size: 14px;
   }
 
   @media (max-width: 1024px) {
     padding: 0;
+
+    border-right: 1px solid transparent;
   }
 `;
 
@@ -55,8 +57,12 @@ export const SettingItem = styled.li<SettingItemType>`
 
   padding: 10px;
 
-  background-color: ${({ active, theme }) =>
-    active ? theme.colors.neutral[800] : "transparent"};
+  background-color: ${({ active }) =>
+    active ? "var(--color-neutral-100)" : "transparent"};
+
+  & button {
+    color: var(--color-base);
+  }
 
   & svg:last-child {
     margin-left: auto;
@@ -67,8 +73,6 @@ export const SectionTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
 export const TitleWrapper = styled.div`
@@ -82,7 +86,7 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.h1`
   ${({ theme }) => theme.typography.presets.heading1}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
 `;
 
 export const CreateButton = styled.button`
@@ -92,12 +96,12 @@ export const CreateButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
@@ -105,7 +109,7 @@ export const CreateButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   @media (max-width: 1024px) {
@@ -115,15 +119,15 @@ export const CreateButton = styled.button`
 
 export const SearchInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  color: ${({ theme }) => theme.colors.neutral[100]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
+  background: var(--color-neutral-800);
+  color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-700);
   border-radius: 8px;
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   width: 300px;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[500]};
+    color: var(--color-neutral-500);
   }
 `;
 
@@ -139,9 +143,9 @@ export const LogoWrapper = styled.div`
   display: none;
 
   @media (max-width: 1024px) {
+    background-color: var(--color-neutral-100);
     display: block;
     padding: 20px 30px;
-    background-color: #232530;
   }
 `;
 
@@ -154,7 +158,7 @@ export const MainHeaderWrapper = styled.header`
 
   min-height: 81px;
 
-  border-bottom: 2px solid #525866;
+  border-bottom: 2px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -166,7 +170,7 @@ export const AllNotesHeader = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-bottom: 1px solid var(--color-neutral-800);
 `;
 
 export const SearchInputAndSettingsIconWrapper = styled.div`
@@ -185,8 +189,8 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-left: 1px solid var(--color-neutral-200);
+  border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
 

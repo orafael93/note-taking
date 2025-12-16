@@ -49,7 +49,11 @@ export default () => {
                   <Sun
                     size={16}
                     strokeWidth={3}
-                    color={canActiveItem("theme") ? "#335CFF" : "#fff"}
+                    color={
+                      canActiveItem("theme")
+                        ? "var(--color-blue-500)"
+                        : "var(--color-base)"
+                    }
                   />
                   <button>Color Theme</button>
 
@@ -65,7 +69,11 @@ export default () => {
                   <Type
                     size={16}
                     strokeWidth={3}
-                    color={canActiveItem("font") ? "#335CFF" : "#fff"}
+                    color={
+                      canActiveItem("font")
+                        ? "var(--color-blue-500)"
+                        : "var(--color-base)"
+                    }
                   />
                   <button>Font Theme</button>
 
@@ -81,7 +89,11 @@ export default () => {
                   <Lock
                     size={16}
                     strokeWidth={3}
-                    color={canActiveItem("password") ? "#335CFF" : "#fff"}
+                    color={
+                      canActiveItem("password")
+                        ? "var(--color-blue-500)"
+                        : "var(--color-base)"
+                    }
                   />
                   <button>Change password</button>
 
@@ -97,7 +109,11 @@ export default () => {
                   <LogOut
                     size={16}
                     strokeWidth={3}
-                    color={canActiveItem("logout") ? "#335CFF" : "#fff"}
+                    color={
+                      canActiveItem("logout")
+                        ? "var(--color-blue-500)"
+                        : "var(--color-base)"
+                    }
                   />
                   <button>Logout</button>
 
