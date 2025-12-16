@@ -4,4 +4,8 @@ export const LogoButton = styled.button`
   background: transparent;
 
   padding: 5px;
+
+  & .logo-name {
+    fill: var(--color-base);
+  }
 `;

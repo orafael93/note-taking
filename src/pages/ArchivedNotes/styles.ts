@@ -58,7 +58,7 @@ export const CreateButton = styled.button`
   }
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   @media (max-width: 1024px) {

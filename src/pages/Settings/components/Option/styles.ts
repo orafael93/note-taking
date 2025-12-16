@@ -9,8 +9,8 @@ export const Option = styled.div<Pick<OptionType<string>, "itemIsActive">>`
   align-items: center;
   gap: 16px;
 
-  background: ${({ theme, itemIsActive }) =>
-    itemIsActive ? theme.colors.neutral[800] : "transparent"};
+  background: ${({ itemIsActive }) =>
+    itemIsActive ? "var(--color-neutral-100)" : "transparent"};
 
   border-radius: 8px;
 
@@ -28,7 +28,7 @@ export const IconWrapper = styled.div`
 
   border-radius: 8px;
 
-  background: ${({ theme }) => theme.colors.neutral[950]};
+  background-color: var(--color-neutral-200);
 
   padding: 10px;
 `;

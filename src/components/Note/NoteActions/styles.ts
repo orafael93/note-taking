@@ -9,7 +9,7 @@ export const Container = styled.div`
   gap: ${({ theme }) => theme.spacing[100]};
 
   padding: ${({ theme }) => theme.spacing[200]};
-  border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-left: 1px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -23,29 +23,32 @@ export const ActionButton = styled.button`
   padding: ${({ theme }) => theme.spacing[100]};
 
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.neutral[800]};
+  background: transparent;
 
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
+  border: 1px solid var(--color-neutral-600);
 
-  color: ${({ theme }) => theme.colors.neutral[300]};
-
-  ${({ theme }) => theme.typography.presets.body1};
+  color: var(--color-base);
 
   cursor: pointer;
   transition: all 0.2s;
 
+  &:focus-visible {
+    border-color: transparent;
+  }
+
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[700]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-100);
   }
 `;
 
 export const DeleteButton = styled(ActionButton)`
-  color: ${({ theme }) => theme.colors.neutral[300]};
-  border-color: ${({ theme }) => theme.colors.neutral[800]};
+  color: var(--color-base);
+
+  border-color: var(--color-neutral-800);
 
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[700]};
-    color: ${({ theme }) => theme.colors.neutral[0]};
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-0);
   }
 `;

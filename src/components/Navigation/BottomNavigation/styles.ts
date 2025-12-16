@@ -17,7 +17,7 @@ export const Nav = styled.nav`
 
     background: var(--color-neutral-0);
 
-    border-top: 1px solid var(--color-neutral-800);
+    box-shadow: 0 -1px 30px 2px rgba(0, 0, 0, 0.3);
 
     padding: 12px;
 

@@ -46,12 +46,12 @@ export const Button = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
@@ -62,7 +62,7 @@ export const Button = styled.button`
   width: 100%;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 `;
 
@@ -78,7 +78,7 @@ export const OutlineButton = styled.button`
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
@@ -88,9 +88,9 @@ export const OutlineButton = styled.button`
 
   width: 100%;
 
-  border: 1px solid ${({ theme }) => theme.colors.neutral[600]};
+  border: 1px solid var(--color-neutral-600);
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 `;

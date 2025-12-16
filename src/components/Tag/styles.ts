@@ -7,9 +7,8 @@ export const TagContainer = styled.div`
 `;
 
 export const TagItem = styled.span`
-  ${({ theme }) => theme.typography.presets.body2}
-  background: ${({ theme }) => theme.colors.neutral[600]};
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  background-color: var(--color-neutral-300);
+  color: var(--color-base);
 
   padding: ${({ theme }) => `${theme.spacing[25]} ${theme.spacing[75]}`};
 

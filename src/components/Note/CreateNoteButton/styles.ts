@@ -9,9 +9,9 @@ export const Button = styled.button`
   height: 56px;
   border-radius: 50%;
 
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   display: flex;
   font-size: 24px;
@@ -31,6 +31,6 @@ export const Button = styled.button`
 
   &:hover {
     transform: scale(1.05);
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 `;

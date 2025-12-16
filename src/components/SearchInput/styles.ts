@@ -13,6 +13,8 @@ export const SearchWrapper = styled.div`
 export const SearchText = styled.p`
   display: none;
 
+  color: var(--color-neutral-950);
+
   @media (max-width: 1024px) {
     display: block;
 
@@ -29,7 +31,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   gap: 4px;
 
-  border: 1px solid ${({ theme }) => theme.colors.neutral[400]};
+  border: 1px solid var(--color-neutral-400);
 
   border-radius: 0.5rem;
 
@@ -37,7 +39,7 @@ export const InputWrapper = styled.div`
 
   &:focus-within {
     border-color: transparent;
-    outline: 2px solid ${({ theme }) => theme.colors.blue[500]};
+    outline: 2px solid var(--color-blue-500);
   }
 
   @media (max-width: 1024px) {
@@ -51,7 +53,7 @@ export const SearchInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
   background: transparent;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-base);
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   padding-left: 0;
 
@@ -60,7 +62,7 @@ export const SearchInput = styled.input`
   border: none;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[500]};
+    color: var(--color-neutral-500);
   }
 
   &:focus-visible {
@@ -78,7 +80,7 @@ export const SearchIcon = styled.div`
 
   padding: 5px;
 
-  color: ${({ theme }) => theme.colors.neutral[400]};
+  color: var(--color-neutral-400);
   pointer-events: none;
 
   @media (max-width: 1024px) {

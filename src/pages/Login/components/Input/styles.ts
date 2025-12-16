@@ -13,11 +13,11 @@ export const InputWrapper = styled.div`
 
   gap: 5px;
 
-  border: 1px solid #525866;
+  border: 1px solid var(--color-neutral-600);
 
   &:focus-within {
     border-color: transparent;
-    outline: 2px solid ${({ theme }) => theme.colors.blue[500]};
+    outline: 2px solid var(--color-blue-500);
   }
 `;
 
@@ -29,21 +29,23 @@ export const InputLabel = styled.label`
 
   font-size: 14px;
 
-  color: #fff;
+  color: var(--color-white);
 `;
 
 export const Input = styled.input.attrs((props) => ({
   type: props.type,
 }))`
-  color: #fff;
+  color: var(--color-white);
 
   flex: 1;
 
   background: transparent;
 
-  font-size: 1rem;
+  font-size: 0.875rem;
 
   padding: 5px 0;
 
   font-weight: 500;
+
+  outline: none;
 `;
