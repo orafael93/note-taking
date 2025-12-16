@@ -6,6 +6,7 @@ export const Container = styled.div`
 
   @media (max-width: 1024px) {
     flex-direction: column;
+
     padding-bottom: 64px;
   }
 `;
@@ -35,9 +36,10 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: ${({ theme }) => theme.spacing[200]};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-  background: ${({ theme }) => theme.colors.neutral[900]};
+  border-bottom: 1px solid var(--color-neutral-800);
+  background: var(--color-neutral-900);
 
   @media (max-width: 1024px) {
     position: sticky;
@@ -52,13 +54,16 @@ export const BackButton = styled.button`
   gap: ${({ theme }) => theme.spacing[75]};
   background: none;
   border: none;
-  color: ${({ theme }) => theme.colors.neutral[300]};
+  color: var(--color-neutral-300);
+
   ${({ theme }) => theme.typography.presets.body1};
+
   cursor: pointer;
+
   transition: color 0.2s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    color: var(--color-neutral-100);
   }
 `;
 
@@ -71,28 +76,35 @@ export const ActionButton = styled.button`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[75]};
+
   padding: ${({ theme }) => `${theme.spacing[75]} ${theme.spacing[150]}`};
+
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
-  color: ${({ theme }) => theme.colors.neutral[300]};
+
+  background: var(--color-neutral-800);
+
+  border: 1px solid var(--color-neutral-700);
+
+  color: var(--color-neutral-300);
+
   ${({ theme }) => theme.typography.presets.body1};
+
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[700]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-100);
   }
 `;
 
 export const DeleteButton = styled(ActionButton)`
-  color: ${({ theme }) => theme.colors.red[500]};
-  border-color: ${({ theme }) => theme.colors.red[500]};
+  color: var(--color-red-500);
+  border-color: var(--color-red-500);
 
   &:hover {
-    background: ${({ theme }) => theme.colors.red[500]};
-    color: ${({ theme }) => theme.colors.neutral[0]};
+    background: var(--color-red-500);
+    color: var(--color-neutral-0);
   }
 `;
 
@@ -116,7 +128,9 @@ export const NoteFooter = styled.footer`
 
 export const Title = styled.h1`
   ${({ theme }) => theme.typography.presets.heading1};
-  color: ${({ theme }) => theme.colors.neutral[100]};
+
+  color: var(--color-neutral-950);
+
   margin-bottom: ${({ theme }) => theme.spacing[200]};
 `;
 
@@ -133,12 +147,13 @@ export const MetaInfo = styled.div`
 
 export const LastEdited = styled.span`
   ${({ theme }) => theme.typography.presets.body2};
-  color: ${({ theme }) => theme.colors.neutral[400]};
+  color: var(--color-neutral-400);
 `;
 
 export const NoteContent = styled.div`
   ${({ theme }) => theme.typography.presets.body1};
-  color: ${({ theme }) => theme.colors.neutral[300]};
+  color: var(--color-neutral-800);
+
   white-space: pre-line;
   line-height: 1.6;
 `;
@@ -161,7 +176,7 @@ export const GoBackWrapper = styled.button`
   background: transparent;
   border: none;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-600);
   cursor: pointer;
 `;
 
@@ -173,6 +188,8 @@ export const ActionsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+
+  color: var(--color-neutral-600);
 `;
 
 export const CancelText = styled.span`
@@ -182,7 +199,7 @@ export const CancelText = styled.span`
 export const SaveNote = styled.span`
   font-size: 14px;
 
-  color: ${({ theme }) => theme.colors.blue[500]};
+  color: var(--color-blue-500);
 `;
 
 export const SaveButton = styled.button`
@@ -192,12 +209,12 @@ export const SaveButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
@@ -205,7 +222,7 @@ export const SaveButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   @media (max-width: 1024px) {

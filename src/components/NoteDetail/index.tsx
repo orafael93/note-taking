@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
@@ -55,7 +56,10 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
           <S.Title>{note.title}</S.Title>
           <S.MetaInfo>
             {metaContent.map((meta) => (
-              <Meta key={meta.name} {...meta} />
+              <Fragment key={meta.name}>
+                <Meta.Description Icon={meta.Icon} name={meta.name} />
+                <Meta.Tag content={meta.content} />
+              </Fragment>
             ))}
           </S.MetaInfo>
           <S.NoteContent>{note.content}</S.NoteContent>
