@@ -122,6 +122,7 @@ export const ApplyChangesButton = styled.button`
 
   &:focus-visible {
     outline-color: var(--color-neutral-100);
+    outline-offset: -3px;
   }
 
   &:hover {

@@ -100,6 +100,11 @@ export const ApplyChangesButton = styled.button`
   cursor: pointer;
   transition: background-color 0.2s;
 
+  &:focus-visible {
+    outline-color: var(--color-neutral-100);
+    outline-offset: -3px;
+  }
+
   &:hover {
     background: var(--color-blue-500);
   }
