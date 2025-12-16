@@ -5,8 +5,8 @@ export const Container = styled.div`
   grid-template-columns: 250px auto;
 
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.colors.neutral[900]};
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-100);
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -43,7 +43,7 @@ export const MainHeaderWrapper = styled.header`
 
   padding: 30px;
 
-  border-bottom: 2px solid #525866;
+  border-bottom: 2px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -54,8 +54,8 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 258px 1fr;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-left: 1px solid var(--color-neutral-200);
+  border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
 
@@ -74,12 +74,12 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-bottom: 1px solid var(--color-neutral-200);
 `;
 
 export const Title = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  ${({ theme }) => theme.typography.presets.heading1};
+  color: var(--color-neutral-100);
 `;
 
 export const SearchInputAndSettingsIconWrapper = styled.div`
