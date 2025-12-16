@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.aside`
   width: 250px;
 
-  background: ${({ theme }) => theme.colors.neutral[950]};
+  background: var(--color-neutral-0);
   padding: ${({ theme }) => theme.spacing[200]};
 
   display: flex;
@@ -21,7 +21,6 @@ export const LogoWrapper = styled.div`
 
   @media (max-width: 1024px) {
     padding: 20px 30px;
-    background-color: #232530;
   }
 `;
 
@@ -40,8 +39,11 @@ export const NavItem = styled.button<{ active?: string }>`
   border: none;
 
   border-radius: 4px;
-  color: ${({ theme, active }) =>
-    active === "true" ? theme.colors.neutral[100] : theme.colors.neutral[200]};
+  color: ${({ active }) =>
+    active === "true"
+      ? "var(--color-neutral-700)"
+      : "var(--color-neutral-700)"};
+
   ${({ theme }) => theme.typography.presets.body1}
 
   text-decoration: none;
@@ -51,8 +53,8 @@ export const NavItem = styled.button<{ active?: string }>`
   padding: 12px 14px;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[800]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-950);
   }
 `;
 
@@ -64,11 +66,11 @@ export const TagSection = styled.nav`
 
   padding-top: ${({ theme }) => theme.spacing[200]};
 
-  border-top: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-top: 1px solid var(--color-neutral-200);
 
   h3 {
-    ${({ theme }) => theme.typography.presets.heading3}
-    color: ${({ theme }) => theme.colors.neutral[400]};
+    ${({ theme }) => theme.typography.presets.heading3};
+    color: var(--color-neutral-500);
     padding: 0 ${({ theme }) => theme.spacing[100]};
   }
 `;
