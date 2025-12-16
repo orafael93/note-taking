@@ -62,6 +62,7 @@ export const CreateNote = (props: Types.CreateNoteType) => {
             {metaContent.map((meta) => (
               <Fragment>
                 <Meta.Description Icon={meta.Icon} name={meta.name} />
+
                 {meta.Component && meta.componentType === "input" && (
                   <meta.Component
                     name="tags"

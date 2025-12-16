@@ -31,64 +31,6 @@ export const MainContent = styled.div`
     cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
-export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: ${({ theme }) => theme.spacing[200]};
-
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-
-  background: ${({ theme }) => theme.colors.neutral[900]};
-
-  @media (max-width: 1024px) {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-`;
-
-export const BackButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing[75]};
-  background: none;
-  border: none;
-  color: ${({ theme }) => theme.colors.neutral[300]};
-  ${({ theme }) => theme.typography.presets.body1};
-  cursor: pointer;
-  transition: color 0.2s;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.neutral[100]};
-  }
-`;
-
-export const Actions = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing[100]};
-`;
-
-export const ActionButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing[75]};
-  padding: ${({ theme }) => `${theme.spacing[75]} ${theme.spacing[150]}`};
-  border-radius: 4px;
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
-  color: ${({ theme }) => theme.colors.neutral[300]};
-  ${({ theme }) => theme.typography.presets.body1};
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.neutral[700]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
-  }
-`;
-
 export const Content = styled.div`
   position: relative;
 
@@ -111,7 +53,7 @@ export const TitleInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
   background: transparent;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
 
   padding: 5px;
 
@@ -120,7 +62,7 @@ export const TitleInput = styled.input`
 
   min-width: 300px;
 
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
 
   border-radius: 0.5rem;
@@ -128,11 +70,11 @@ export const TitleInput = styled.input`
   padding: 5px;
 
   &:focus {
-    outline-color: ${({ theme }) => theme.colors.blue[500]};
+    outline-color: var(--color-blue-500);
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[0]};
+    color: var(--color-neutral-950);
     font-weight: bold;
   }
 
@@ -146,10 +88,10 @@ export const TagsInput = styled(TitleInput)`
 
   min-width: 350px;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[400]};
+    color: var(--color-neutral-400);
     font-weight: 500;
   }
 `;
@@ -167,7 +109,7 @@ export const MetaInfo = styled.div`
 
 export const LastEdited = styled.span`
   ${({ theme }) => theme.typography.presets.body2};
-  color: ${({ theme }) => theme.colors.neutral[400]};
+  color: var(--color-neutral-400);
 
   font-size: 14px;
   font-weight: 500;
@@ -175,7 +117,6 @@ export const LastEdited = styled.span`
 
 export const NoteContent = styled.textarea`
   ${({ theme }) => theme.typography.presets.body1};
-  color: ${({ theme }) => theme.colors.neutral[100]};
   font-weight: bold;
 
   width: 100%;
@@ -190,18 +131,23 @@ export const NoteContent = styled.textarea`
 
   resize: none;
 
+  color: var(--color-neutral-950);
+  font-weight: 500;
+
   &:focus {
-    outline-color: ${({ theme }) => theme.colors.blue[500]};
+    outline-color: var(--color-blue-500);
   }
 
   &::placeholder {
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.neutral[300]};
+    color: var(--color-neutral-700);
   }
 `;
 
 export const MobileCardHeader = styled.div`
   display: none;
+
+  color: var(--color-neutral-600);
 
   @media (max-width: 1024px) {
     display: flex;
@@ -218,7 +164,7 @@ export const GoBackWrapper = styled.button`
   background: transparent;
   border: none;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-600);
   cursor: pointer;
 `;
 
@@ -243,7 +189,7 @@ export const CancelText = styled.span`
 export const SaveNote = styled.span`
   font-size: 14px;
 
-  color: ${({ theme }) => theme.colors.blue[500]};
+  color: var(--color-blue-500);
 `;
 
 export const SaveButton = styled.button`
@@ -253,20 +199,25 @@ export const SaveButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-white);
 
   font-weight: bold;
 
   cursor: pointer;
   transition: background-color 0.2s;
 
+  &:focus-visible {
+    outline-color: var(--color-white);
+    outline-offset: -3px;
+  }
+
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-700);
   }
 
   @media (max-width: 1024px) {
