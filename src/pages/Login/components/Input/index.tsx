@@ -27,6 +27,7 @@ export const Input = (props: InputType) => {
         <S.Input
           type={type === "email" ? type : showingPassword ? "text" : "password"}
           id={id}
+          placeholder={type === "email" ? "email@example.com" : ""}
           autoComplete="off"
         />
 

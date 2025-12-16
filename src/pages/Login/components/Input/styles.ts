@@ -29,19 +29,23 @@ export const InputLabel = styled.label`
 
   font-size: 14px;
 
-  color: var(--color-white);
+  color: var(--color-neutral-950);
 `;
 
 export const Input = styled.input.attrs((props) => ({
   type: props.type,
 }))`
-  color: var(--color-white);
+  color: var(--color-neutral-950);
 
   flex: 1;
 
   background: transparent;
 
   font-size: 0.875rem;
+
+  &::placeholder {
+    color: var(--color-neutral-500);
+  }
 
   padding: 5px 0;
 

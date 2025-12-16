@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  background: #2b303b;
+  background: var(--color-neutral-200);
 
   position: fixed;
   top: 0;
@@ -22,13 +22,13 @@ export const Content = styled.div`
 
   margin: 140px auto 0;
 
-  background: #0e121b;
+  background: var(--color-neutral-100);
 
   border-radius: 16px;
 
   padding: 48px;
 
-  box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     max-width: 95%;
@@ -61,6 +61,11 @@ export const Button = styled.button`
 
   width: 100%;
 
+  &:focus-visible {
+    outline-color: var(--color-neutral-100);
+    outline-offset: -3px;
+  }
+
   &:hover {
     background: var(--color-blue-500);
   }
@@ -92,5 +97,9 @@ export const OutlineButton = styled.button`
 
   &:hover {
     background: var(--color-blue-500);
+  }
+
+  & .google-icon {
+    fill: var(--color-base);
   }
 `;
