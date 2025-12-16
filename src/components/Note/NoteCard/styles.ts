@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type ContainerTypes = {
   isActive?: boolean;
+  isLastItem?: boolean;
 };
 
 export const Container = styled.button<ContainerTypes>`
@@ -13,31 +14,36 @@ export const Container = styled.button<ContainerTypes>`
 
   margin-bottom: ${({ theme }) => theme.spacing[100]};
 
-  background: ${({ theme, isActive }) =>
-    isActive ? theme.colors.neutral[800] : "transparent"};
+  background: ${({ isActive }) =>
+    isActive ? "var(--color-neutral-100)" : "transparent"};
 
   border-radius: 8px;
 
   cursor: pointer;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[700]};
+    background: var(--color-neutral-100);
   }
 
   &:focus-visible {
-    outline-color: ${({ theme }) => theme.colors.blue[500]};
+    outline-color: var(--color-blue-500);
   }
 
   @media (max-width: 1024px) {
     background: transparent;
 
-    border-bottom: 2px solid ${({ theme }) => theme.colors.neutral[800]};
+    border-radius: 0;
+
+    border-bottom: 2px solid
+      ${({ isLastItem }) =>
+        isLastItem ? "transparent" : "var(--color-neutral-200)"};
   }
 `;
 
 export const Title = styled.h2`
   ${({ theme }) => theme.typography.presets.heading2}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-base);
+
   margin-bottom: ${({ theme }) => theme.spacing[100]};
 `;
 
@@ -54,8 +60,8 @@ export const MetaInfo = styled.div`
 `;
 
 export const DateText = styled.span`
-  ${({ theme }) => theme.typography.presets.body2}
-  color: ${({ theme }) => theme.colors.neutral[400]};
+  ${({ theme }) => theme.typography.presets.body2};
+  color: var(--color-neutral-700);
 `;
 
 export const Actions = styled.div`
@@ -74,27 +80,34 @@ export const ActionButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 32px;
   height: 32px;
+
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.neutral[700]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[600]};
-  color: ${({ theme }) => theme.colors.neutral[300]};
+
+  background: var(--color-neutral-700);
+
+  border: 1px solid var(--color-neutral-600);
+
+  color: var(--color-neutral-300);
+
   cursor: pointer;
+
   transition: all 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.neutral[600]};
-    color: ${({ theme }) => theme.colors.neutral[100]};
+    background: var(--color-neutral-600);
+    color: var(--color-neutral-100);
   }
 `;
 
 export const DeleteButton = styled(ActionButton)`
-  color: ${({ theme }) => theme.colors.red[500]};
-  border-color: ${({ theme }) => theme.colors.red[500]};
+  color: var(--color-red-500);
+  border-color: var(--color-red-500);
 
   &:hover {
-    background: ${({ theme }) => theme.colors.red[500]};
-    color: ${({ theme }) => theme.colors.neutral[0]};
+    background: var(--color-red-500);
+    color: var(--color-neutral-0);
   }
 `;
