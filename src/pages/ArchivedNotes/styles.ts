@@ -7,15 +7,13 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-right: 1px solid var(--color-neutral-200);
 `;
 
 export const SectionTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
 export const TitleWrapper = styled.div`
@@ -23,15 +21,15 @@ export const TitleWrapper = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  ${({ theme }) => theme.typography.presets.heading1};
+
+  color: var(--color-neutral-950);
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.neutral[200]};
-
   font-size: 14px;
 
+  color: var(--color-neutral-700);
   font-weight: 500;
 `;
 
@@ -42,20 +40,21 @@ export const CreateButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
   cursor: pointer;
+
   transition: background-color 0.2s;
 
   &:focus-visible {
-    outline-color: ${({ theme }) => theme.colors.neutral[100]};
+    outline-color: var(--color-neutral-100);
   }
 
   &:hover {
@@ -69,15 +68,18 @@ export const CreateButton = styled.button`
 
 export const SearchInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  color: ${({ theme }) => theme.colors.neutral[100]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
-  border-radius: 8px;
-  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   width: 300px;
 
+  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
+
+  background: var(--color-neutral-800);
+  color: var(--color-neutral-100);
+
+  border: 1px solid var(--color-neutral-700);
+  border-radius: 8px;
+
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[500]};
+    color: var(--color-neutral-500);
   }
 `;
 
@@ -109,7 +111,7 @@ export const LogoWrapper = styled.div`
     display: block;
 
     padding: 20px 30px;
-    background-color: #232530;
+    background-color: var(--color-neutral-100);
   }
 `;
 
@@ -122,7 +124,7 @@ export const MainHeaderWrapper = styled.header`
 
   min-height: 81px;
 
-  border-bottom: 2px solid #525866;
+  border-bottom: 2px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -134,7 +136,7 @@ export const AllNotesHeader = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-bottom: 1px solid var(--color-neutral-200);
 `;
 
 export const SearchInputAndSettingsIconWrapper = styled.div`
@@ -157,8 +159,8 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-left: 1px solid var(--color-neutral-200);
+  border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
 
@@ -173,17 +175,17 @@ export const ContentWrapper = styled.div`
 `;
 
 export const NoArchivedNotesWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.neutral[800]};
+  background: var(--color-neutral-100);
   padding: 8px;
 
   margin: 0 10px;
 
   border-radius: 8px;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
 
   & p {
     display: inline;
@@ -199,7 +201,7 @@ export const CreateNewNoteButton = styled.button`
   color: inherit;
 
   &:focus-visible {
-    color: ${({ theme }) => theme.colors.blue[500]};
+    color: var(--color-blue-500);
     outline: none;
   }
 `;

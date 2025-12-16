@@ -70,7 +70,11 @@ export default () => {
           />
 
           <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
-            <Settings size={20} color="#fff" style={{ cursor: "pointer" }} />
+            <Settings
+              size={20}
+              color="var(--color-neutral-500)"
+              style={{ cursor: "pointer" }}
+            />
           </S.SettingsIconWrapper>
         </S.SearchInputAndSettingsIconWrapper>
       </S.MainHeaderWrapper>
