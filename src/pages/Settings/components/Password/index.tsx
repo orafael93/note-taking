@@ -32,12 +32,12 @@ const Password = (props: Types.ThemeType) => {
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  color: "#99A0AE",
+                  color: "var(--color-neutral-400)",
                   marginTop: "8px",
                   fontSize: "12px",
                 }}
               >
-                <Info size={14} color="#99A0AE" />
+                <Info size={14} color="var(--color-neutral-600)" />
                 At least 8 characters
               </span>
             </div>

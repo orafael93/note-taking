@@ -47,6 +47,8 @@ export const Content = styled.div`
 
 export const ColorThemeText = styled.h1`
   font-size: 16px;
+
+  color: var(--color-neutral-950);
 `;
 
 export const ChooseThemeText = styled.h2`
@@ -93,7 +95,7 @@ export const IconWrapper = styled.div`
 
   border-radius: 8px;
 
-  background: ${({ theme }) => theme.colors.neutral[950]};
+  background: var(--color-neutral-950);
 
   padding: 10px;
 `;
@@ -105,13 +107,13 @@ export const ApplyChangesButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
 
   outline: 2px solid transparent;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-neutral-0);
 
   font-weight: bold;
 
@@ -119,11 +121,11 @@ export const ApplyChangesButton = styled.button`
   transition: background-color 0.2s;
 
   &:focus-visible {
-    outline-color: ${({ theme }) => theme.colors.neutral[100]};
+    outline-color: var(--color-neutral-100);
   }
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   margin-left: auto;
@@ -147,7 +149,7 @@ export const GoBackWrapper = styled.button`
   background: transparent;
   border: none;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-600);
   cursor: pointer;
 `;
 
