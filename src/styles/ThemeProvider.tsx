@@ -4,7 +4,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { theme } from "@/styles/theme";
 import { GlobalStyle } from "@/styles/global";
 import { useThemeStore } from "@/store/theme";
-import { initProjectFont } from "@/utils";
+import { initProjectFont, initProjectTheme } from "@/utils";
 
 type ThemeProviderType = {
   children: React.ReactNode;
@@ -39,6 +39,7 @@ export const ThemeProvider = ({ children }: ThemeProviderType) => {
 
   useEffect(() => {
     initProjectFont();
+    initProjectTheme();
   }, []);
 
   return (
