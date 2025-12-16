@@ -79,6 +79,8 @@ export const GlobalStyle = createGlobalStyle`
     --current-font: 'Inter', sans-serif;
 
     --color-base: #000;
+    --color-white: #ffffff;
+    --color-black: #000000;
 
     --color-neutral-0: #FFFFFF;
     --color-neutral-50: #F5F7FA;
@@ -169,6 +171,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button:focus-visible, a:focus-visible {
-    outline-color: ${({ theme }) => theme.colors.blue[500]};;
+    outline-color: var(--color-blue-500);;
   }
 `;
