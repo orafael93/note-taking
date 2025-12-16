@@ -24,11 +24,11 @@ const Font = (props: Types.FontType) => {
       itemIsActive: canActiveItem("sans-serif"),
       inputId: "sans-serif",
       inputName: "font",
-      Icon: () => <span>AA</span>,
+      Icon: () => <span style={{ color: "var(--color-neutral-950)" }}>AA</span>,
       children: (
         <div>
-          <p>Sans serif</p>
-          <p>Clean and modern, easy to read.</p>
+          <S.FontName>Sans serif</S.FontName>
+          <S.FontDescription>Clean and modern, easy to read.</S.FontDescription>
         </div>
       ),
     },
@@ -37,11 +37,13 @@ const Font = (props: Types.FontType) => {
       itemIsActive: canActiveItem("serif"),
       inputId: "serif",
       inputName: "font",
-      Icon: () => <span>AA</span>,
+      Icon: () => <span style={{ color: "var(--color-neutral-950)" }}>AA</span>,
       children: (
         <div>
-          <p>Serif</p>
-          <p>Classic and elegant for a timeless feel.</p>
+          <S.FontName>Serif</S.FontName>
+          <S.FontDescription>
+            Classic and elegant for a timeless feel.
+          </S.FontDescription>
         </div>
       ),
     },
@@ -50,11 +52,13 @@ const Font = (props: Types.FontType) => {
       itemIsActive: canActiveItem("monospace"),
       inputId: "monospace",
       inputName: "font",
-      Icon: () => <span>AA</span>,
+      Icon: () => <span style={{ color: "var(--color-neutral-950)" }}>AA</span>,
       children: (
         <div>
-          <p>Monospace</p>
-          <p>Code-like, great for a technical vibe.</p>
+          <S.FontName>Monospace</S.FontName>
+          <S.FontDescription>
+            Code-like, great for a technical vibe.
+          </S.FontDescription>
         </div>
       ),
     },

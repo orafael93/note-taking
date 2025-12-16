@@ -47,12 +47,30 @@ export const Content = styled.div`
 
 export const FontText = styled.h1`
   font-size: 16px;
+
+  color: var(--color-neutral-950);
+`;
+
+export const FontName = styled.p`
+  color: var(--color-neutral-950);
+
+  font-size: 14px;
+`;
+
+export const FontDescription = styled.p`
+  color: var(--color-neutral-700);
+
+  font-size: 12px;
 `;
 
 export const ChooseFontText = styled.h2`
   font-size: 14px;
 
   margin-top: 4px;
+
+  color: var(--color-neutral-700);
+
+  font-weight: 500;
 `;
 
 export const OptionsWrapper = styled.div`
@@ -70,12 +88,12 @@ export const ApplyChangesButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-white);
 
   font-weight: bold;
 
@@ -83,7 +101,7 @@ export const ApplyChangesButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   margin-left: auto;
@@ -107,7 +125,7 @@ export const GoBackWrapper = styled.button`
   background: transparent;
   border: none;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-600);
   cursor: pointer;
 `;
 
