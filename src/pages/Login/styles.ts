@@ -68,6 +68,7 @@ export const Button = styled.button`
 
   &:hover {
     background: var(--color-blue-500);
+    color: var(--color-white);
   }
 `;
 
@@ -95,11 +96,31 @@ export const OutlineButton = styled.button`
 
   border: 1px solid var(--color-neutral-600);
 
+  color: var(--color-neutral-950);
+
   &:hover {
     background: var(--color-blue-500);
+    color: var(--color-white);
+  }
+
+  &:hover .google-icon {
+    fill: var(--color-white);
   }
 
   & .google-icon {
     fill: var(--color-base);
+  }
+`;
+
+export const NoAccountText = styled.p`
+  margin-top: 32px;
+  font-weight: 300;
+
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-neutral-950);
+
+  & button {
+    color: inherit;
   }
 `;

@@ -7,7 +7,7 @@ import { GoogleIcon } from "@/components/Icons";
 import * as S from "./styles";
 
 export default () => {
-  const navigage = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <S.Wrapper>
@@ -65,25 +65,15 @@ export default () => {
           Or login with:
         </p>
 
-        <S.OutlineButton
-          style={{ marginTop: "1rem", color: "var(--color-neutral-950)" }}
-        >
+        <S.OutlineButton style={{ marginTop: "1rem" }}>
           <GoogleIcon />
           Google
         </S.OutlineButton>
 
-        <p
-          style={{
-            fontSize: "14px",
-            marginTop: "32px",
-            textAlign: "center",
-            fontWeight: 300,
-            color: "var(--color-neutral-950)",
-          }}
-        >
-          No account yet?{" "}
-          <button onClick={() => navigage("/create-account")}>Sign Up</button>
-        </p>
+        <S.NoAccountText>
+          No account yet?
+          <button onClick={() => navigate("/create-account")}>Sign Up</button>
+        </S.NoAccountText>
       </S.Content>
     </S.Wrapper>
   );
