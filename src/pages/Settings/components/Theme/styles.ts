@@ -47,12 +47,27 @@ export const Content = styled.div`
 
 export const ColorThemeText = styled.h1`
   font-size: 16px;
+  color: var(--color-neutral-950);
+`;
+
+export const ThemeColor = styled.p`
+  color: var(--color-neutral-950);
+  font-size: 14px;
+`;
+
+export const ThemeDescription = styled.p`
+  color: var(--color-neutral-700);
+  font-size: 12px;
 `;
 
 export const ChooseThemeText = styled.h2`
   font-size: 14px;
 
   margin-top: 4px;
+
+  font-weight: 500;
+
+  color: var(--color-neutral-700);
 `;
 
 export const OptionsWrapper = styled.div`
@@ -61,6 +76,11 @@ export const OptionsWrapper = styled.div`
   gap: 16px;
 
   margin-top: 24px;
+
+  & label {
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 8px;
+  }
 `;
 
 type OptionType = {
@@ -74,8 +94,8 @@ export const Option = styled.div<OptionType>`
   align-items: center;
   gap: 16px;
 
-  background: ${({ theme, active }) =>
-    active ? theme.colors.neutral[800] : "transparent"};
+  background: ${({ active }) =>
+    active ? "var(--colors-neutral-800)" : "transparent"};
 
   border-radius: 8px;
 
@@ -93,7 +113,7 @@ export const IconWrapper = styled.div`
 
   border-radius: 8px;
 
-  background: ${({ theme }) => theme.colors.neutral[950]};
+  background: var(--color-neutral-950);
 
   padding: 10px;
 `;
@@ -105,12 +125,12 @@ export const ApplyChangesButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-white);
 
   font-weight: bold;
 
@@ -118,7 +138,7 @@ export const ApplyChangesButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   margin-left: auto;
@@ -142,7 +162,7 @@ export const GoBackWrapper = styled.button`
   background: transparent;
   border: none;
 
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-600);
   cursor: pointer;
 `;
 

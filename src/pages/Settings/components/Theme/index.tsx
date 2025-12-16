@@ -24,11 +24,15 @@ const Theme = (props: Types.ThemeType) => {
       itemIsActive: canActiveItem("light"),
       inputId: "light",
       inputName: "theme",
-      Icon: () => <Sun size={16} strokeWidth={3} color="#fff" />,
+      Icon: () => (
+        <Sun size={16} strokeWidth={3} color="var(--color-neutral-950)" />
+      ),
       children: (
         <div>
-          <p>Light mode</p>
-          <p>Pick a clean and classic light theme</p>
+          <S.ThemeColor>Light mode</S.ThemeColor>
+          <S.ThemeDescription>
+            Pick a clean and classic light theme
+          </S.ThemeDescription>
         </div>
       ),
     },
@@ -37,11 +41,15 @@ const Theme = (props: Types.ThemeType) => {
       itemIsActive: canActiveItem("dark"),
       inputId: "dark",
       inputName: "theme",
-      Icon: () => <Moon size={16} strokeWidth={3} color="#fff" />,
+      Icon: () => (
+        <Moon size={16} strokeWidth={3} color="var(--color-neutral-950)" />
+      ),
       children: (
         <div>
-          <p>Dark mode</p>
-          <p>Pick a sleek and modern dark theme</p>
+          <S.ThemeColor>Dark mode</S.ThemeColor>
+          <S.ThemeDescription>
+            Pick a sleek and modern dark theme
+          </S.ThemeDescription>
         </div>
       ),
     },
@@ -50,15 +58,26 @@ const Theme = (props: Types.ThemeType) => {
       itemIsActive: canActiveItem("device"),
       inputId: "device",
       inputName: "theme",
-      Icon: () => <Sun size={16} strokeWidth={3} color="#fff" />,
+      Icon: () => (
+        <Sun size={16} strokeWidth={3} color="var(--color-neutral-950)" />
+      ),
       children: (
         <div>
-          <p>System</p>
-          <p>Adapts to your device's theme</p>
+          <S.ThemeColor>System</S.ThemeColor>
+          <S.ThemeDescription>Adapts to your device's theme</S.ThemeDescription>
         </div>
       ),
     },
   ];
+
+  const onApplyTheme = () => {
+    const activeInput = options.find((option) => option.itemIsActive);
+    const themeToUpdate = activeInput?.inputId;
+
+    if (themeToUpdate === "light" || themeToUpdate === "dark") {
+      document.documentElement.setAttribute("data-theme", themeToUpdate);
+    }
+  };
 
   return (
     <S.Container>
@@ -91,7 +110,10 @@ const Theme = (props: Types.ThemeType) => {
             ))}
           </S.OptionsWrapper>
 
-          <S.ApplyChangesButton style={{ marginTop: "24px" }}>
+          <S.ApplyChangesButton
+            style={{ marginTop: "24px" }}
+            onClick={onApplyTheme}
+          >
             Apply Changes
           </S.ApplyChangesButton>
         </S.Content>
