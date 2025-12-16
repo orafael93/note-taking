@@ -3,7 +3,7 @@ import * as S from "./styles";
 
 const Description = ({ Icon, name }: Types.DescriptionType) => (
   <S.MetaDescription>
-    <Icon size={14} />
+    <Icon size={14} color="var(--color-neutral-700)" />
     <S.MetaName>{name}</S.MetaName>
   </S.MetaDescription>
 );

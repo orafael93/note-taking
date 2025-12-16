@@ -9,10 +9,11 @@ export const MetaDescription = styled.div`
 export const MetaName = styled.span`
   font-size: 14px;
 
-  color: ${({ theme }) => theme.colors.neutral[300]};
+  color: var(--color-neutral-700);
 `;
 
 export const TagItem = styled.span`
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
+
   font-size: 0.9rem;
 `;
