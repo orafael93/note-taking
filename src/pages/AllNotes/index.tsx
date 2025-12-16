@@ -76,7 +76,11 @@ export const AllNotes = () => {
           />
 
           <S.SettingsIconWrapper onClick={() => navigate("/settings")}>
-            <Settings size={20} color="#fff" style={{ cursor: "pointer" }} />
+            <Settings
+              size={20}
+              color="var(--color-neutral-500)"
+              style={{ cursor: "pointer" }}
+            />
           </S.SettingsIconWrapper>
         </S.SearchInputAndSettingsIconWrapper>
       </S.MainHeaderWrapper>
@@ -108,11 +112,12 @@ export const AllNotes = () => {
             )}
 
             <S.NotesList>
-              {notes.map((note) => (
+              {notes.map((note, index, allNotesArray) => (
                 <NoteCard
                   key={note.title}
                   note={note}
                   isActive={note.title === selectedNoteId}
+                  isLastItem={index === allNotesArray.length - 1}
                   onClick={() =>
                     handleSelectNote(
                       selectedNoteId === note.title ? null : note.title
@@ -138,7 +143,7 @@ export const AllNotes = () => {
 
         {!creatingNewNote && (
           <S.CreateButtonMobile onClick={onCreateNewNote}>
-            <Plus color="#fff" />
+            <Plus color="var(--color-white)" />
           </S.CreateButtonMobile>
         )}
       </S.ContentWrapper>

@@ -7,6 +7,8 @@ export const MainContent = styled.main`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 
+  background-color: var(--color-neutral-0);
+
   @media (max-width: 1024px) {
     height: calc(100dvh - 64px);
     overflow: hidden;
@@ -22,7 +24,7 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-right: 1px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     border-right: none;
@@ -35,8 +37,6 @@ export const SectionTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
 `;
 
 export const TitleWrapper = styled.div`
@@ -45,7 +45,7 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.h1`
   ${({ theme }) => theme.typography.presets.heading1}
-  color: ${({ theme }) => theme.colors.neutral[100]};
+  color: var(--color-neutral-950);
 `;
 
 export const CreateButton = styled.button`
@@ -55,12 +55,12 @@ export const CreateButton = styled.button`
   gap: 8px;
 
   padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
-  background: ${({ theme }) => theme.colors.blue[500]};
+  background: var(--color-blue-500);
   border: none;
 
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.neutral[0]};
+  color: var(--color-white);
 
   font-weight: bold;
 
@@ -68,11 +68,12 @@ export const CreateButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[700]};
+    background: var(--color-blue-500);
   }
 
   &:focus-visible {
-    outline-color: ${({ theme }) => theme.colors.neutral[100]};
+    outline-color: var(--color-neutral-100);
+    outline-offset: -3px;
   }
 
   @media (max-width: 1024px) {
@@ -82,15 +83,15 @@ export const CreateButton = styled.button`
 
 export const SearchInput = styled.input`
   ${({ theme }) => theme.typography.presets.body1}
-  background: ${({ theme }) => theme.colors.neutral[800]};
-  color: ${({ theme }) => theme.colors.neutral[100]};
-  border: 1px solid ${({ theme }) => theme.colors.neutral[700]};
+  background: var(--color-neutral-800);
+  color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-700);
   border-radius: 8px;
   padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
   width: 300px;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[500]};
+    color: var(--color-neutral-500);
   }
 `;
 
@@ -102,10 +103,10 @@ export const NotesList = styled.div`
 
 export const LogoWrapper = styled.div`
   display: none;
+  background-color: var(--color-neutral-100);
 
   @media (max-width: 1024px) {
     padding: 20px 30px;
-    background-color: #232530;
 
     display: block;
   }
@@ -120,7 +121,7 @@ export const MainHeaderWrapper = styled.header`
 
   min-height: 81px;
 
-  border-bottom: 2px solid #525866;
+  border-bottom: 2px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -132,7 +133,7 @@ export const AllNotesHeader = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-bottom: 1px solid var(--color-neutral-800);
 `;
 
 export const SearchInputAndSettingsIconWrapper = styled.div`
@@ -155,8 +156,8 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral[800]};
+  border-left: 1px solid var(--color-neutral-200);
+  border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
 
@@ -173,20 +174,20 @@ export const ContentWrapper = styled.div`
 `;
 
 export const CreateButtonMobile = styled.button`
-  background: ${({ theme }) => theme.colors.blue[500]};
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+
+  background: var(--color-blue-500);
 
   border-radius: 50%;
 
   border: 2px solid transparent;
 
-  position: fixed;
-  right: 35px;
-  bottom: 80px;
-
   display: none;
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors.neutral[100]};
+    border: 2px solid var(--color-neutral-100);
   }
 
   @media (max-width: 1024px) {
