@@ -1,6 +1,6 @@
 export type NavigationLinksType =
   | "home"
   | "search"
-  | "archive"
+  | "archived"
   | "tags"
   | "settings";

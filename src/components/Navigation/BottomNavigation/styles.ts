@@ -5,31 +5,43 @@ export const Nav = styled.nav`
 
   @media (max-width: 1024px) {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px;
-    background: ${({ theme }) => theme.colors.neutral[950]};
-    border-top: 1px solid ${({ theme }) => theme.colors.neutral[800]};
-    justify-content: space-around;
-    align-items: center;
-    padding: ${({ theme }) => theme.spacing[100]};
+
+    height: 74px;
+
+    background: var(--color-neutral-0);
+
+    border-top: 1px solid var(--color-neutral-800);
+
+    padding: 12px;
+
     z-index: 100;
   }
 `;
 
 export const NavButton = styled.button<{ active?: boolean }>`
-  color: ${({ theme, active }) =>
-    active ? theme.colors.blue[500] : theme.colors.neutral[400]};
-  ${({ theme }) => theme.typography.presets.body2}
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[50]};
+
+  color: ${({ active }) =>
+    active ? "var(--color-blue-500)" : "var(--color-neutral-400)"};
+
+  ${({ theme }) => theme.typography.presets.body2};
+
   font-size: 12px;
 
-  padding: 4px;
+  background-color: ${({ active }) =>
+    active ? "var(--color-neutral-100)" : "transparent"};
+
+  padding: 8px 24px;
 
   border-radius: 2px;
 `;

@@ -17,6 +17,7 @@ export const BottomNavigation = () => {
 
   const onNavigate = (param: Types.NavigationLinksType) => {
     setActiveLink(param);
+
     navigate(`/${param}`);
 
     onSearchingNotes(param === "search");
@@ -41,8 +42,8 @@ export const BottomNavigation = () => {
         <span>Search</span>
       </S.NavButton>
       <S.NavButton
-        active={activeLink === "archive"}
-        onClick={() => onNavigate("archive")}
+        active={activeLink === "archived"}
+        onClick={() => onNavigate("archived")}
       >
         <Archive size={24} />
         <span>Archive</span>
