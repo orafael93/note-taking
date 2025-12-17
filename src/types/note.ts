@@ -7,6 +7,6 @@ export type NoteType = {
   title: string;
   content: string;
   tags: string[];
-  lastEdited: string;
-  isArchived: boolean;
+  lastEdited?: string;
+  isArchived?: boolean;
 };
