@@ -3,6 +3,7 @@ import { ChevronLeft, Moon, Sun } from "lucide-react";
 
 import { Option } from "@/pages/Settings/components/Option";
 import { OptionType } from "@/pages/Settings/components/Option/types";
+import { getStoredTheme, updateProjectTheme } from "@/utils";
 
 import * as Types from "./types";
 import * as S from "./styles";
@@ -10,7 +11,9 @@ import * as S from "./styles";
 const Theme = (props: Types.ThemeType) => {
   const { onClearActiveItem } = props;
 
-  const [activeMode, setActiveMode] = useState<Types.ActiveMode>("light");
+  const [activeMode, setActiveMode] = useState<Types.ActiveMode>(
+    getStoredTheme() as Types.ActiveMode
+  );
 
   const onUpdateActiveMode = (param: Types.ActiveMode) => {
     setActiveMode(param);
@@ -75,7 +78,7 @@ const Theme = (props: Types.ThemeType) => {
     const themeToUpdate = activeInput?.inputId;
 
     if (themeToUpdate === "light" || themeToUpdate === "dark") {
-      document.documentElement.setAttribute("data-theme", themeToUpdate);
+      updateProjectTheme(themeToUpdate);
     }
   };
 

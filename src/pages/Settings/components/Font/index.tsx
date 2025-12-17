@@ -3,6 +3,7 @@ import { ChevronLeft } from "lucide-react";
 
 import { Option } from "@/pages/Settings/components/Option";
 import { OptionType } from "@/pages/Settings/components/Option/types";
+import { getStoredFont, updateProjectFont } from "@/utils";
 
 import * as Types from "./types";
 import * as S from "./styles";
@@ -10,7 +11,9 @@ import * as S from "./styles";
 const Font = (props: Types.FontType) => {
   const { onClearActiveItem } = props;
 
-  const [activeMode, setActiveMode] = useState<Types.ActiveFont>("sans-serif");
+  const [activeMode, setActiveMode] = useState<Types.ActiveFont>(
+    getStoredFont() as Types.ActiveFont
+  );
 
   const onUpdateActiveMode = (param: Types.ActiveFont) => {
     setActiveMode(param);
@@ -69,7 +72,7 @@ const Font = (props: Types.FontType) => {
     const fontToUpdate = activeFont?.inputId;
 
     if (fontToUpdate) {
-      document.documentElement.setAttribute("data-font", fontToUpdate);
+      updateProjectFont(fontToUpdate);
     }
   };
 
