@@ -209,7 +209,7 @@ export const SaveButton = styled.button`
 
   font-weight: bold;
 
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   transition: background-color 0.2s;
 
   &:focus-visible {
