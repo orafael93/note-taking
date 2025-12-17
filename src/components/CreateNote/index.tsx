@@ -1,13 +1,27 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
+import { useNotesStore } from "@/store/notes";
+import { handleTags } from "@/utils";
 
 import * as Types from "./types";
 import * as S from "./styles";
 
 export const CreateNote = (props: Types.CreateNoteType) => {
   const { onBack } = props;
+
+  const addNote = useNotesStore((state) => state.addNote);
+
+  const [noteContent, setNoteContent] = useState<
+    Record<Types.FieldsType, string>
+  >({
+    title: "",
+    tags: "",
+    content: "",
+  });
+
+  const canCreateNote = Object.values(noteContent).every(Boolean);
 
   const metaContent = [
     {
@@ -26,6 +40,15 @@ export const CreateNote = (props: Types.CreateNoteType) => {
       componentContent: "Not saved yet",
     },
   ];
+
+  const onUpdateNoteContent = (param: Types.OnUpdateNoteContentType) => {
+    const { key, value } = param;
+
+    setNoteContent((currentState) => ({
+      ...currentState,
+      [key]: key === "tags" ? handleTags(value) : value,
+    }));
+  };
 
   return (
     <S.Container>
@@ -55,8 +78,12 @@ export const CreateNote = (props: Types.CreateNoteType) => {
           <S.TitleInput
             placeholder="Enter a title..."
             name="title"
+            value={noteContent.title}
             style={{ marginBottom: "20px" }}
             autoFocus={window.innerWidth >= 1024}
+            onChange={(e) =>
+              onUpdateNoteContent({ key: "title", value: e.target.value || "" })
+            }
           />
           <S.MetaInfo>
             {metaContent.map((meta) => (
@@ -66,7 +93,14 @@ export const CreateNote = (props: Types.CreateNoteType) => {
                 {meta.Component && meta.componentType === "input" && (
                   <meta.Component
                     name="tags"
+                    value={noteContent.tags}
                     placeholder={meta.inputPlaceholder}
+                    onChange={(e) =>
+                      onUpdateNoteContent({
+                        key: "tags",
+                        value: e.target.value || "",
+                      })
+                    }
                   />
                 )}
 
@@ -79,10 +113,29 @@ export const CreateNote = (props: Types.CreateNoteType) => {
           <S.NoteContent
             placeholder="Start typing your note here..."
             name="note-content"
+            value={noteContent.content}
+            onChange={(e) =>
+              onUpdateNoteContent({
+                key: "content",
+                value: e.target.value || "",
+              })
+            }
           />
 
           <S.NoteFooter>
-            <S.SaveButton>Save note</S.SaveButton>
+            <S.SaveButton
+              disabled={!canCreateNote}
+              onClick={() => {
+                addNote({
+                  title: noteContent.title,
+                  tags: noteContent.tags as unknown as string[],
+                  content: noteContent.content,
+                  lastEdited: new Date().toString(),
+                });
+              }}
+            >
+              Save note
+            </S.SaveButton>
           </S.NoteFooter>
         </S.Content>
       </S.MainContent>
