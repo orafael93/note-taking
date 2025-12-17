@@ -186,6 +186,11 @@ export const CreateButtonMobile = styled.button`
 
   display: none;
 
+  &:focus-visible {
+    outline-color: var(--color-white);
+    outline-offset: -3px;
+  }
+
   &:focus {
     border: 2px solid var(--color-neutral-100);
   }

@@ -63,7 +63,7 @@ export const TitleInput = styled.input`
   min-width: 300px;
 
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
 
   border-radius: 0.5rem;
 
@@ -90,9 +90,10 @@ export const TagsInput = styled(TitleInput)`
 
   color: var(--color-neutral-950);
 
+  font-weight: 500;
+
   &::placeholder {
     color: var(--color-neutral-400);
-    font-weight: 500;
   }
 `;
 
