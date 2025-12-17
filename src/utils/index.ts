@@ -42,3 +42,8 @@ export const updateProjectTheme = (theme: "dark" | "light") => {
   localStorage.setItem("note-taking-theme", theme);
   document.documentElement.setAttribute("data-theme", theme);
 };
+
+export const handleTags = (tag: string) =>
+  tag
+    .split(",")
+    .map((currentTag) => currentTag.trim().replaceAll(/[^a-zA-Z,\s]/g, ""));
