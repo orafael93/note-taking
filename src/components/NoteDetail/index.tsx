@@ -21,7 +21,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
     year: "numeric",
     month: "short",
     day: "numeric",
-  }).format(new Date(note.lastEdited));
+  }).format(new Date(note.lastEdited || new Date().toString()));
 
   const metaContent = [
     {
