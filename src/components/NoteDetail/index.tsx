@@ -29,6 +29,9 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
 
   const [modalsData, setModalsData] = useState<ModalsDataType>();
 
+  const handleArchiveNote = useNotesStore((state) => state.toggleArchive);
+  const handleDeleteNote = useNotesStore((state) => state.deleteNote);
+
   if (!note) return null;
 
   const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -140,7 +143,14 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               >
                 Cancel
               </S.CancelButton>
-              <S.DeleteButton>Delete Note</S.DeleteButton>
+              <S.DeleteButton
+                onClick={() =>
+                  modalsData.delete?.noteId &&
+                  handleDeleteNote(modalsData.delete?.noteId)
+                }
+              >
+                Delete Note
+              </S.DeleteButton>
             </S.DeleteButtonsWrapper>
           </S.DeleteContentModalWrapper>
         </Modal>
