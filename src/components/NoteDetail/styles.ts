@@ -72,42 +72,6 @@ export const Actions = styled.div`
   gap: ${({ theme }) => theme.spacing[100]};
 `;
 
-export const ActionButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing[75]};
-
-  padding: ${({ theme }) => `${theme.spacing[75]} ${theme.spacing[150]}`};
-
-  border-radius: 4px;
-
-  background: var(--color-neutral-800);
-
-  border: 1px solid var(--color-neutral-700);
-
-  color: var(--color-neutral-300);
-
-  ${({ theme }) => theme.typography.presets.body1};
-
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:hover {
-    background: var(--color-neutral-700);
-    color: var(--color-neutral-100);
-  }
-`;
-
-export const DeleteButton = styled(ActionButton)`
-  color: var(--color-red-500);
-  border-color: var(--color-red-500);
-
-  &:hover {
-    background: var(--color-red-500);
-    color: var(--color-neutral-0);
-  }
-`;
-
 export const Content = styled.div`
   position: relative;
 
@@ -228,4 +192,140 @@ export const SaveButton = styled.button`
   @media (max-width: 1024px) {
     display: none;
   }
+`;
+
+export const ActionButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing[75]};
+
+  padding: ${({ theme }) => `${theme.spacing[75]} ${theme.spacing[150]}`};
+
+  border-radius: 4px;
+
+  background: var(--color-neutral-800);
+
+  border: 1px solid var(--color-neutral-700);
+
+  color: var(--color-neutral-300);
+
+  ${({ theme }) => theme.typography.presets.body1};
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-100);
+  }
+`;
+
+export const DeleteButton = styled(ActionButton)`
+  min-width: 110px;
+
+  justify-content: center;
+
+  padding: 12px 0;
+
+  background: var(--color-red-500);
+  color: var(--color-white);
+
+  border: none;
+  outline: 2px solid transparent;
+
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+`;
+
+export const CancelButton = styled(ActionButton)`
+  min-width: 110px;
+
+  justify-content: center;
+
+  padding: 12px 0;
+
+  background: var(--color-neutral-300);
+  color: var(--color-neutral-800);
+
+  border: none;
+  outline: 2px solid transparent;
+
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+`;
+
+const animateDeleteModalContent = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const DeleteContentModalWrapper = styled.div`
+  width: clamp(290px, 50vw, 440px);
+
+  background: var(--color-neutral-200);
+
+  border-radius: 8px;
+  border: 1px solid rgb(from var(--color-neutral-600) r g b / 0.3);
+
+  animation: ${animateDeleteModalContent} 0.2s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+`;
+
+export const DeleteContentWrapper = styled.div`
+  display: flex;
+  align-items: start;
+  gap: 16px;
+
+  color: var(--color-white);
+
+  padding: 20px;
+
+  border-bottom: 1px solid rgb(from var(--color-neutral-600) r g b / 0.3);
+
+  & p:first-child {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: var(--color-neutral-950);
+  }
+
+  & p:last-child {
+    font-size: 14px;
+
+    margin-top: 6px;
+
+    font-weight: 500;
+
+    color: var(--color-neutral-700);
+  }
+`;
+
+export const TrashIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px;
+
+  border-radius: 8px;
+
+  background-color: var(--color-neutral-400);
+`;
+
+export const DeleteButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  padding: 16px 20px;
 `;
