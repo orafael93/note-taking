@@ -45,8 +45,7 @@ export const Content = styled.div`
 `;
 
 export const NoteFooter = styled.footer`
-  position: absolute;
-  bottom: 20px;
+  margin-top: 50px;
 `;
 
 export const TitleInput = styled.input`
@@ -121,7 +120,7 @@ export const NoteContent = styled.textarea`
   font-weight: bold;
 
   width: 100%;
-  height: calc(100dvh - 50%);
+  min-height: 300px;
 
   border: none;
   outline: 2px solid transparent;
