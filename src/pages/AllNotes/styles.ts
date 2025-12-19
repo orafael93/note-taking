@@ -9,9 +9,11 @@ export const MainContent = styled.main`
 
   background-color: var(--color-neutral-0);
 
+  max-height: calc(100dvh - 81px);
+
   @media (max-width: 1024px) {
-    height: calc(100dvh - 64px);
     overflow: hidden;
+    height: calc(100dvh - 64px);
 
     grid-column: 1 / -1;
   }
@@ -24,7 +26,7 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  border-right: 1px solid var(--color-neutral-200);
+  overflow-y: auto;
 
   @media (max-width: 1024px) {
     border-right: none;
@@ -159,7 +161,7 @@ export const ContentWrapper = styled.div`
   border-left: 1px solid var(--color-neutral-200);
   border-right: 1px solid var(--color-neutral-200);
 
-  overflow-y: auto;
+  overflow-y: scroll;
 
   height: 100%;
 
