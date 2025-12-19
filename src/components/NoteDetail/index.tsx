@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
@@ -23,8 +24,14 @@ type ModalsDataType = {
 export const NoteDetail = (props: Types.NoteDetailType) => {
   const { noteId, onBack } = props;
 
+  const navigate = useNavigate();
+
   const note = useNotesStore((state) =>
     state.notes.allNotes.find((n) => n.title === noteId)
+  );
+
+  const onUpdateSelectedNote = useNotesStore(
+    (state) => state.onUpdateSelectedNote
   );
 
   const [modalsData, setModalsData] = useState<ModalsDataType>();
@@ -99,10 +106,6 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               ))}
             </S.MetaInfo>
             <S.NoteContent>{note.content}</S.NoteContent>
-
-            <S.NoteFooter>
-              <S.SaveButton>Save note</S.SaveButton>
-            </S.NoteFooter>
           </S.Content>
         </S.MainContent>
         <NoteActions
@@ -118,10 +121,10 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
 
       {modalsData?.delete?.showModal && (
         <Modal>
-          <S.DeleteContentModalWrapper>
-            <S.DeleteContentWrapper>
+          <S.ModalContentWrapper>
+            <S.ModalMainContentWrapper>
               <S.TrashIconWrapper>
-                <Trash2 size={24} color="#fff" />
+                <Trash2 size={24} color="var(--color-white)" />
               </S.TrashIconWrapper>
               <div>
                 <p>Delete Note</p>
@@ -130,8 +133,8 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
                   action cannot be undone.
                 </p>
               </div>
-            </S.DeleteContentWrapper>
-            <S.DeleteButtonsWrapper>
+            </S.ModalMainContentWrapper>
+            <S.ModalActionsWrapper>
               <S.CancelButton
                 onClick={() =>
                   setModalsData({
@@ -151,8 +154,58 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               >
                 Delete Note
               </S.DeleteButton>
-            </S.DeleteButtonsWrapper>
-          </S.DeleteContentModalWrapper>
+            </S.ModalActionsWrapper>
+          </S.ModalContentWrapper>
+        </Modal>
+      )}
+
+      {modalsData?.archive?.showModal && (
+        <Modal>
+          <S.ModalContentWrapper>
+            <S.ModalMainContentWrapper>
+              <S.TrashIconWrapper>
+                <Download size={24} color="var(--color-white)" />
+              </S.TrashIconWrapper>
+              <div>
+                <p>Archive Note</p>
+                <p>
+                  Are you sure you want to archive this note? You can find it in
+                  the Archived Notes section and restore it anytime.
+                </p>
+              </div>
+            </S.ModalMainContentWrapper>
+            <S.ModalActionsWrapper>
+              <S.CancelButton
+                onClick={() =>
+                  setModalsData({
+                    delete: {
+                      showModal: false,
+                    },
+                  })
+                }
+              >
+                Cancel
+              </S.CancelButton>
+              <S.ArchiveButton
+                onClick={() => {
+                  modalsData.archive?.noteId &&
+                    handleArchiveNote(modalsData.archive?.noteId);
+
+                  setModalsData({
+                    archive: {
+                      showModal: false,
+                    },
+                  });
+
+                  onUpdateSelectedNote(null);
+
+                  navigate("/archived");
+                }}
+              >
+                Archive note
+              </S.ArchiveButton>
+            </S.ModalActionsWrapper>
+          </S.ModalContentWrapper>
         </Modal>
       )}
     </Fragment>

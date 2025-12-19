@@ -221,17 +221,11 @@ export const ActionButton = styled.button`
 `;
 
 export const DeleteButton = styled(ActionButton)`
-  min-width: 110px;
-
-  justify-content: center;
-
-  padding: 12px 0;
-
   background: var(--color-red-500);
   color: var(--color-white);
 
   border: none;
-  outline: 2px solid transparent;
+  padding: 12px;
 
   &:focus-visible {
     outline-color: var(--color-white);
@@ -239,24 +233,31 @@ export const DeleteButton = styled(ActionButton)`
 `;
 
 export const CancelButton = styled(ActionButton)`
-  min-width: 110px;
-
-  justify-content: center;
-
-  padding: 12px 0;
-
   background: var(--color-neutral-300);
   color: var(--color-neutral-800);
 
   border: none;
-  outline: 2px solid transparent;
+  padding: 12px;
 
   &:focus-visible {
     outline-color: var(--color-white);
   }
 `;
 
-const animateDeleteModalContent = keyframes`
+export const ArchiveButton = styled(ActionButton)`
+  background: var(--color-blue-500);
+  color: var(--color-white);
+
+  padding: 12px;
+
+  border: none;
+
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+`;
+
+const animateMainContentWrapper = keyframes`
   from {
     opacity: 0;
     transform: translateY(-30px);
@@ -268,7 +269,7 @@ const animateDeleteModalContent = keyframes`
   }
 `;
 
-export const DeleteContentModalWrapper = styled.div`
+export const ModalContentWrapper = styled.div`
   width: clamp(290px, 50vw, 440px);
 
   background: var(--color-neutral-200);
@@ -276,11 +277,11 @@ export const DeleteContentModalWrapper = styled.div`
   border-radius: 8px;
   border: 1px solid rgb(from var(--color-neutral-600) r g b / 0.3);
 
-  animation: ${animateDeleteModalContent} 0.2s
+  animation: ${animateMainContentWrapper} 0.2s
     cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `;
 
-export const DeleteContentWrapper = styled.div`
+export const ModalMainContentWrapper = styled.div`
   display: flex;
   align-items: start;
   gap: 16px;
@@ -322,7 +323,7 @@ export const TrashIconWrapper = styled.div`
   background-color: var(--color-neutral-400);
 `;
 
-export const DeleteButtonsWrapper = styled.div`
+export const ModalActionsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 16px;
