@@ -147,8 +147,6 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
                       showModal: false,
                     },
                   });
-
-                  onUpdateSelectedNote(null);
                 }}
               >
                 Cancel
