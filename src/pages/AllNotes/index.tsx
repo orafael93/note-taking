@@ -22,6 +22,8 @@ export const AllNotes = () => {
     onNotesFilter(param);
   };
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const debouncedFunction = useDebounce(onUpdateSearchValue, 300);
 
   const isSearchingNotes = useNotesStore((store) => store.isSearchingNotes);
@@ -88,7 +90,7 @@ export const AllNotes = () => {
       <S.ContentWrapper ref={contentWrapperRef}>
         {(selectedNoteId || creatingNewNote) &&
         window.innerWidth <= 1024 ? null : (
-          <S.Container>
+          <S.Container ref={containerRef}>
             <S.CreateButton
               style={{ marginBottom: "16px" }}
               onClick={onCreateNewNote}
@@ -138,7 +140,10 @@ export const AllNotes = () => {
         )}
 
         {creatingNewNote && (
-          <CreateNote onBack={() => setCreatingNewNote(false)} />
+          <CreateNote
+            containerRef={containerRef}
+            onBack={() => setCreatingNewNote(false)}
+          />
         )}
 
         {!creatingNewNote && (

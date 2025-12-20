@@ -1,15 +1,15 @@
 import { Fragment, useState } from "react";
-import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
+import { Tag, Clock, ChevronLeft } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
-import { useNotesStore } from "@/store/notes";
 import { handleTags } from "@/utils";
+import { useNotesStore } from "@/store/notes";
 
 import * as Types from "./types";
 import * as S from "./styles";
 
 export const CreateNote = (props: Types.CreateNoteType) => {
-  const { onBack } = props;
+  const { onBack, containerRef } = props;
 
   const addNote = useNotesStore((state) => state.addNote);
 
@@ -50,6 +50,24 @@ export const CreateNote = (props: Types.CreateNoteType) => {
     }));
   };
 
+  const onAddNote = (note: Record<Types.FieldsType, string>) => {
+    addNote({
+      title: note.title,
+      tags: note.tags as unknown as string[],
+      content: note.content,
+      lastEdited: new Date().toString(),
+    });
+
+    onBack();
+
+    setTimeout(() => {
+      containerRef.current?.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 50);
+  };
+
   return (
     <S.Container>
       <S.MainContent>
@@ -60,16 +78,12 @@ export const CreateNote = (props: Types.CreateNoteType) => {
           </S.GoBackWrapper>
           <S.ActionsWrapper>
             <S.ActionsButton>
-              <Trash2 size={18} />
+              <S.CancelText onClick={onBack}>Cancel</S.CancelText>
             </S.ActionsButton>
             <S.ActionsButton>
-              <Download size={18} />
-            </S.ActionsButton>
-            <S.ActionsButton>
-              <S.CancelText>Cancel</S.CancelText>
-            </S.ActionsButton>
-            <S.ActionsButton>
-              <S.SaveNote>Save Note</S.SaveNote>
+              <S.SaveNote onClick={() => onAddNote(noteContent)}>
+                Save Note
+              </S.SaveNote>
             </S.ActionsButton>
           </S.ActionsWrapper>
         </S.MobileCardHeader>
@@ -126,12 +140,7 @@ export const CreateNote = (props: Types.CreateNoteType) => {
             <S.SaveButton
               disabled={!canCreateNote}
               onClick={() => {
-                addNote({
-                  title: noteContent.title,
-                  tags: noteContent.tags as unknown as string[],
-                  content: noteContent.content,
-                  lastEdited: new Date().toString(),
-                });
+                onAddNote(noteContent);
               }}
             >
               Save note
