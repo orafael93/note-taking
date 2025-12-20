@@ -6,7 +6,7 @@ export const Modal = (props: Types.ModalType) => {
 
   return (
     <S.Wrapper>
-      <div>{children}</div>
+      <S.ContentWrapper>{children}</S.ContentWrapper>
     </S.Wrapper>
   );
 };

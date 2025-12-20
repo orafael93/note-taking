@@ -19,5 +19,12 @@ export const Wrapper = styled.div`
 
   @media (max-width: 1024px) {
     width: 100vw;
+
+    right: 0;
   }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
