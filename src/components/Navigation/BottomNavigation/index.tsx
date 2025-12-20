@@ -8,8 +8,7 @@ import * as Types from "./types";
 import * as S from "./styles";
 
 export const BottomNavigation = () => {
-  const [activeLink, setActiveLink] =
-    useState<Types.NavigationLinksType>("home");
+  const [activeLink, setActiveLink] = useState<Types.NavigationLinksType>("/");
 
   const navigate = useNavigate();
 
@@ -18,7 +17,7 @@ export const BottomNavigation = () => {
   const onNavigate = (param: Types.NavigationLinksType) => {
     setActiveLink(param);
 
-    navigate(`/${param}`);
+    navigate(param === "/" ? "/" : `/${param}`);
 
     onSearchingNotes(param === "search");
   };
@@ -26,9 +25,9 @@ export const BottomNavigation = () => {
   return (
     <S.Nav>
       <S.NavButton
-        active={activeLink === "home"}
+        active={activeLink === "/"}
         onClick={() => {
-          onNavigate("home");
+          onNavigate("/");
         }}
       >
         <Home size={24} />
