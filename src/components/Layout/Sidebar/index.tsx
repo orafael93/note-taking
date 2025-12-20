@@ -1,5 +1,5 @@
-import { Home, Archive, Tag, ChevronRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Home, Archive, Tag, ChevronRight } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { useNotesStore } from "@/store/notes";
@@ -7,15 +7,19 @@ import { useNotesStore } from "@/store/notes";
 import * as S from "./styles";
 
 export const Sidebar = () => {
+  const { pathname } = useLocation();
+
   const notes = useNotesStore((state) => state.notes);
   const navigate = useNavigate();
-  const { pathname } = useLocation();
 
   const uniqueTags = Array.from(
     new Set(notes.allNotes.flatMap((note) => note.tags))
   ).sort();
 
   const isItemActive = (pathToCompare: string) => pathname === pathToCompare;
+
+  const isTagActive = (tag: string) =>
+    pathname.includes(`/tags/${tag.toLowerCase()}`);
 
   return (
     <S.Container>
@@ -69,22 +73,29 @@ export const Sidebar = () => {
 
       <S.TagSection>
         <h3>Tags</h3>
+
         {uniqueTags.map((tag) => (
           <S.NavItem
             key={tag}
-            active={isItemActive("/tags")}
-            onClick={() => console.log(`go to /tags/${tag}`)}
+            active={isTagActive(tag)}
+            onClick={() => navigate(`/tags/${tag.toLowerCase()}`)}
           >
             <Tag
               size={20}
               strokeWidth={1.5}
               color={
-                isItemActive("/tags")
-                  ? "var(--color-blue-500)"
-                  : "var(--color-base)"
+                isTagActive(tag) ? "var(--color-blue-500)" : "var(--color-base)"
               }
             />
             <span>{tag}</span>
+
+            {isTagActive(tag) && (
+              <ChevronRight
+                size={18}
+                color="var(--color-base)"
+                style={{ marginLeft: "auto" }}
+              />
+            )}
           </S.NavItem>
         ))}
       </S.TagSection>
