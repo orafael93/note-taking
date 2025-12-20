@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { Home, Search, Archive, Tag, Settings } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { useNotesStore } from "@/store/notes";
 
@@ -8,16 +7,13 @@ import * as Types from "./types";
 import * as S from "./styles";
 
 export const BottomNavigation = () => {
-  const [activeLink, setActiveLink] = useState<Types.NavigationLinksType>("/");
-
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const onSearchingNotes = useNotesStore((store) => store.onSearchingNotes);
   const onUpdateNote = useNotesStore((store) => store.onUpdateSelectedNote);
 
   const onNavigate = (param: Types.NavigationLinksType) => {
-    setActiveLink(param);
-
     onUpdateNote(null);
 
     navigate(param === "/" ? "/" : `/${param}`);
@@ -28,7 +24,7 @@ export const BottomNavigation = () => {
   return (
     <S.Nav>
       <S.NavButton
-        active={activeLink === "/"}
+        active={pathname === "/"}
         onClick={() => {
           onNavigate("/");
         }}
@@ -37,28 +33,28 @@ export const BottomNavigation = () => {
         <span>Home</span>
       </S.NavButton>
       <S.NavButton
-        active={activeLink === "search"}
+        active={pathname === "/search"}
         onClick={() => onNavigate("search")}
       >
         <Search size={24} />
         <span>Search</span>
       </S.NavButton>
       <S.NavButton
-        active={activeLink === "archived"}
+        active={pathname === "/archived"}
         onClick={() => onNavigate("archived")}
       >
         <Archive size={24} />
         <span>Archive</span>
       </S.NavButton>
       <S.NavButton
-        active={activeLink === "tags"}
+        active={pathname === "/tags"}
         onClick={() => onNavigate("tags")}
       >
         <Tag size={24} />
         <span>Tags</span>
       </S.NavButton>
       <S.NavButton
-        active={activeLink === "settings"}
+        active={pathname === "/settings"}
         onClick={() => onNavigate("settings")}
       >
         <Settings size={24} />
