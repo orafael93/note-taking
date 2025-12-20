@@ -20,7 +20,7 @@ export const LogoWrapper = styled.div`
   cursor: pointer;
 
   @media (max-width: 1024px) {
-    padding: 20px 30px;
+    padding: 10px 30px;
   }
 `;
 
