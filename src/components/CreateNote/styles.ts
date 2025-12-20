@@ -94,6 +94,10 @@ export const TagsInput = styled(TitleInput)`
   &::placeholder {
     color: var(--color-neutral-400);
   }
+
+  @media (max-width: 1024px) {
+    min-width: 100%;
+  }
 `;
 
 export const MetaInfo = styled.div`
@@ -105,6 +109,10 @@ export const MetaInfo = styled.div`
   gap: 20px;
 
   margin-bottom: ${({ theme }) => theme.spacing[300]};
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto 1fr;
+  }
 `;
 
 export const LastEdited = styled.span`
