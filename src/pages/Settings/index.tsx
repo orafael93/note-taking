@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { lazy, Suspense, useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
-import { Logo } from "@/components/Logo";
+import { MobileLogo } from "@/components/Logo";
 
 const Theme = lazy(() => import("@/pages/Settings/components/Theme"));
 const Font = lazy(() => import("@/pages/Settings/components/Font"));
@@ -12,6 +13,8 @@ import * as S from "./styles";
 type ActiveItemType = "theme" | "font" | "password" | "logout" | null;
 
 export const Settings = () => {
+  const navigate = useNavigate();
+
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
   const [activeItem, setActiveItem] = useState<ActiveItemType>(null);
 
@@ -23,9 +26,7 @@ export const Settings = () => {
 
   return (
     <S.MainContent>
-      <S.LogoWrapper>
-        <Logo />
-      </S.LogoWrapper>
+      <MobileLogo onClick={() => navigate("/")} />
 
       <S.MainHeaderWrapper>
         <S.SectionTitleWrapper>

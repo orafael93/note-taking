@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { Logo } from "@/components/Logo";
+import { MobileLogo } from "@/components/Logo";
 import { NoteCard } from "@/components/Note/NoteCard";
 import { NoteDetail } from "@/components/NoteDetail";
 import { CreateNote } from "@/components/CreateNote";
@@ -61,9 +61,7 @@ export const AllNotes = () => {
 
   return (
     <S.MainContent>
-      <S.LogoWrapper onClick={() => navigate("/")}>
-        <Logo />
-      </S.LogoWrapper>
+      <MobileLogo onClick={() => navigate("/")} />
 
       <S.MainHeaderWrapper>
         <S.SectionTitleWrapper>
@@ -82,6 +80,7 @@ export const AllNotes = () => {
               size={20}
               color="var(--color-neutral-500)"
               style={{ cursor: "pointer" }}
+              aria-label="Settings icon"
             />
           </S.SettingsIconWrapper>
         </S.SearchInputAndSettingsIconWrapper>

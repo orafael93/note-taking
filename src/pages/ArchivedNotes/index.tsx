@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { Logo } from "@/components/Logo";
 import { NoteCard } from "@/components/Note/NoteCard";
+import { MobileLogo } from "@/components/Logo";
 import { NoteDetail } from "@/components/NoteDetail";
 import { SearchInput } from "@/components/SearchInput";
 import { useDebounce } from "@/hooks/useDebounce";
@@ -53,9 +53,7 @@ export default () => {
 
   return (
     <S.MainContent>
-      <S.LogoWrapper onClick={() => navigate("/")}>
-        <Logo />
-      </S.LogoWrapper>
+      <MobileLogo onClick={() => navigate("/")} />
 
       <S.MainHeaderWrapper>
         <S.SectionTitleWrapper>

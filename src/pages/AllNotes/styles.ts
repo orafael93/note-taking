@@ -119,17 +119,6 @@ export const NotesList = styled.div`
   }
 `;
 
-export const LogoWrapper = styled.div`
-  display: none;
-  background-color: var(--color-neutral-100);
-
-  @media (max-width: 1024px) {
-    padding: 13px 16px;
-
-    display: block;
-  }
-`;
-
 export const MainHeaderWrapper = styled.header`
   display: flex;
   align-items: center;

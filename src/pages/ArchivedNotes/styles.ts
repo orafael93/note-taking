@@ -112,18 +112,6 @@ export const MainContent = styled.main`
   }
 `;
 
-export const LogoWrapper = styled.div`
-  display: none;
-
-  @media (max-width: 1024px) {
-    display: block;
-
-    padding: 13px 16px;
-
-    background-color: var(--color-neutral-100);
-  }
-`;
-
 export const MainHeaderWrapper = styled.header`
   display: flex;
   align-items: center;
