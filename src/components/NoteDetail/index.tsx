@@ -1,6 +1,13 @@
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Tag, Clock, ChevronLeft, Trash2, Download } from "lucide-react";
+import {
+  Tag,
+  Clock,
+  ChevronLeft,
+  Trash2,
+  Download,
+  Archive,
+} from "lucide-react";
 
 import { Meta } from "@/components/Meta";
 import { Modal } from "@/components/Modal";
@@ -88,6 +95,9 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               Go Back
             </S.GoBackWrapper>
             <S.ActionsWrapper>
+              <S.ActionsButton onClick={() => onArchiveNote(note.title)}>
+                <Archive size={18} />
+              </S.ActionsButton>
               <S.ActionsButton onClick={() => onDeleteNote(note.title)}>
                 <Trash2 size={18} />
               </S.ActionsButton>
