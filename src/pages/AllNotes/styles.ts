@@ -11,6 +11,8 @@ export const MainContent = styled.main`
 
   max-height: calc(100dvh - 81px);
 
+  border-left: 1px solid var(--color-neutral-200);
+
   @media (max-width: 1024px) {
     overflow: hidden;
     height: calc(100dvh - 64px);
@@ -168,7 +170,6 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid var(--color-neutral-200);
   border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: scroll;
@@ -226,5 +227,21 @@ export const CreateButtonMobile = styled.button`
 
     width: 48px;
     height: 48px;
+  }
+`;
+
+export const NoNotesToShowWrapper = styled.div`
+  background: var(--color-neutral-100);
+  padding: 8px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: var(--color-neutral-950);
+
+  & p {
+    display: inline;
   }
 `;

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -100,9 +100,22 @@ export const AllNotes = () => {
             </S.CreateButton>
 
             {isSearchingNotes ? null : (
-              <S.TitleWrapper>
-                <S.Title>All Notes</S.Title>
-              </S.TitleWrapper>
+              <Fragment>
+                {(notes.length > 0 || window.innerWidth <= 1024) && (
+                  <S.TitleWrapper>
+                    <S.Title>All Notes</S.Title>
+                  </S.TitleWrapper>
+                )}
+              </Fragment>
+            )}
+
+            {notes.length < 1 && (
+              <S.NoNotesToShowWrapper>
+                <p>
+                  You don’t have any notes yet. Start a new note to capture your
+                  thoughts and ideas.
+                </p>
+              </S.NoNotesToShowWrapper>
             )}
 
             {isSearchingNotes && (
