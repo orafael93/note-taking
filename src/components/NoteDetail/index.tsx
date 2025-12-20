@@ -88,10 +88,9 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               Go Back
             </S.GoBackWrapper>
             <S.ActionsWrapper>
-              <Trash2 size={18} />
-              <Download size={18} />
-              <S.CancelText>Cancel</S.CancelText>
-              <S.SaveNote>Save Note</S.SaveNote>
+              <S.ActionsButton onClick={() => onDeleteNote(note.title)}>
+                <Trash2 size={18} />
+              </S.ActionsButton>
             </S.ActionsWrapper>
           </S.MobileCardHeader>
 
@@ -115,10 +114,6 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
         />
       </S.Container>
 
-      {modalsData?.archive?.showModal && (
-        <Modal>Mostrar o modal de archive</Modal>
-      )}
-
       {modalsData?.delete?.showModal && (
         <Modal>
           <S.ModalContentWrapper>
@@ -136,21 +131,25 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
             </S.ModalMainContentWrapper>
             <S.ModalActionsWrapper>
               <S.CancelButton
-                onClick={() =>
+                onClick={() => {
                   setModalsData({
                     delete: {
                       showModal: false,
                     },
-                  })
-                }
+                  });
+
+                  onUpdateSelectedNote(null);
+                }}
               >
                 Cancel
               </S.CancelButton>
               <S.DeleteButton
-                onClick={() =>
+                onClick={() => {
                   modalsData.delete?.noteId &&
-                  handleDeleteNote(modalsData.delete?.noteId)
-                }
+                    handleDeleteNote(modalsData.delete?.noteId);
+
+                  onUpdateSelectedNote(null);
+                }}
               >
                 Delete Note
               </S.DeleteButton>
@@ -178,7 +177,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
               <S.CancelButton
                 onClick={() =>
                   setModalsData({
-                    delete: {
+                    archive: {
                       showModal: false,
                     },
                   })

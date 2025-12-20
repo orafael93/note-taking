@@ -330,3 +330,11 @@ export const ModalActionsWrapper = styled.div`
 
   padding: 16px 20px;
 `;
+
+export const ActionsButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-white);
+`;
