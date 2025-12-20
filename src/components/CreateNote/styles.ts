@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -188,16 +188,17 @@ export const ActionsWrapper = styled.div`
 
 export const ActionsButton = styled.button`
   color: inherit;
+
+  ${({ disabled }) =>
+    disabled
+      ? { color: "var(--color-neutral-300);" }
+      : { color: "var(--color-blue-500);" }}
 `;
 
-export const CancelText = styled.span`
-  font-size: 14px;
-`;
-
-export const SaveNote = styled.span`
+export const SaveNote = styled.button`
   font-size: 14px;
 
-  color: var(--color-blue-500);
+  color: inherit;
 `;
 
 export const SaveButton = styled.button`
@@ -212,7 +213,7 @@ export const SaveButton = styled.button`
 
   border-radius: 8px;
 
-  color: var(--color-white);
+  color: inherit;
 
   font-weight: bold;
 
