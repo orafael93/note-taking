@@ -121,7 +121,7 @@ export const ApplyChangesButton = styled.button`
   transition: background-color 0.2s;
 
   &:focus-visible {
-    outline-color: var(--color-neutral-100);
+    outline-color: var(--color-white);
     outline-offset: -3px;
   }
 

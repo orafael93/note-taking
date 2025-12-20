@@ -62,7 +62,7 @@ export const Button = styled.button`
   width: 100%;
 
   &:focus-visible {
-    outline-color: var(--color-neutral-100);
+    outline-color: var(--color-white);
     outline-offset: -3px;
   }
 
