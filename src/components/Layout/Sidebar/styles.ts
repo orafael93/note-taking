@@ -30,7 +30,7 @@ export const NavSection = styled.nav`
   gap: ${({ theme }) => theme.spacing[75]};
 `;
 
-export const NavItem = styled.button<{ active?: string }>`
+export const NavItem = styled.button<{ active?: boolean }>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing[100]};
@@ -39,10 +39,12 @@ export const NavItem = styled.button<{ active?: string }>`
   border: none;
 
   border-radius: 4px;
+
   color: ${({ active }) =>
-    active === "true"
-      ? "var(--color-neutral-700)"
-      : "var(--color-neutral-700)"};
+    active ? "var(--color-base)" : "var(--color-neutral-700)"};
+
+  background-color: ${({ active }) =>
+    active ? "var(--color-neutral-100)" : "transparent"};
 
   ${({ theme }) => theme.typography.presets.body1}
 
