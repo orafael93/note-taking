@@ -26,12 +26,22 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  overflow-y: auto;
+  scrollbar-color: var(--color-neutral-200) transparent;
+  scrollbar-width: thin;
+
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
 
   @media (max-width: 1024px) {
+    overflow-y: auto;
+
     border-right: none;
 
     padding: 0;
+    padding-bottom: 30px;
   }
 `;
 
@@ -108,7 +118,7 @@ export const LogoWrapper = styled.div`
   background-color: var(--color-neutral-100);
 
   @media (max-width: 1024px) {
-    padding: 20px 30px;
+    padding: 10px 30px;
 
     display: block;
   }
@@ -162,6 +172,9 @@ export const ContentWrapper = styled.div`
   border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   height: 100%;
 
