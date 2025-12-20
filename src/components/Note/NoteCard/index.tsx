@@ -10,7 +10,7 @@ export const NoteCard = (props: Types.NoteCardType) => {
     year: "numeric",
     month: "short",
     day: "numeric",
-  }).format(new Date(note.lastEdited));
+  }).format(new Date(note.lastEdited || new Date()));
 
   return (
     <S.Container onClick={onClick} isActive={isActive} isLastItem={isLastItem}>
