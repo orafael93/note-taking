@@ -90,7 +90,7 @@ export const CreateButton = styled.button`
   }
 
   &:focus-visible {
-    outline-color: var(--color-neutral-100);
+    outline-color: var(--color-white);
     outline-offset: -3px;
   }
 
