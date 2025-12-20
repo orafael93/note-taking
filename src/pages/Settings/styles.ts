@@ -7,6 +7,8 @@ export const MainContent = styled.main`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 
+  border-left: 1px solid var(--color-neutral-200);
+
   @media (max-width: 1024px) {
     height: calc(100dvh - 64px);
     overflow: hidden;
@@ -147,7 +149,7 @@ export const LogoWrapper = styled.div`
 
     background-color: var(--color-neutral-100);
 
-    padding: 10px 30px;
+    padding: 13px 16px;
   }
 `;
 
@@ -191,7 +193,6 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid var(--color-neutral-200);
   border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
@@ -204,6 +205,6 @@ export const ContentWrapper = styled.div`
 
     grid-template-columns: 1fr;
 
-    padding: 24px;
+    padding: 16px;
   }
 `;

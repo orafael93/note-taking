@@ -13,9 +13,12 @@ export const BottomNavigation = () => {
   const navigate = useNavigate();
 
   const onSearchingNotes = useNotesStore((store) => store.onSearchingNotes);
+  const onUpdateNote = useNotesStore((store) => store.onUpdateSelectedNote);
 
   const onNavigate = (param: Types.NavigationLinksType) => {
     setActiveLink(param);
+
+    onUpdateNote(null);
 
     navigate(param === "/" ? "/" : `/${param}`);
 

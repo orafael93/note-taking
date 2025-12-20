@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -46,6 +46,8 @@ export const Content = styled.div`
 
 export const NoteFooter = styled.footer`
   margin-top: 50px;
+
+  color: var(--color-white);
 `;
 
 export const TitleInput = styled.input`

@@ -2,10 +2,10 @@ import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 
 import { AllNotes } from "@/pages/AllNotes";
+import { Settings } from "@/pages/Settings";
 import { Sidebar } from "@/components/Layout/Sidebar";
 
 const Login = lazy(() => import("@/pages/Login"));
-const Settings = lazy(() => import("@/pages/Settings"));
 const ArchivedNotes = lazy(() => import("@/pages/ArchivedNotes"));
 const CreateAccount = lazy(() => import("@/pages/CreateAccount"));
 const ResetPassword = lazy(() => import("@/pages/ResetPassword"));

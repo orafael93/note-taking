@@ -10,7 +10,7 @@ export const Container = styled.button<ContainerTypes>`
 
   text-align: left;
 
-  padding: ${({ theme }) => theme.spacing[150]};
+  padding: 12px 10px;
 
   margin-bottom: ${({ theme }) => theme.spacing[100]};
 

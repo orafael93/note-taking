@@ -8,6 +8,12 @@ export const Container = styled.div`
   padding: 20px;
 
   border-right: 1px solid var(--color-neutral-200);
+
+  @media (max-width: 1024px) {
+    padding: 0;
+
+    border-right: none;
+  }
 `;
 
 export const SectionTitleWrapper = styled.div`
@@ -96,6 +102,8 @@ export const MainContent = styled.main`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 
+  border-left: 1px solid var(--color-neutral-200);
+
   @media (max-width: 1024px) {
     height: calc(100dvh - 64px);
     overflow: hidden;
@@ -110,7 +118,7 @@ export const LogoWrapper = styled.div`
   @media (max-width: 1024px) {
     display: block;
 
-    padding: 10px 30px;
+    padding: 13px 16px;
 
     background-color: var(--color-neutral-100);
   }
@@ -160,7 +168,6 @@ export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 290px 1fr;
 
-  border-left: 1px solid var(--color-neutral-200);
   border-right: 1px solid var(--color-neutral-200);
 
   overflow-y: auto;
@@ -168,8 +175,8 @@ export const ContentWrapper = styled.div`
   height: 100%;
 
   @media (max-width: 1024px) {
-    height: calc(100dvh - 128px);
     border: none;
+    padding: 16px;
 
     grid-template-columns: 1fr;
   }

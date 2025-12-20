@@ -55,6 +55,10 @@ export const SectionTitleWrapper = styled.div`
 
 export const TitleWrapper = styled.div`
   padding: 12px;
+
+  @media (max-width: 1024px) {
+    padding: 12px 0;
+  }
 `;
 
 export const Title = styled.h1`
@@ -120,7 +124,7 @@ export const LogoWrapper = styled.div`
   background-color: var(--color-neutral-100);
 
   @media (max-width: 1024px) {
-    padding: 10px 30px;
+    padding: 13px 16px;
 
     display: block;
   }
@@ -185,7 +189,7 @@ export const ContentWrapper = styled.div`
 
     grid-template-columns: 1fr;
 
-    padding: 24px;
+    padding: 16px;
   }
 `;
 

@@ -96,10 +96,10 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
             </S.GoBackWrapper>
             <S.ActionsWrapper>
               <S.ActionsButton onClick={() => onArchiveNote(note.title)}>
-                <Archive size={18} />
+                <Archive size={18} color="var(--color-neutral-600)" />
               </S.ActionsButton>
               <S.ActionsButton onClick={() => onDeleteNote(note.title)}>
-                <Trash2 size={18} />
+                <Trash2 size={18} color="var(--color-neutral-600)" />
               </S.ActionsButton>
             </S.ActionsWrapper>
           </S.MobileCardHeader>
