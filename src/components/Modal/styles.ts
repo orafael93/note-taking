@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
   align-items: center;
 
   z-index: 99;
-`;
 
-export const ChildrenWrapper = styled.div``;
+  @media (max-width: 1024px) {
+    width: 100vw;
+  }
+`;
