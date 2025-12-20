@@ -5,7 +5,7 @@ export const Nav = styled.nav`
 
   @media (max-width: 1024px) {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     position: fixed;
@@ -44,4 +44,8 @@ export const NavButton = styled.button<{ active?: boolean }>`
   padding: 8px 24px;
 
   border-radius: 2px;
+
+  @media (max-width: 1024px) {
+    padding: 8px 10px;
+  }
 `;
