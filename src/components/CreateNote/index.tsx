@@ -77,11 +77,17 @@ export const CreateNote = (props: Types.CreateNoteType) => {
             Go Back
           </S.GoBackWrapper>
           <S.ActionsWrapper>
-            <S.ActionsButton>
-              <S.CancelText onClick={onBack}>Cancel</S.CancelText>
-            </S.ActionsButton>
-            <S.ActionsButton>
-              <S.SaveNote onClick={() => onAddNote(noteContent)}>
+            <S.ActionsButton disabled={!canCreateNote}>
+              <S.SaveNote
+                onClick={() => {
+                  onAddNote(noteContent);
+                }}
+                onKeyDown={(e) => {
+                  if (!canCreateNote && e.key === "Enter") {
+                    e.preventDefault();
+                  }
+                }}
+              >
                 Save Note
               </S.SaveNote>
             </S.ActionsButton>
@@ -101,7 +107,7 @@ export const CreateNote = (props: Types.CreateNoteType) => {
           />
           <S.MetaInfo>
             {metaContent.map((meta) => (
-              <Fragment>
+              <Fragment key={meta.name}>
                 <Meta.Description Icon={meta.Icon} name={meta.name} />
 
                 {meta.Component && meta.componentType === "input" && (
