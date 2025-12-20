@@ -235,3 +235,49 @@ export const SaveButton = styled.button`
     display: none;
   }
 `;
+
+const animateToast = keyframes`
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+export const ToastWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  position: fixed;
+  right: 64px;
+  bottom: 65px;
+
+  background-color: var(--color-neutral-200);
+
+  padding: 8px;
+  border-radius: 8px;
+
+  min-width: 250px;
+
+  animation: ${animateToast} 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+
+  & span {
+    color: var(--color-base);
+    font-size: 12px;
+  }
+
+  & :last-child {
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1024px) {
+    right: 10px;
+    bottom: -10px;
+  }
+`;

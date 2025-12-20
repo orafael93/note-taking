@@ -1,7 +1,8 @@
 import { Fragment, useState } from "react";
-import { Tag, Clock, ChevronLeft } from "lucide-react";
+import { Tag, Clock, ChevronLeft, X } from "lucide-react";
 
 import { Meta } from "@/components/Meta";
+import { CheckIcon } from "@/components/Icons";
 import { handleTags } from "@/utils";
 import { useNotesStore } from "@/store/notes";
 
@@ -9,9 +10,13 @@ import * as Types from "./types";
 import * as S from "./styles";
 
 export const CreateNote = (props: Types.CreateNoteType) => {
-  const { onBack, containerRef } = props;
+  const { onBack } = props;
 
   const addNote = useNotesStore((state) => state.addNote);
+  const [savedNoteToast, setSavedNoteToast] = useState({
+    show: false,
+    alreadyShown: false,
+  });
 
   const [noteContent, setNoteContent] = useState<
     Record<Types.FieldsType, string>
@@ -58,14 +63,10 @@ export const CreateNote = (props: Types.CreateNoteType) => {
       lastEdited: new Date().toString(),
     });
 
-    onBack();
-
-    setTimeout(() => {
-      containerRef.current?.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
-    }, 50);
+    setSavedNoteToast({
+      show: true,
+      alreadyShown: true,
+    });
   };
 
   return (
@@ -144,14 +145,33 @@ export const CreateNote = (props: Types.CreateNoteType) => {
 
           <S.NoteFooter>
             <S.SaveButton
-              disabled={!canCreateNote}
+              disabled={!canCreateNote || savedNoteToast.alreadyShown}
               onClick={() => {
-                onAddNote(noteContent);
+                if (!savedNoteToast.alreadyShown) {
+                  onAddNote(noteContent);
+                }
               }}
             >
               Save note
             </S.SaveButton>
           </S.NoteFooter>
+
+          {savedNoteToast.show && (
+            <S.ToastWrapper>
+              <CheckIcon />
+              <span>Note saved successfully!</span>
+              <X
+                size={18}
+                color="var(--color-neutral-500)"
+                onClick={() =>
+                  setSavedNoteToast({
+                    show: false,
+                    alreadyShown: true,
+                  })
+                }
+              />
+            </S.ToastWrapper>
+          )}
         </S.Content>
       </S.MainContent>
     </S.Container>
