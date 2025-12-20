@@ -110,7 +110,8 @@ export const LogoWrapper = styled.div`
   @media (max-width: 1024px) {
     display: block;
 
-    padding: 20px 30px;
+    padding: 10px 30px;
+
     background-color: var(--color-neutral-100);
   }
 `;
