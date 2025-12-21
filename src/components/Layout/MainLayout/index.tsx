@@ -31,6 +31,16 @@ export const MainLayout = () => (
             </PrivatePage>
           }
         />
+
+        <Route
+          path="/search"
+          element={
+            <PrivatePage>
+              <AllNotes />
+            </PrivatePage>
+          }
+        />
+
         <Route
           path="/archived"
           element={
