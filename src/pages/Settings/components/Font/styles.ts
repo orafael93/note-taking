@@ -46,7 +46,7 @@ export const Content = styled.div`
 `;
 
 export const FontText = styled.h1`
-  font-size: 16px;
+  font-size: var(--font-body);
 
   color: var(--color-neutral-950);
 `;
@@ -54,17 +54,17 @@ export const FontText = styled.h1`
 export const FontName = styled.p`
   color: var(--color-neutral-950);
 
-  font-size: 14px;
+  font-size: var(--font-label);
 `;
 
 export const FontDescription = styled.p`
   color: var(--color-neutral-700);
 
-  font-size: 12px;
+  font-size: var(--font-caption);
 `;
 
 export const ChooseFontText = styled.h2`
-  font-size: 14px;
+  font-size: var(--font-label);
 
   margin-top: 4px;
 
@@ -135,5 +135,5 @@ export const GoBackWrapper = styled.button`
 `;
 
 export const GoBackText = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 `;
