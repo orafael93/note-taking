@@ -1,7 +1,7 @@
 import { NoteType } from "@/types/note";
 
 export type SearchTerms = "title" | "content" | "tags";
-export type FilterByType = "all-notes" | "archived";
+export type FilterByType = "all-notes" | "archived" | "tags";
 
 export type StoreNoteType = {
   allNotes: NoteType[];
@@ -11,7 +11,7 @@ export type StoreNoteType = {
 
 export type NotesStoreType = {
   notes: StoreNoteType;
-  getNotes: (page: FilterByType) => NoteType[];
+  getNotes: (page: FilterByType, tag?: string) => NoteType[];
   addNote: (note: NoteType) => void;
   deleteNote: (title: string) => void;
   editNote: (title: string, data: Partial<NoteType>) => void;

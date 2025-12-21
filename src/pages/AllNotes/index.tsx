@@ -111,7 +111,7 @@ export const AllNotes = () => {
             {notes.length < 1 && (
               <S.NoNotesToShowWrapper>
                 <p>
-                  You don’t have any notes yet. Start a new note to capture your
+                  You don't have any notes yet. Start a new note to capture your
                   thoughts and ideas.
                 </p>
               </S.NoNotesToShowWrapper>
