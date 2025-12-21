@@ -9,7 +9,8 @@ export const getStoredFont = () => {
 };
 
 export const getStoredTheme = () => {
-  const storedTheme = localStorage.getItem("note-taking-theme");
+  const storedTheme =
+    localStorage.getItem("note-taking-theme") || getSystemTheme();
 
   return storedTheme === "light" || storedTheme === "dark"
     ? storedTheme
@@ -50,3 +51,8 @@ export const handleTags = (tag: string) =>
 
 export const capitalizeTag = (tag: string) =>
   `${tag[0]?.toUpperCase()}${tag?.slice(1)}`;
+
+const getSystemTheme = () =>
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
