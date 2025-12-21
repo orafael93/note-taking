@@ -13,6 +13,7 @@ import { Meta } from "@/components/Meta";
 import { Modal } from "@/components/Modal";
 import { NoteActions } from "@/components/Note/NoteActions";
 import { useNotesStore } from "@/store/notes";
+import { capitalizeTag } from "@/utils";
 
 import * as Types from "./types";
 import * as S from "./styles";
@@ -58,7 +59,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
     {
       Icon: Tag,
       name: "Tags",
-      content: note.tags.join(", "),
+      content: note.tags.map(capitalizeTag).join(", "),
     },
     {
       Icon: Clock,
