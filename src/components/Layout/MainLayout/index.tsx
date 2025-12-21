@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/Layout/Sidebar";
 import { AllNotes } from "@/pages/AllNotes";
 import { Settings } from "@/pages/Settings";
 import { ShowAllTags } from "@/pages/ShowAllTags";
+import { PrivatePage } from "@/components/PrivatePage";
 import { BottomNavigation } from "@/components/Navigation/BottomNavigation";
 
 const Login = lazy(() => import("@/pages/Login"));
@@ -22,16 +23,52 @@ export const MainLayout = () => (
       <Sidebar />
 
       <Routes>
-        <Route path="/" element={<AllNotes />} />
-        <Route path="/archived" element={<ArchivedNotes />} />
+        <Route
+          path="/"
+          element={
+            <PrivatePage>
+              <AllNotes />
+            </PrivatePage>
+          }
+        />
+        <Route
+          path="/archived"
+          element={
+            <PrivatePage>
+              <ArchivedNotes />
+            </PrivatePage>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <PrivatePage>
+              <Settings />
+            </PrivatePage>
+          }
+        />
+        <Route
+          path="/tags"
+          element={
+            <PrivatePage>
+              <ShowAllTags />
+            </PrivatePage>
+          }
+        />
+        <Route
+          path="/tags/*"
+          element={
+            <PrivatePage>
+              <Tag />
+            </PrivatePage>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/tags" element={<ShowAllTags />} />
-        <Route path="/tags/*" element={<Tag />} />
-        <Route path="*?" element={<AllNotes />} />
+
+        <Route path="*?" element={<h1>NOT FOUND</h1>} />
       </Routes>
 
       <BottomNavigation />
