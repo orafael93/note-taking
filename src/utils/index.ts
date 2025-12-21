@@ -1,3 +1,5 @@
+import { UserData } from "@/store/types";
+
 export const getStoredFont = () => {
   const storedFont = localStorage.getItem("note-taking-font");
 
@@ -56,3 +58,35 @@ export const getSystemTheme = () =>
   window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
+
+export const getUserAccount = () => {
+  const email = localStorage.getItem("note-taking-app-email");
+  const password = localStorage.getItem("note-taking-app-password");
+  const logout = Boolean(localStorage.getItem("note-taking-app-logout"));
+
+  return {
+    email,
+    password,
+    logout,
+  };
+};
+
+export const storeUserAccount = (param: UserData) => {
+  if (param.email) {
+    localStorage.setItem("note-taking-app-email", param.email);
+  }
+
+  if (param.password) {
+    localStorage.setItem("note-taking-app-password", param.password);
+  }
+
+  if (!param.logout) {
+    localStorage.removeItem("note-taking-app-logout");
+    return;
+  }
+
+  localStorage.setItem(
+    "note-taking-app-logout",
+    JSON.stringify(param.logout) || "false"
+  );
+};
