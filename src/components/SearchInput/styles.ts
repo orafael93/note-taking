@@ -21,7 +21,7 @@ export const SearchText = styled.p`
     margin-bottom: 16px;
     padding: 0 12px;
 
-    font-size: 20px;
+    font-size: var(--font-h-md);
     font-weight: bold;
   }
 `;
