@@ -1,13 +1,37 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
-import { Input } from "@/pages/Login/components/Input";
+import { Input } from "@/components/Input";
 import { GoogleIcon } from "@/components/Icons";
+import { useNotesStore } from "@/store/notes";
 
 import * as S from "./styles";
 
 export default () => {
   const navigate = useNavigate();
+
+  const [accountData, setAccountData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const login = useNotesStore((store) => store.login);
+  const storedUserData = useNotesStore((store) => store.userData);
+
+  const onLogin = (email: string, password: string) => {
+    const hasStoredUserData = storedUserData.email && storedUserData.password;
+
+    if (hasStoredUserData) {
+      const canLogin =
+        email === storedUserData.email && password === storedUserData.password;
+
+      if (canLogin) {
+        login({ email, password, logout: false });
+        navigate("/");
+      }
+    }
+  };
 
   return (
     <S.Wrapper>
@@ -46,11 +70,37 @@ export default () => {
             marginTop: "50px",
           }}
         >
-          <Input label="Email address" id="email" type="email" />
-          <Input label="Password" id="password" type="password" showIcon />
+          <Input
+            label="Email address"
+            id="email"
+            type="email"
+            value={accountData.email}
+            onChange={(email) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                email,
+              }))
+            }
+          />
+          <Input
+            label="Password"
+            id="password"
+            type="password"
+            value={accountData.password}
+            onChange={(password) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                password,
+              }))
+            }
+            showIcon
+          />
         </div>
 
-        <S.Button style={{ marginTop: "1rem", color: "var(--color-white)" }}>
+        <S.Button
+          style={{ marginTop: "1rem", color: "var(--color-white)" }}
+          onClick={() => onLogin(accountData.email, accountData.password)}
+        >
           Login
         </S.Button>
 

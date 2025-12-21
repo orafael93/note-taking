@@ -1,9 +1,15 @@
+import { useState } from "react";
+
 import { Logo } from "@/components/Logo";
-import { Input } from "@/pages/Login/components/Input";
+import { Input } from "@/components/Input";
 
 import * as S from "./styles";
 
 export default () => {
+  const [accountData, setAccountData] = useState({
+    email: "",
+  });
+
   return (
     <S.Wrapper>
       <S.Content>
@@ -36,7 +42,18 @@ export default () => {
             marginTop: "50px",
           }}
         >
-          <Input label="Email address" id="email" type="email" />
+          <Input
+            label="Email address"
+            id="email"
+            type="email"
+            value={accountData.email}
+            onChange={(email) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                email,
+              }))
+            }
+          />
         </div>
         <S.Button style={{ marginTop: "1rem" }}>Send Reset Link</S.Button>
       </S.Content>

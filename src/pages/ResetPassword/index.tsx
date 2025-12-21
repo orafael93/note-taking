@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { Info } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
-import { Input } from "@/pages/Login/components/Input";
+import { Input } from "@/components/Input";
 
 import * as S from "./styles";
 
 export default () => {
+  const [accountData, setAccountData] = useState({
+    newPassword: "",
+    confirmedNewPassword: "",
+  });
+
   return (
     <S.Wrapper>
       <S.Content>
@@ -43,7 +49,19 @@ export default () => {
             marginTop: "50px",
           }}
         >
-          <Input label="New Password" id="email" type="password" showIcon />
+          <Input
+            label="New Password"
+            id="password"
+            type="password"
+            value={accountData.newPassword}
+            onChange={(newPassword) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                newPassword,
+              }))
+            }
+            showIcon
+          />
 
           <span
             style={{
@@ -62,6 +80,13 @@ export default () => {
             label="Confirm New Password"
             id="password"
             type="password"
+            value={accountData.confirmedNewPassword}
+            onChange={(confirmedNewPassword) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                confirmedNewPassword,
+              }))
+            }
             showIcon
           />
         </div>

@@ -1,13 +1,27 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
-import { Input } from "@/pages/Login/components/Input";
+import { Input } from "@/components/Input";
 import { GoogleIcon } from "@/components/Icons";
+import { useNotesStore } from "@/store/notes";
 
 import * as S from "./styles";
 
 export default () => {
   const navigate = useNavigate();
+
+  const [accountData, setAccountData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const createAccount = useNotesStore((store) => store.createAccount);
+
+  const onCreateAccount = (email: string, password: string) => {
+    createAccount(email, password);
+    navigate("/");
+  };
 
   return (
     <S.Wrapper>
@@ -46,11 +60,41 @@ export default () => {
             marginTop: "50px",
           }}
         >
-          <Input label="Email address" id="email" type="email" />
-          <Input label="Password" id="password" type="password" showIcon />
+          <Input
+            label="Email address"
+            id="email"
+            type="email"
+            value={accountData.email}
+            onChange={(email) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                email,
+              }))
+            }
+          />
+          <Input
+            label="Password"
+            id="password"
+            type="password"
+            value={accountData.password}
+            onChange={(password) =>
+              setAccountData((currentAccountData) => ({
+                ...currentAccountData,
+                password,
+              }))
+            }
+            showIcon
+          />
         </div>
 
-        <S.Button style={{ marginTop: "1rem" }}>Sign up</S.Button>
+        <S.Button
+          style={{ marginTop: "1rem" }}
+          onClick={() =>
+            onCreateAccount(accountData.email, accountData.password)
+          }
+        >
+          Sign up
+        </S.Button>
 
         <p
           style={{

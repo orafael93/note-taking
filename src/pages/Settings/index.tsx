@@ -3,26 +3,38 @@ import { lazy, Suspense, useRef, useState } from "react";
 import { ChevronRight, Lock, LogOut, Sun, Type } from "lucide-react";
 
 import { MobileLogo } from "@/components/Logo";
+import { useNotesStore } from "@/store/notes";
 
 const Theme = lazy(() => import("@/pages/Settings/components/Theme"));
 const Font = lazy(() => import("@/pages/Settings/components/Font"));
 const Password = lazy(() => import("@/pages/Settings/components/Password"));
 
+import * as Types from "./types";
 import * as S from "./styles";
-
-type ActiveItemType = "theme" | "font" | "password" | "logout" | null;
 
 export const Settings = () => {
   const navigate = useNavigate();
 
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [activeItem, setActiveItem] = useState<ActiveItemType>(null);
+  const [activeItem, setActiveItem] = useState<Types.ActiveItemType>(null);
 
-  const onActiveItem = (param: ActiveItemType) => {
+  const userData = useNotesStore((store) => store.userData);
+  const updateAccount = useNotesStore((store) => store.updateAccount);
+
+  const onActiveItem = (param: Types.ActiveItemType) => {
     setActiveItem(param);
   };
 
-  const canActiveItem = (param: ActiveItemType) => activeItem === param;
+  const canActiveItem = (param: Types.ActiveItemType) => activeItem === param;
+
+  const onLogout = () => {
+    updateAccount({
+      ...userData,
+      logout: true,
+    });
+
+    navigate("/login");
+  };
 
   return (
     <S.MainContent>
@@ -116,7 +128,7 @@ export const Settings = () => {
                         : "var(--color-base)"
                     }
                   />
-                  <button>Logout</button>
+                  <button onClick={onLogout}>Logout</button>
 
                   {canActiveItem("logout") && (
                     <ChevronRight size={16} strokeWidth={3} />
