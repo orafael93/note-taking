@@ -33,7 +33,7 @@ export const PageTitle = styled.h1`
 `;
 
 export const Title = styled.h1`
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: var(--color-neutral-700);
   font-weight: 500;
@@ -178,7 +178,7 @@ export const NoArchivedNotesWrapper = styled.div`
 
   border-radius: 8px;
 
-  font-size: 13px;
+  font-size: var(--font-label);
   font-weight: 500;
 
   color: var(--color-neutral-950);
