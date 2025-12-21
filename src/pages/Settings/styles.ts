@@ -34,7 +34,7 @@ export const Container = styled.div`
     background: transparent;
 
     color: var(--color-neutral-100);
-    font-size: 14px;
+    font-size: var(--font-label);
   }
 
   @media (max-width: 1024px) {
