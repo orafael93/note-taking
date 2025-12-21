@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 
+import { Tags } from "@/pages/Tags";
 import { Sidebar } from "@/components/Layout/Sidebar";
 import { AllNotes } from "@/pages/AllNotes";
 import { Settings } from "@/pages/Settings";
@@ -27,6 +28,7 @@ export const MainLayout = () => (
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/tags/*" element={<Tags />} />
         <Route path="*?" element={<AllNotes />} />
       </Routes>
 
