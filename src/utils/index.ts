@@ -47,3 +47,6 @@ export const handleTags = (tag: string) =>
   tag
     .split(",")
     .map((currentTag) => currentTag.trim().replaceAll(/[^a-zA-Z,\s]/g, ""));
+
+export const capitalizeTag = (tag: string) =>
+  `${tag[0]?.toUpperCase()}${tag?.slice(1)}`;
