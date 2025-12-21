@@ -5,4 +5,5 @@ export type InputType = {
   type?: "email" | "password";
   value: string;
   onChange: (value: string) => void;
-};
+  state?: string;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">;

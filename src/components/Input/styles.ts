@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const InputWrapper = styled.div`
+type InputWrapperType = {
+  state?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+
+export const InputWrapper = styled.div<InputWrapperType>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,11 +17,16 @@ export const InputWrapper = styled.div`
 
   gap: 5px;
 
-  border: 1px solid var(--color-neutral-600);
+  border: 1px solid
+    ${({ state }) =>
+      state === "error" ? "var(--color-red-500)" : "var(--color-neutral-600)"};
 
   &:focus-within {
     border-color: transparent;
-    outline: 2px solid var(--color-blue-500);
+
+    outline: 2px solid
+      ${({ state }) =>
+        state === "error" ? "var(--color-red-500)" : "var(--color-blue-500)"};
   }
 `;
 

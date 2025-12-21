@@ -126,3 +126,16 @@ export const AlreadyHaveAccount = styled.p`
     color: inherit;
   }
 `;
+
+export const ErrorMessageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 6px;
+
+  & span {
+    color: var(--color-red-500);
+    font-size: var(--font-caption);
+  }
+`;

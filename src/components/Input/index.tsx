@@ -5,7 +5,7 @@ import * as Types from "./types";
 import * as S from "./styles";
 
 export const Input = (props: Types.InputType) => {
-  const { label, id, showIcon, type, value, onChange } = props;
+  const { label, id, showIcon, type, value, state, onChange, ...rest } = props;
 
   const [showingPassword, setShowingPassword] = useState(false);
 
@@ -17,7 +17,7 @@ export const Input = (props: Types.InputType) => {
     <div>
       <S.InputLabel htmlFor={id}>{label}</S.InputLabel>
 
-      <S.InputWrapper>
+      <S.InputWrapper state={state} {...rest}>
         <S.Input
           type={type === "email" ? type : showingPassword ? "text" : "password"}
           id={id}

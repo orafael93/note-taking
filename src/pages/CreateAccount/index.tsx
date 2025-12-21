@@ -1,3 +1,4 @@
+import { Info } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -5,16 +6,22 @@ import { Logo } from "@/components/Logo";
 import { Input } from "@/components/Input";
 import { GoogleIcon } from "@/components/Icons";
 import { useNotesStore } from "@/store/notes";
+import { useValidateEmail } from "@/hooks/useValidateEmail";
 
 import * as S from "./styles";
 
 export default () => {
   const navigate = useNavigate();
 
-  const [accountData, setAccountData] = useState({
-    email: "",
-    password: "",
-  });
+  const {
+    email,
+    emailState,
+    onUpdateEmail,
+    onStartValidateEmailOnBlur,
+    emailError,
+  } = useValidateEmail();
+
+  const [password, setPassword] = useState("");
 
   const createAccount = useNotesStore((store) => store.createAccount);
 
@@ -60,38 +67,43 @@ export default () => {
             marginTop: "50px",
           }}
         >
-          <Input
-            label="Email address"
-            id="email"
-            type="email"
-            value={accountData.email}
-            onChange={(email) =>
-              setAccountData((currentAccountData) => ({
-                ...currentAccountData,
-                email,
-              }))
-            }
-          />
+          <div>
+            <Input
+              label="Email address"
+              id="email"
+              type="email"
+              value={email}
+              state={emailState}
+              onBlur={onStartValidateEmailOnBlur}
+              onChange={(email) => onUpdateEmail(email)}
+            />
+
+            {emailError.hasError && (
+              <S.ErrorMessageWrapper>
+                <Info size={14} color="var(--color-red-500)" />
+                <span>{emailError.message}</span>
+              </S.ErrorMessageWrapper>
+            )}
+          </div>
+
           <Input
             label="Password"
             id="password"
             type="password"
-            value={accountData.password}
-            onChange={(password) =>
-              setAccountData((currentAccountData) => ({
-                ...currentAccountData,
-                password,
-              }))
-            }
+            value={password}
+            onChange={(password) => setPassword(password)}
             showIcon
           />
         </div>
 
         <S.Button
           style={{ marginTop: "1rem" }}
-          onClick={() =>
-            onCreateAccount(accountData.email, accountData.password)
-          }
+          disabled={Boolean(email && emailState !== "success" && !password)}
+          onClick={() => {
+            if (email && emailState === "success" && password) {
+              onCreateAccount(email, password);
+            }
+          }}
         >
           Sign up
         </S.Button>
