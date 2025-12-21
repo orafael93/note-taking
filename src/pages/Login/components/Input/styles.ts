@@ -27,7 +27,7 @@ export const InputLabel = styled.label`
 
   margin-bottom: 6px;
 
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: var(--color-neutral-950);
 `;
@@ -41,7 +41,7 @@ export const Input = styled.input.attrs((props) => ({
 
   background: transparent;
 
-  font-size: 0.875rem;
+  font-size: var(--font-label);
 
   &::placeholder {
     color: var(--color-neutral-500);
