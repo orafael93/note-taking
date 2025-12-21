@@ -229,7 +229,7 @@ export const NoNotesToShowWrapper = styled.div`
 
   border-radius: 8px;
 
-  font-size: 13px;
+  font-size: var(--font-label);
   font-weight: 500;
 
   color: var(--color-neutral-950);
