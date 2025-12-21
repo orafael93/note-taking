@@ -50,11 +50,14 @@ export const InputWrapper = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  ${({ theme }) => theme.typography.presets.body1}
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   background: transparent;
 
   color: var(--color-base);
-  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
+  padding: var(--spacing-100) var(--spacing-200);
   padding-left: 0;
 
   min-width: 250px;
@@ -84,7 +87,7 @@ export const SearchIcon = styled.div`
   pointer-events: none;
 
   @media (max-width: 1024px) {
-    right: ${({ theme }) => theme.spacing[300]};
+    right: var(--spacing-300);
   }
 `;
 

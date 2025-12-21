@@ -4,7 +4,7 @@ export const Button = styled.button`
   background: var(--color-blue-500);
   color: var(--color-neutral-0);
 
-  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
+  padding: var(--spacing-100) var(--spacing-200);
 
   border: none;
   border-radius: 4px;

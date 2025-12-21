@@ -36,10 +36,10 @@ export const Content = styled.div`
 
   flex: 1;
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
 
   @media (max-width: 1024px) {
-    padding: ${({ theme }) => theme.spacing[200]} 0;
+    padding: var(--spacing-200) 0;
     margin-top: 10px;
   }
 `;
@@ -51,7 +51,10 @@ export const NoteFooter = styled.footer`
 `;
 
 export const TitleInput = styled.input`
-  ${({ theme }) => theme.typography.presets.body1}
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   background: transparent;
 
   color: var(--color-neutral-950);
@@ -110,7 +113,7 @@ export const MetaInfo = styled.div`
 
   gap: 20px;
 
-  margin-bottom: ${({ theme }) => theme.spacing[300]};
+  margin-bottom: var(--spacing-300);
 
   @media (max-width: 1024px) {
     grid-template-columns: auto 1fr;
@@ -118,7 +121,10 @@ export const MetaInfo = styled.div`
 `;
 
 export const LastEdited = styled.span`
-  ${({ theme }) => theme.typography.presets.body2};
+  font-size: var(--font-caption);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   color: var(--color-neutral-400);
 
   font-size: var(--font-label);
@@ -126,7 +132,10 @@ export const LastEdited = styled.span`
 `;
 
 export const NoteContent = styled.textarea`
-  ${({ theme }) => theme.typography.presets.body1};
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   font-weight: bold;
 
   width: 100%;
@@ -209,7 +218,7 @@ export const SaveButton = styled.button`
   justify-content: center;
   gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  padding: var(--spacing-150) var(--spacing-200);
   background: var(--color-blue-500);
   border: none;
 

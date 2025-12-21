@@ -45,7 +45,7 @@ export const Button = styled.button`
   justify-content: center;
   gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  padding: var(--spacing-150) var(--spacing-200);
   background: var(--color-blue-500);
   border: none;
 

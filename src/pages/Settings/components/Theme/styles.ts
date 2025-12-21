@@ -32,14 +32,14 @@ export const MainContent = styled.div`
 export const Content = styled.div`
   position: relative;
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
 
   max-width: 600px;
 
   @media (max-width: 1024px) {
     max-width: 100%;
 
-    padding: ${({ theme }) => theme.spacing[200]} 0;
+    padding: var(--spacing-200) 0;
 
     margin-top: 10px;
   }
@@ -124,7 +124,7 @@ export const ApplyChangesButton = styled.button`
   justify-content: center;
   gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  padding: var(--spacing-150) var(--spacing-200);
   background: var(--color-blue-500);
   border: none;
 

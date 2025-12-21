@@ -29,12 +29,15 @@ export const NavButton = styled.button<{ active?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[50]};
+  gap: var(--spacing-50);
 
   color: ${({ active }) =>
     active ? "var(--color-blue-500)" : "var(--color-neutral-400)"};
 
-  ${({ theme }) => theme.typography.presets.body2};
+  font-size: var(--font-caption);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
 
   font-size: var(--font-caption);
 

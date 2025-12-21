@@ -27,7 +27,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1};
+  font-size: var(--font-h-lg);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  font-weight: bold;
 
   color: var(--color-neutral-950);
 `;
@@ -45,7 +48,7 @@ export const CreateButton = styled.button`
   justify-content: center;
   gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  padding: var(--spacing-150) var(--spacing-200);
   background: var(--color-blue-500);
   border: none;
 
@@ -73,10 +76,13 @@ export const CreateButton = styled.button`
 `;
 
 export const SearchInput = styled.input`
-  ${({ theme }) => theme.typography.presets.body1}
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   width: 300px;
 
-  padding: ${({ theme }) => `${theme.spacing[100]} ${theme.spacing[200]}`};
+  padding: var(--spacing-100) var(--spacing-200);
 
   background: var(--color-neutral-800);
   color: var(--color-neutral-100);

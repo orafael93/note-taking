@@ -78,7 +78,10 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1};
+  font-size: var(--font-h-lg);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  font-weight: bold;
   color: var(--color-neutral-100);
 `;
 

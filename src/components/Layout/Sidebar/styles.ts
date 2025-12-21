@@ -4,11 +4,11 @@ export const Container = styled.aside`
   width: 250px;
 
   background: var(--color-neutral-0);
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
 
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[200]};
+  gap: var(--spacing-200);
 
   @media (max-width: 1024px) {
     display: none;
@@ -27,13 +27,13 @@ export const LogoWrapper = styled.div`
 export const NavSection = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[75]};
+  gap: var(--spacing-75);
 `;
 
 export const NavItem = styled.button<{ active?: boolean }>`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
 
   background: transparent;
   border: none;
@@ -46,7 +46,10 @@ export const NavItem = styled.button<{ active?: boolean }>`
   background-color: ${({ active }) =>
     active ? "var(--color-neutral-100)" : "transparent"};
 
-  ${({ theme }) => theme.typography.presets.body1}
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
 
   text-decoration: none;
 
@@ -64,15 +67,18 @@ export const TagSection = styled.nav`
   display: flex;
   flex-direction: column;
 
-  gap: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
 
-  padding-top: ${({ theme }) => theme.spacing[200]};
+  padding-top: var(--spacing-200);
 
   border-top: 1px solid var(--color-neutral-200);
 
   h3 {
-    ${({ theme }) => theme.typography.presets.heading3};
+  font-size: var(--font-body);
+  line-height: 120%;
+  letter-spacing: -0.3px;
+  font-weight: 600;
     color: var(--color-neutral-500);
-    padding: 0 ${({ theme }) => theme.spacing[100]};
+    padding: 0 var(--spacing-100);
   }
 `;

@@ -115,11 +115,20 @@ export const GlobalStyle = createGlobalStyle`
   --lh-heading: 1.25;
   --lh-display: 1.15;
 
-  --space-2xs: 0.25rem;
-  --space-xs: 0.5rem; 
-  --space-sm: 1rem; 
-  --space-md: 1.5rem; 
-  --space-lg: 2rem;
+  --spacing-0: 0px;
+  --spacing-25: 0.125rem;
+  --spacing-50: 0.25rem;
+  --spacing-75: 0.375rem;
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-200: 1rem;
+  --spacing-250: 1.25rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
+  --spacing-800: 4rem;
+  --spacing-1000: 5rem;
 
   .text-caption {
     font-size: var(--font-caption);
@@ -144,43 +153,43 @@ export const GlobalStyle = createGlobalStyle`
   .heading-sm {
     font-size: var(--font-h-sm);
     line-height: var(--lh-heading);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--spacing-100);
   }
 
   .heading-md {
     font-size: var(--font-h-md);
     line-height: var(--lh-heading);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--spacing-200);
   }
 
   .heading-lg {
     font-size: var(--font-h-lg);
     line-height: var(--lh-heading);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--spacing-200);
   }
 
   .heading-xl {
     font-size: var(--font-h-xl);
     line-height: var(--lh-heading);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--spacing-300);
   }
 
   .display-sm {
     font-size: var(--font-d-sm);
     line-height: var(--lh-display);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--spacing-300);
   }
 
   .display-md {
     font-size: var(--font-d-md);
     line-height: var(--lh-display);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-400);
   }
 
   .display-lg {
     font-size: var(--font-d-lg);
     line-height: var(--lh-display);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-400);
   }
 
   --current-font: 'Inter', sans-serif;

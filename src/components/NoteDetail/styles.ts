@@ -37,7 +37,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
   border-bottom: 1px solid var(--color-neutral-800);
   background: var(--color-neutral-900);
 
@@ -51,12 +51,15 @@ export const Header = styled.div`
 export const BackButton = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[75]};
+  gap: var(--spacing-75);
   background: none;
   border: none;
   color: var(--color-neutral-300);
 
-  ${({ theme }) => theme.typography.presets.body1};
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
 
   cursor: pointer;
 
@@ -69,18 +72,18 @@ export const BackButton = styled.button`
 
 export const Actions = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
 `;
 
 export const Content = styled.div`
   position: relative;
 
   flex: 1;
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
   overflow-y: auto;
 
   @media (max-width: 1024px) {
-    padding: ${({ theme }) => theme.spacing[200]} 0;
+    padding: var(--spacing-200) 0;
     margin-top: 10px;
   }
 `;
@@ -91,11 +94,14 @@ export const NoteFooter = styled.footer`
 `;
 
 export const Title = styled.h1`
-  ${({ theme }) => theme.typography.presets.heading1};
+  font-size: var(--font-h-lg);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  font-weight: bold;
 
   color: var(--color-neutral-950);
 
-  margin-bottom: ${({ theme }) => theme.spacing[200]};
+  margin-bottom: var(--spacing-200);
 `;
 
 export const MetaInfo = styled.div`
@@ -106,16 +112,22 @@ export const MetaInfo = styled.div`
 
   gap: 10px 30px;
 
-  margin-bottom: ${({ theme }) => theme.spacing[300]};
+  margin-bottom: var(--spacing-300);
 `;
 
 export const LastEdited = styled.span`
-  ${({ theme }) => theme.typography.presets.body2};
+  font-size: var(--font-caption);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   color: var(--color-neutral-400);
 `;
 
 export const NoteContent = styled.div`
-  ${({ theme }) => theme.typography.presets.body1};
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   color: var(--color-neutral-800);
 
   white-space: pre-line;
@@ -172,7 +184,7 @@ export const SaveButton = styled.button`
   justify-content: center;
   gap: 8px;
 
-  padding: ${({ theme }) => `${theme.spacing[150]} ${theme.spacing[200]}`};
+  padding: var(--spacing-150) var(--spacing-200);
   background: var(--color-blue-500);
   border: none;
 
@@ -197,9 +209,9 @@ export const SaveButton = styled.button`
 export const ActionButton = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[75]};
+  gap: var(--spacing-75);
 
-  padding: ${({ theme }) => `${theme.spacing[75]} ${theme.spacing[150]}`};
+  padding: var(--spacing-75) var(--spacing-150);
 
   border-radius: 4px;
 
@@ -209,7 +221,10 @@ export const ActionButton = styled.button`
 
   color: var(--color-neutral-300);
 
-  ${({ theme }) => theme.typography.presets.body1};
+  font-size: var(--font-label);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
 
   cursor: pointer;
   transition: all 0.2s;

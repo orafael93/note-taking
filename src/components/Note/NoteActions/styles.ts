@@ -6,9 +6,9 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
 
-  padding: ${({ theme }) => theme.spacing[200]};
+  padding: var(--spacing-200);
   border-left: 1px solid var(--color-neutral-200);
 
   @media (max-width: 1024px) {
@@ -19,8 +19,8 @@ export const Container = styled.div`
 export const ActionButton = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[100]};
-  padding: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
+  padding: var(--spacing-100);
 
   border-radius: 4px;
   background: transparent;

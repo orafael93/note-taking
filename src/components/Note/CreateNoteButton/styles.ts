@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   position: fixed;
-  bottom: ${({ theme }) => theme.spacing[400]};
-  right: ${({ theme }) => theme.spacing[400]};
+  bottom: var(--spacing-400);
+  right: var(--spacing-400);
 
   width: 56px;
   height: 56px;

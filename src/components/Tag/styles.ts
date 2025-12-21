@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const TagContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing[50]};
+  gap: var(--spacing-50);
 `;
 
 export const TagItem = styled.span`
   background-color: var(--color-neutral-300);
   color: var(--color-base);
 
-  padding: ${({ theme }) => `${theme.spacing[25]} ${theme.spacing[75]}`};
+  padding: var(--spacing-25) var(--spacing-75);
 
   border-radius: 4px;
 `;

@@ -12,7 +12,7 @@ export const Container = styled.button<ContainerTypes>`
 
   padding: 12px 10px;
 
-  margin-bottom: ${({ theme }) => theme.spacing[100]};
+  margin-bottom: var(--spacing-100);
 
   background: ${({ isActive }) =>
     isActive ? "var(--color-neutral-100)" : "transparent"};
@@ -41,33 +41,39 @@ export const Container = styled.button<ContainerTypes>`
 `;
 
 export const Title = styled.h2`
-  ${({ theme }) => theme.typography.presets.heading2}
+  font-size: var(--font-h-md);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  font-weight: bold;
   color: var(--color-base);
 
-  margin-bottom: ${({ theme }) => theme.spacing[100]};
+  margin-bottom: var(--spacing-100);
 `;
 
 export const Footer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[75]};
+  gap: var(--spacing-75);
 `;
 
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing[100]};
+  gap: var(--spacing-100);
 `;
 
 export const DateText = styled.span`
-  ${({ theme }) => theme.typography.presets.body2};
+  font-size: var(--font-caption);
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  font-weight: normal;
   color: var(--color-neutral-700);
 `;
 
 export const Actions = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[75]};
+  gap: var(--spacing-75);
   opacity: 0;
   transition: opacity 0.2s;
 
