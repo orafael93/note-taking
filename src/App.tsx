@@ -1,8 +1,20 @@
-import { MainLayout } from "@/components/Layout/MainLayout";
-import { ThemeProvider } from "@/styles/ThemeProvider";
+import { Fragment, useEffect } from "react";
 
-export const App = () => (
-  <ThemeProvider>
-    <MainLayout />
-  </ThemeProvider>
-);
+import { GlobalStyle } from "@/styles/global";
+import { MainLayout } from "@/components/Layout/MainLayout";
+import { initProjectFont, initProjectTheme } from "@/utils";
+
+export const App = () => {
+  useEffect(() => {
+    initProjectFont();
+    initProjectTheme();
+  }, []);
+
+  return (
+    <Fragment>
+      <GlobalStyle />
+
+      <MainLayout />
+    </Fragment>
+  );
+};
