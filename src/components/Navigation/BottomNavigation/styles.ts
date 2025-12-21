@@ -36,7 +36,7 @@ export const NavButton = styled.button<{ active?: boolean }>`
 
   ${({ theme }) => theme.typography.presets.body2};
 
-  font-size: 12px;
+  font-size: var(--font-caption);
 
   background-color: ${({ active }) =>
     active ? "var(--color-neutral-100)" : "transparent"};
