@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { Plus, Tag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 
 import { MobileLogo } from "@/components/Logo";
+import { CreateNote } from "@/components/CreateNote";
 import { useNotesStore } from "@/store/notes";
 import { capitalizeTag } from "@/utils";
 
@@ -19,6 +20,8 @@ export const ShowAllTags = () => {
   );
 
   const [creatingNewNote, setCreatingNewNote] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const uniqueTags = Array.from(
     new Set(notes.allNotes.flatMap((note) => note.tags))
@@ -42,26 +45,35 @@ export const ShowAllTags = () => {
       <MobileLogo onClick={() => navigate("/")} />
 
       <S.ContentWrapper>
-        <S.TitleWrapper>
-          <S.Title>Tags</S.Title>
-        </S.TitleWrapper>
+        {!creatingNewNote && (
+          <S.TitleWrapper>
+            <S.Title>Tags</S.Title>
+          </S.TitleWrapper>
+        )}
 
         <S.TagItemWrapper>
-          {uniqueTags.map((tag, index, allTags) => (
-            <li>
-              <S.Tag
-                onClick={() => onNavigate(`/tags/${tag.toLowerCase()}`)}
-                isLastItem={index === allTags.length - 1}
-              >
-                <Tag
-                  size={20}
-                  strokeWidth={1.5}
-                  color={"var(--color-neutral-600)"}
-                />
-                <span>{capitalizeTag(tag)}</span>
-              </S.Tag>
-            </li>
-          ))}
+          {!creatingNewNote ? (
+            uniqueTags.map((tag, index, allTags) => (
+              <li>
+                <S.Tag
+                  onClick={() => onNavigate(`/tags/${tag.toLowerCase()}`)}
+                  isLastItem={index === allTags.length - 1}
+                >
+                  <Tag
+                    size={20}
+                    strokeWidth={1.5}
+                    color={"var(--color-neutral-600)"}
+                  />
+                  <span>{capitalizeTag(tag)}</span>
+                </S.Tag>
+              </li>
+            ))
+          ) : (
+            <CreateNote
+              containerRef={containerRef}
+              onBack={() => setCreatingNewNote(false)}
+            />
+          )}
         </S.TagItemWrapper>
       </S.ContentWrapper>
 
