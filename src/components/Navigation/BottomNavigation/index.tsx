@@ -47,7 +47,7 @@ export const BottomNavigation = () => {
         <span>Archive</span>
       </S.NavButton>
       <S.NavButton
-        active={pathname === "/tags"}
+        active={pathname.includes("/tags")}
         onClick={() => onNavigate("tags")}
       >
         <Tag size={24} />
