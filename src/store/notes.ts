@@ -11,11 +11,24 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
     filteredNotes: [],
     searchTerms: [],
   },
-  getNotes: (page) => {
-    const filteredNotesByPage =
-      page === "all-notes"
-        ? get().notes.allNotes
-        : get().notes.allNotes.filter((note) => note.isArchived);
+  getNotes: (page, tags) => {
+    let filteredNotesByPage: NoteType[] = [];
+
+    if (page === "all-notes") {
+      filteredNotesByPage = get().notes.allNotes;
+    }
+
+    if (page === "archived") {
+      filteredNotesByPage = get().notes.allNotes.filter(
+        (note) => note.isArchived
+      );
+    }
+
+    if (page === "tags" && tags) {
+      filteredNotesByPage = get().notes.allNotes.filter((note) =>
+        note.tags.map((tag) => tag.toLowerCase()).includes(tags)
+      );
+    }
 
     const hasSearch =
       get().notes.searchTerms.length && get().notes.filteredNotes.length;
