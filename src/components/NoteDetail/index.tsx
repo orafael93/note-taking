@@ -18,17 +18,6 @@ import { capitalizeTag } from "@/utils";
 import * as Types from "./types";
 import * as S from "./styles";
 
-type ModalsDataType = {
-  delete?: {
-    noteId?: string;
-    showModal: boolean;
-  };
-  archive?: {
-    noteId?: string;
-    showModal: boolean;
-  };
-};
-
 export const NoteDetail = (props: Types.NoteDetailType) => {
   const { noteId, onBack } = props;
 
@@ -42,7 +31,7 @@ export const NoteDetail = (props: Types.NoteDetailType) => {
     (state) => state.onUpdateSelectedNote
   );
 
-  const [modalsData, setModalsData] = useState<ModalsDataType>();
+  const [modalsData, setModalsData] = useState<Types.ModalsDataType>();
 
   const handleArchiveNote = useNotesStore((state) => state.toggleArchive);
   const handleDeleteNote = useNotesStore((state) => state.deleteNote);
