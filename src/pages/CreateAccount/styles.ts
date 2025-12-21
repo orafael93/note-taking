@@ -118,7 +118,7 @@ export const AlreadyHaveAccount = styled.p`
   font-weight: 300;
 
   text-align: center;
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: var(--color-neutral-950);
 
