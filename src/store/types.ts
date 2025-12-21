@@ -9,6 +9,12 @@ export type StoreNoteType = {
   searchTerms: SearchTerms[];
 };
 
+export type UserData = {
+  email: string | null;
+  password: string | null;
+  logout?: boolean;
+};
+
 export type NotesStoreType = {
   notes: StoreNoteType;
   getNotes: (page: FilterByType, tag?: string) => NoteType[];
@@ -25,4 +31,8 @@ export type NotesStoreType = {
   onSearchingNotes: (param: boolean) => void;
   selectedNoteId: string | null;
   onUpdateSelectedNote: (param: string | null) => void;
+  userData: UserData;
+  createAccount: (email: string, password: string) => void;
+  login: (param: UserData) => UserData;
+  updateAccount: (param: UserData) => UserData;
 };

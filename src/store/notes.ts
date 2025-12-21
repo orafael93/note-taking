@@ -3,7 +3,8 @@ import { create } from "zustand";
 import notesData from "@/data.json";
 
 import { NoteType } from "@/types/note";
-import { NotesStoreType, SearchTerms } from "@/store/types";
+import { getUserAccount, storeUserAccount } from "@/utils";
+import { NotesStoreType, SearchTerms, UserData } from "@/store/types";
 
 export const useNotesStore = create<NotesStoreType>((set, get) => ({
   notes: {
@@ -158,4 +159,54 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
     set(() => ({
       selectedNoteId,
     })),
+  login: ({ email, password, logout }) => {
+    const userData: UserData = {
+      email,
+      password,
+      logout,
+    };
+
+    set((state) => ({
+      ...state,
+      userData,
+    }));
+
+    storeUserAccount(userData);
+
+    return userData;
+  },
+  userData: {
+    email: getUserAccount().email,
+    password: getUserAccount().password,
+    logout: getUserAccount().logout,
+  },
+  createAccount: (email, password) => {
+    const userData: UserData = {
+      email,
+      password,
+    };
+
+    set((state) => ({
+      ...state,
+      userData,
+    }));
+
+    storeUserAccount(userData);
+  },
+  updateAccount: ({ email, password, logout }) => {
+    const userData: UserData = {
+      email,
+      password,
+      logout,
+    };
+
+    set((state) => ({
+      ...state,
+      userData,
+    }));
+
+    storeUserAccount(userData);
+
+    return userData;
+  },
 }));
