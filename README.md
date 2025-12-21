@@ -2,6 +2,10 @@
 
 Uma aplicação de notas moderna, acessível e rica em funcionalidades, construída com React, TypeScript e Styled Components. Este projeto foi desenvolvido com foco em acessibilidade, performance e uma experiência de usuário premium.
 
+## 🎬 Demonstração
+
+![Demonstração do Note Taking App](./project-in-action.gif)
+
 ## 📋 Sobre o Projeto
 
 O Note Taking App é uma solução completa para organizar seus pensamentos, tarefas e ideias. Com uma interface intuitiva e responsiva, ele permite que você gerencie suas notas de forma eficiente, seja no desktop ou em dispositivos móveis. O projeto se destaca pelo seu compromisso com a acessibilidade, sendo totalmente navegável apenas por teclado, e pelo suporte a temas claro e escuro.
@@ -10,7 +14,7 @@ O Note Taking App é uma solução completa para organizar seus pensamentos, tar
 
 - **Autenticação Completa**: Telas de Login, Cadastro e Redefinição de Senha.
 - **Temas Personalizados**: Suporte nativo a **Dark Mode** e **Light Mode**.
-- **Acessibilidade**: Navegação 100% funcional via teclado e suporte a leitores de tela.
+- **Acessibilidade Total**: Navegação 100% funcional via teclado e suporte a leitores de tela.
 - **Gerenciamento de Notas**: Crie, edite, delete e arquive suas notas facilmente.
 - **Busca**: Encontre suas notas rapidamente através da barra de pesquisa.
 - **Organização por Tags**: Classifique suas notas com tags para melhor organização.
@@ -74,25 +78,45 @@ A aplicação será aberta automaticamente no seu navegador padrão (geralmente 
 
 ## 🎨 Funcionalidades em Detalhe
 
-### Autenticação e Segurança
+### Autenticação
 
-Crie sua conta, faça login e recupere sua senha com segurança. O fluxo de autenticação é fluido e intuitivo.
+Crie sua conta, faça login e recupere sua senha. O fluxo de autenticação é fluido e intuitivo.
+
+![Demonstração de Autenticação](./account.gif)
 
 ### Temas Dark e Light
 
 Alterne entre os temas claro e escuro para maior conforto visual, independentemente da hora do dia.
 
+![Demonstração de Temas](./dark-and-light-theme.gif)
+
 ### Gerenciamento de Notas
 
 Crie novas notas, edite o conteúdo, arquive as que não precisa agora ou delete as desnecessárias. Tudo com poucos cliques.
+
+![Demonstração de Notas](./create-edit-note.gif)
 
 ### Busca e Organização
 
 Utilize a barra de pesquisa para filtrar suas notas instantaneamente e use tags para categorizar seu conteúdo.
 
+![Demonstração de Busca](./search-notes.gif)
+
 ### Acessibilidade (Navegação por Teclado)
 
 A aplicação foi construída pensando em todos. Navegue por todos os elementos interativos utilizando apenas o teclado.
+
+![Demonstração de Acessibilidade](./accessibility.gif)
+
+### Performance e Otimização (Debounce)
+
+A busca de notas foi otimizada com a técnica de **Debounce**. Isso significa que a aplicação aguarda o usuário parar de digitar antes de processar a filtragem, evitando renderizações desnecessárias e garantindo uma experiência extremamente fluida e responsiva.
+
+### Layout Mobile
+
+A interface foi totalmente adaptada para dispositivos móveis. O design responsivo ajusta automaticamente o layout para oferecer a melhor experiência em qualquer tamanho de tela.
+
+![Demonstração Mobile](./mobile.gif)
 
 ## 👨‍💻 Autor
 
