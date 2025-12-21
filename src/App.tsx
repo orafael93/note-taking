@@ -1,7 +1,8 @@
 import { Fragment, useEffect } from "react";
 
-import { GlobalStyle } from "@/styles/global";
 import { MainLayout } from "@/components/Layout/MainLayout";
+import { GlobalStyle } from "@/styles/global";
+import { InitialPageLoading } from "@/components/InitialPageLoading";
 import { initProjectFont, initProjectTheme } from "@/utils";
 
 export const App = () => {
@@ -15,6 +16,8 @@ export const App = () => {
       <GlobalStyle />
 
       <MainLayout />
+
+      <InitialPageLoading />
     </Fragment>
   );
 };
