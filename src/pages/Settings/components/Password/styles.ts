@@ -113,7 +113,7 @@ export const ApplyChangesButton = styled.button`
 
   border-radius: 8px;
 
-  color: var(--color-neutral-0);
+  color: var(--color-white);
 
   font-weight: bold;
 
