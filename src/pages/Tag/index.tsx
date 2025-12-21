@@ -1,4 +1,4 @@
-import { Plus, Settings } from "lucide-react";
+import { ChevronLeft, Plus, Settings } from "lucide-react";
 import { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -107,6 +107,13 @@ export const Tag = () => {
               <Plus size={16} strokeWidth={3} />
               Create New Note
             </S.CreateButton>
+
+            <S.MobileCardHeader>
+              <S.GoBackWrapper onClick={() => navigate("/tags")}>
+                <ChevronLeft size={18} />
+                Go Back
+              </S.GoBackWrapper>
+            </S.MobileCardHeader>
 
             <S.NoteTagInfoWrapper>
               <p>

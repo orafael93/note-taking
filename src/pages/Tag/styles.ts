@@ -21,6 +21,28 @@ export const MainContent = styled.main`
   }
 `;
 
+export const MobileCardHeader = styled.div`
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const GoBackWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  background: transparent;
+  border: none;
+
+  color: var(--color-neutral-600);
+  cursor: pointer;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -260,7 +282,7 @@ export const NoNotesToShowWrapper = styled.div`
 `;
 
 export const NoteTagInfoWrapper = styled.div`
-  margin: 0 10px;
+  margin: 10px;
 
   border-radius: 8px;
 

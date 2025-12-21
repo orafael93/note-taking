@@ -160,7 +160,7 @@ export const Tag = styled.button<TagType>`
 
   font-size: var(--font-body-sm);
 
-  padding: 12px 6px;
+  padding: 14px 6px;
   margin-bottom: 2px;
 
   border-radius: 0;
