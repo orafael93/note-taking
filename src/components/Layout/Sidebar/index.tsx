@@ -3,6 +3,7 @@ import { Home, Archive, Tag, ChevronRight } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { useNotesStore } from "@/store/notes";
+import { capitalizeTag } from "@/utils";
 
 import * as S from "./styles";
 
@@ -10,7 +11,13 @@ export const Sidebar = () => {
   const { pathname } = useLocation();
 
   const notes = useNotesStore((state) => state.notes);
+  const onSelectedNote = useNotesStore((state) => state.onUpdateSelectedNote);
   const navigate = useNavigate();
+
+  const onNavigate = (path: string) => {
+    navigate(path);
+    onSelectedNote(null);
+  };
 
   const uniqueTags = Array.from(
     new Set(notes.allNotes.flatMap((note) => note.tags))
@@ -23,12 +30,12 @@ export const Sidebar = () => {
 
   return (
     <S.Container>
-      <S.LogoWrapper onClick={() => navigate("/")}>
+      <S.LogoWrapper onClick={() => onNavigate("/")}>
         <Logo />
       </S.LogoWrapper>
 
       <S.NavSection>
-        <S.NavItem onClick={() => navigate("/")} active={isItemActive("/")}>
+        <S.NavItem onClick={() => onNavigate("/")} active={isItemActive("/")}>
           <Home
             size={20}
             strokeWidth={1.5}
@@ -47,7 +54,7 @@ export const Sidebar = () => {
           )}
         </S.NavItem>
         <S.NavItem
-          onClick={() => navigate("/archived")}
+          onClick={() => onNavigate("/archived")}
           active={isItemActive("/archived")}
         >
           <Archive
@@ -78,7 +85,7 @@ export const Sidebar = () => {
           <S.NavItem
             key={tag}
             active={isTagActive(tag)}
-            onClick={() => navigate(`/tags/${tag.toLowerCase()}`)}
+            onClick={() => onNavigate(`/tags/${tag.toLowerCase()}`)}
           >
             <Tag
               size={20}
@@ -87,7 +94,7 @@ export const Sidebar = () => {
                 isTagActive(tag) ? "var(--color-blue-500)" : "var(--color-base)"
               }
             />
-            <span>{tag}</span>
+            <span>{capitalizeTag(tag)}</span>
 
             {isTagActive(tag) && (
               <ChevronRight
