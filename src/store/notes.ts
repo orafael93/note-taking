@@ -77,14 +77,27 @@ export const useNotesStore = create<NotesStoreType>((set, get) => ({
         searchTerms: [],
       },
     })),
-  searchNotes: (query, filterBy) => {
+  searchNotes: (query, filterBy, tagName) => {
     const state = get();
     const search = query.toLowerCase();
 
-    const filteredNotesByPage =
-      filterBy === "all-notes"
-        ? state.notes.allNotes
-        : state.notes.allNotes.filter((currentNote) => currentNote.isArchived);
+    let filteredNotesByPage: NoteType[] = [];
+
+    if (filterBy === "all-notes") {
+      filteredNotesByPage = state.notes.allNotes;
+    }
+
+    if (filterBy === "archived") {
+      filteredNotesByPage = state.notes.allNotes.filter(
+        (note) => note.isArchived
+      );
+    }
+
+    if (filterBy === "tags" && tagName) {
+      filteredNotesByPage = state.notes.allNotes.filter((note) =>
+        note.tags.map((tag) => tag.toLowerCase()).includes(tagName)
+      );
+    }
 
     if (!search) {
       return set((state) => ({

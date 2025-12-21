@@ -26,7 +26,7 @@ export const Tag = () => {
   });
 
   const onUpdateSearchValue = (param: string) => {
-    onNotesFilter(param);
+    onNotesFilter(param, tagName);
   };
 
   const containerRef = useRef<HTMLDivElement | null>(null);

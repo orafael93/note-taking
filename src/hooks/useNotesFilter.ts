@@ -10,8 +10,8 @@ export const useNotesFilter = (param: {
   const storedNotes = useNotesStore((state) => state.getNotes(filterBy, tag));
   const searchNotes = useNotesStore((state) => state.searchNotes);
 
-  const onNotesFilter = (searchValue: string) => {
-    searchNotes(searchValue, filterBy);
+  const onNotesFilter = (searchValue: string, tagName?: string) => {
+    searchNotes(searchValue, filterBy, tagName);
   };
 
   return {

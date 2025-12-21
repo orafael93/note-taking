@@ -16,7 +16,11 @@ export type NotesStoreType = {
   deleteNote: (title: string) => void;
   editNote: (title: string, data: Partial<NoteType>) => void;
   toggleArchive: (title: string) => void;
-  searchNotes: (query: string, filterBy: FilterByType) => void;
+  searchNotes: (
+    query: string,
+    filterBy: FilterByType,
+    tagName?: string
+  ) => void;
   isSearchingNotes: boolean;
   onSearchingNotes: (param: boolean) => void;
   selectedNoteId: string | null;
