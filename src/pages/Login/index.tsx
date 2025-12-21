@@ -22,6 +22,7 @@ export default () => {
   } = useValidateEmail();
 
   const [password, setPassword] = useState("");
+  const [createNewAccountMessage, setCreateNewAccountMessage] = useState("");
 
   const login = useNotesStore((store) => store.login);
   const storedUserData = useNotesStore((store) => store.userData);
@@ -37,7 +38,13 @@ export default () => {
         login({ email, password, logout: false });
         navigate("/");
       }
+
+      return;
     }
+
+    setCreateNewAccountMessage(
+      "We couldn't find any account with the provided email address. Please create a new one."
+    );
   };
 
   return (
@@ -104,6 +111,12 @@ export default () => {
             showIcon
           />
         </div>
+
+        {createNewAccountMessage && (
+          <S.ErrorMessageWrapper style={{ marginTop: "10px" }}>
+            <span>{createNewAccountMessage}</span>
+          </S.ErrorMessageWrapper>
+        )}
 
         <S.Button
           style={{ marginTop: "1rem", color: "var(--color-white)" }}

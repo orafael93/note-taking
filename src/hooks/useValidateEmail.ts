@@ -57,6 +57,7 @@ export const useValidateEmail = () => {
         hasError: true,
         message: "Please enter a valid email address.",
       });
+
       return;
     }
 
