@@ -7,7 +7,7 @@ export const MetaDescription = styled.div`
 `;
 
 export const MetaName = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: var(--color-neutral-700);
 `;
@@ -15,5 +15,5 @@ export const MetaName = styled.span`
 export const TagItem = styled.span`
   color: var(--color-neutral-950);
 
-  font-size: 0.9rem;
+  font-size: var(--font-body-sm);
 `;
