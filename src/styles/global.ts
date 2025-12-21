@@ -183,39 +183,6 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: var(--space-lg);
   }
 
-  h1 {
-    font-size: var(--font-h-xl);
-    line-height: var(--lh-heading);
-  }
-
-  h2 {
-    font-size: var(--font-h-lg);
-    line-height: var(--lh-heading);
-  }
-  
-  h3 {
-    font-size: var(--font-h-md);
-    line-height: var(--lh-heading);
-  }
-
-  h4 {
-    font-size: var(--font-h-sm);
-    line-height: var(--lh-heading);
-  }
-
-  p {
-    margin-bottom: var(--space-sm);
-  }
-
-  small {
-    font-size: var(--font-caption);
-  }
-
-  input {
-    font-size: var(--font-body-sm);
-    line-height: var(--lh-body);
-  }
-
   --current-font: 'Inter', sans-serif;
 
   --color-base: #000;
