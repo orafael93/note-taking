@@ -63,7 +63,7 @@ export const TitleInput = styled.input`
 
   min-width: 300px;
 
-  font-size: 1rem;
+  font-size: var(--font-body);
   font-weight: 500;
 
   border-radius: 0.5rem;
@@ -85,7 +85,7 @@ export const TitleInput = styled.input`
 `;
 
 export const TagsInput = styled(TitleInput)`
-  font-size: 0.8rem;
+  font-size: var(--font-caption);
 
   min-width: 350px;
 
@@ -121,7 +121,7 @@ export const LastEdited = styled.span`
   ${({ theme }) => theme.typography.presets.body2};
   color: var(--color-neutral-400);
 
-  font-size: 14px;
+  font-size: var(--font-label);
   font-weight: 500;
 `;
 
@@ -179,7 +179,7 @@ export const GoBackWrapper = styled.button`
 `;
 
 export const GoBackText = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 `;
 
 export const ActionsWrapper = styled.div`
@@ -198,7 +198,7 @@ export const ActionsButton = styled.button`
 `;
 
 export const SaveNote = styled.button`
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: inherit;
 `;
@@ -268,7 +268,7 @@ export const ToastWrapper = styled.div`
 
   & span {
     color: var(--color-base);
-    font-size: 12px;
+    font-size: var(--font-caption);
   }
 
   & :last-child {
