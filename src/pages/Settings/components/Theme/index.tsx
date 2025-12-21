@@ -3,7 +3,7 @@ import { ChevronLeft, Moon, Sun } from "lucide-react";
 
 import { Option } from "@/pages/Settings/components/Option";
 import { OptionType } from "@/pages/Settings/components/Option/types";
-import { getStoredTheme, updateProjectTheme } from "@/utils";
+import { getStoredTheme, getSystemTheme, updateProjectTheme } from "@/utils";
 
 import * as Types from "./types";
 import * as S from "./styles";
@@ -77,8 +77,10 @@ const Theme = (props: Types.ThemeType) => {
     const activeInput = options.find((option) => option.itemIsActive);
     const themeToUpdate = activeInput?.inputId;
 
-    if (themeToUpdate === "light" || themeToUpdate === "dark") {
-      updateProjectTheme(themeToUpdate);
+    if (themeToUpdate) {
+      updateProjectTheme(
+        themeToUpdate === "device" ? getSystemTheme() : themeToUpdate
+      );
     }
   };
 

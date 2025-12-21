@@ -52,7 +52,7 @@ export const handleTags = (tag: string) =>
 export const capitalizeTag = (tag: string) =>
   `${tag[0]?.toUpperCase()}${tag?.slice(1)}`;
 
-const getSystemTheme = () =>
+export const getSystemTheme = () =>
   window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
