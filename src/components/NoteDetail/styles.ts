@@ -145,7 +145,7 @@ export const GoBackWrapper = styled.button`
 `;
 
 export const GoBackText = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 `;
 
 export const ActionsWrapper = styled.div`
@@ -157,11 +157,11 @@ export const ActionsWrapper = styled.div`
 `;
 
 export const CancelText = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 `;
 
 export const SaveNote = styled.span`
-  font-size: 14px;
+  font-size: var(--font-label);
 
   color: var(--color-blue-500);
 `;
@@ -297,7 +297,7 @@ export const ModalMainContentWrapper = styled.div`
   border-bottom: 1px solid rgb(from var(--color-neutral-600) r g b / 0.3);
 
   & p:first-child {
-    font-size: 16px;
+    font-size: var(--font-body);
 
     font-weight: 600;
 
@@ -305,7 +305,7 @@ export const ModalMainContentWrapper = styled.div`
   }
 
   & p:last-child {
-    font-size: 14px;
+    font-size: var(--font-label);
 
     margin-top: 6px;
 
