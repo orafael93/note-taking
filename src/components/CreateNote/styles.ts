@@ -135,7 +135,6 @@ export const NoteContent = styled.textarea`
   font-size: var(--font-label);
   line-height: 120%;
   letter-spacing: -0.2px;
-  font-weight: normal;
   font-weight: bold;
 
   width: 100%;
@@ -160,6 +159,10 @@ export const NoteContent = styled.textarea`
   &::placeholder {
     font-weight: 500;
     color: var(--color-neutral-700);
+  }
+
+  @media (max-width: 1024px) {
+    min-height: 200px;
   }
 `;
 
