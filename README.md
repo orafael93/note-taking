@@ -1,26 +1,40 @@
 # 📝 Note Taking App
 
-Uma aplicação de notas moderna, acessível e rica em funcionalidades, construída com React, TypeScript e Styled Components. Este projeto foi desenvolvido com foco em acessibilidade, performance e uma experiência de usuário premium.
+A modern, accessible, and feature-rich note-taking application built with React, TypeScript, and Styled Components. This project demonstrates a focus on scalable architecture, performance optimization, and inclusive design.
 
-## 🎬 Demonstração
+## 🎬 Demo
 
-![Demonstração do Note Taking App](./project-in-action.gif)
+![Note Taking App Demo](./project-in-action.gif)
 
-## 📋 Sobre o Projeto
+## 🏗️ Architectural Highlights
 
-O Note Taking App é uma solução completa para organizar seus pensamentos, tarefas e ideias. Com uma interface intuitiva e responsiva, ele permite que você gerencie suas notas de forma eficiente, seja no desktop ou em dispositivos móveis. O projeto se destaca pelo seu compromisso com a acessibilidade, sendo totalmente navegável apenas por teclado, e pelo suporte a temas claro e escuro.
+As a Front-end Engineer, I made specific architectural decisions to ensure the application is robust, maintainable, and user-friendly:
 
-## ✨ Principais Funcionalidades
+### 1. Scalable State Management with Zustand
 
-- **Autenticação Completa**: Telas de Login, Cadastro e Redefinição de Senha.
-- **Temas Personalizados**: Suporte nativo a **Dark Mode** e **Light Mode**.
-- **Acessibilidade Total**: Navegação 100% funcional via teclado e suporte a leitores de tela.
-- **Gerenciamento de Notas**: Crie, edite, delete e arquive suas notas facilmente.
-- **Busca**: Encontre suas notas rapidamente através da barra de pesquisa.
-- **Organização por Tags**: Classifique suas notas com tags para melhor organização.
-- **Design Responsivo**: Interface adaptável para qualquer tamanho de tela.
+I chose **Zustand** over other state management libraries (like Redux or Context API) for its lightweight footprint and simplicity. It allows for a scalable global state without the boilerplate code, ensuring the application remains performant even as complexity grows.
 
-## 🛠️ Tecnologias Utilizadas
+### 2. Commitment to Accessibility (WCAG)
+
+Accessibility is not an afterthought; it is a core feature. I followed **WCAG (Web Content Accessibility Guidelines)** to ensure the application is inclusive.
+
+- **100% Keyboard Navigation**: Every interactive element is accessible via keyboard.
+- **Screen Reader Support**: Proper ARIA labels and semantic HTML are used throughout.
+
+### 3. Performance Optimization
+
+To ensure a smooth user experience, I implemented **Debounce** logic for the search feature. This prevents unnecessary re-renders and calculations by waiting for the user to stop typing before processing the search query, significantly improving performance on lower-end devices.
+
+## ✨ Key Features
+
+- **Complete Authentication**: Login, Sign Up, and Password Reset flows.
+- **Custom Themes**: Native support for **Dark Mode** and **Light Mode**.
+- **Note Management**: Create, edit, delete, and archive notes effortlessly.
+- **Smart Search**: Instantly find notes using the optimized search bar.
+- **Tag Organization**: Categorize notes with tags for better structure.
+- **Responsive Design**: A seamless experience across desktop and mobile devices.
+
+## 🛠️ Tech Stack
 
 - **React**
 - **TypeScript**
@@ -28,103 +42,87 @@ O Note Taking App é uma solução completa para organizar seus pensamentos, tar
 - **Zustand**
 - **React Router DOM**
 - **Vite**
-- **Lucide React** (Ícones)
+- **Lucide React** (Icons)
 
-## 🚀 Como Rodar o Projeto
+## 🚀 Getting Started
 
-### Pré-requisitos
+### Prerequisites
 
-Certifique-se de ter instalado em sua máquina:
+Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-### Instalação
+### Installation
 
-1. Clone o repositório:
+1.  Clone the repository:
 
-```bash
-git clone https://github.com/orafael93/note-taking.git
-```
+    ```bash
+    git clone https://github.com/orafael93/note-taking.git
+    ```
 
-2. Navegue até o diretório do projeto:
+2.  Navigate to the project directory:
 
-```bash
-cd note-taking
-```
+    ```bash
+    cd note-taking
+    ```
 
-3. Instale as dependências:
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-```bash
-npm install
-```
+### Running Locally
 
-### Executando em Modo de Desenvolvimento
-
-Para iniciar o servidor de desenvolvimento:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-A aplicação será aberta automaticamente no seu navegador padrão (geralmente em `http://localhost:5173`).
+The app will open automatically in your browser (usually at `http://localhost:5173`).
 
-### Scripts Disponíveis
+## 🎨 Feature Showcase
 
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Cria a build de produção
-- `npm run preview` - Visualiza a build de produção localmente
-- `npm run lint` - Executa o linter para verificar problemas no código
+### Authentication
 
-## 🎨 Funcionalidades em Detalhe
+Secure and intuitive flows for account creation, login, and password recovery.
 
-### Autenticação
+![Authentication Demo](./account.gif)
 
-Crie sua conta, faça login e recupere sua senha. O fluxo de autenticação é fluido e intuitivo.
+### Dark & Light Themes
 
-![Demonstração de Autenticação](./account.gif)
+Switch between themes to match your preference and reduce eye strain.
 
-### Temas Dark e Light
+![Themes Demo](./dark-and-light-theme.gif)
 
-Alterne entre os temas claro e escuro para maior conforto visual, independentemente da hora do dia.
+### Note Management
 
-![Demonstração de Temas](./dark-and-light-theme.gif)
+Easily manage your thoughts. Create, edit, archive, or delete notes with a few clicks.
 
-### Gerenciamento de Notas
+![Note Management Demo](./create-edit-note.gif)
 
-Crie novas notas, edite o conteúdo, arquive as que não precisa agora ou delete as desnecessárias. Tudo com poucos cliques.
+### Search & Organization
 
-![Demonstração de Notas](./create-edit-note.gif)
+Filter notes instantly using the optimized search and organize them with tags.
 
-### Busca e Organização
+![Search Demo](./search-notes.gif)
 
-Utilize a barra de pesquisa para filtrar suas notas instantaneamente e use tags para categorizar seu conteúdo.
+### Accessibility (Keyboard Navigation)
 
-![Demonstração de Busca](./search-notes.gif)
+Fully navigable using only the keyboard, ensuring a barrier-free experience for all users.
 
-### Acessibilidade (Navegação por Teclado)
+![Accessibility Demo](./accessibility.gif)
 
-A aplicação foi construída pensando em todos. Navegue por todos os elementos interativos utilizando apenas o teclado.
+### Mobile Layout
 
-![Demonstração de Acessibilidade](./accessibility.gif)
+A fully responsive design that adapts perfectly to mobile screens.
 
-### Performance e Otimização (Debounce)
+![Mobile Demo](./mobile.gif)
 
-A busca de notas foi otimizada com a técnica de **Debounce**. Isso significa que a aplicação aguarda o usuário parar de digitar antes de processar a filtragem, evitando renderizações desnecessárias e garantindo uma experiência extremamente fluida e responsiva.
-
-### Layout Mobile
-
-A interface foi totalmente adaptada para dispositivos móveis. O design responsivo ajusta automaticamente o layout para oferecer a melhor experiência em qualquer tamanho de tela.
-
-![Demonstração Mobile](./mobile.gif)
-
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Rafael Pereira**
 
 - Email: orafaeldev@gmail.com
 - GitHub: [@orafael93](https://github.com/orafael93)
-
-## 📄 Licença
-
-Este projeto é privado e foi desenvolvido para fins educacionais e de portfólio.
