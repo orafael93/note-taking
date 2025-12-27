@@ -4,7 +4,7 @@ A modern, accessible, and feature-rich note-taking application built with React,
 
 ## 🎬 Demo
 
-![Note Taking App Demo](./project-in-action.gif)
+![Note Taking App Demo](./public/gifs/project-in-action.gif)
 
 ## 🏗️ Architectural Highlights
 
@@ -88,37 +88,37 @@ The app will open automatically in your browser (usually at `http://localhost:51
 
 Secure and intuitive flows for account creation, login, and password recovery.
 
-![Authentication Demo](./account.gif)
+![Authentication Demo](./public/gifs/account.gif)
 
 ### Dark & Light Themes
 
 Switch between themes to match your preference and reduce eye strain.
 
-![Themes Demo](./dark-and-light-theme.gif)
+![Themes Demo](./public/gifs/dark-and-light-theme.gif)
 
 ### Note Management
 
 Easily manage your thoughts. Create, edit, archive, or delete notes with a few clicks.
 
-![Note Management Demo](./create-edit-note.gif)
+![Note Management Demo](./public/gifs/create-edit-note.gif)
 
 ### Search & Organization
 
 Filter notes instantly using the optimized search and organize them with tags.
 
-![Search Demo](./search-notes.gif)
+![Search Demo](./public/gifs/search-notes.gif)
 
 ### Accessibility (Keyboard Navigation)
 
 Fully navigable using only the keyboard, ensuring a barrier-free experience for all users.
 
-![Accessibility Demo](./accessibility.gif)
+![Accessibility Demo](./public/gifs/accessibility.gif)
 
 ### Mobile Layout
 
 A fully responsive design that adapts perfectly to mobile screens.
 
-![Mobile Demo](./mobile.gif)
+![Mobile Demo](./public/gifs/mobile.gif)
 
 ## 👨‍💻 Author
 
