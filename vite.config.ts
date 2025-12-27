@@ -2,9 +2,22 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr(),
+    {
+      name: "manual-cache-control",
+      configureServer(server) {
+        server.middlewares.use((req: any, res, next) => {
+          if (req.url && req.url.includes("/fonts")) {
+            res.setHeader("Cache-Control", "public, max-age=900000");
+          }
+          next();
+        });
+      },
+    },
+  ],
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
