@@ -80,7 +80,7 @@ Start the development server:
 npm run dev
 ```
 
-The app will open automatically in your browser (usually at `http://localhost:5173`).
+The app will open automatically in your browser (usually at `http://localhost:5173/note-taking-app`).
 
 ## 🎨 Feature Showcase
 
