@@ -6,6 +6,10 @@ A modern, accessible, and feature-rich note-taking application built with React,
 
 ![Note Taking App Demo](./public/gifs/project-in-action.gif)
 
+## 🔗 Live Preview
+
+Check out the live version of the application here: [https://orafael.dev/note-taking-app/](https://orafael.dev/note-taking-app/)
+
 ## 🏗️ Architectural Highlights
 
 As a Front-end Engineer, I made specific architectural decisions to ensure the application is robust, maintainable, and user-friendly:
