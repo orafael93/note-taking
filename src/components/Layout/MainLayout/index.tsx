@@ -19,7 +19,7 @@ import * as S from "./styles";
 
 export const MainLayout = () => (
   <S.Container>
-    <BrowserRouter>
+    <BrowserRouter basename="/note-taking-app">
       <Sidebar />
 
       <Routes>
