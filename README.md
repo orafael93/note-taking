@@ -8,7 +8,7 @@ A modern, accessible, and feature-rich note-taking application built with React,
 
 ## 🔗 Live Preview
 
-Check out the live version of the application here: [https://orafael.dev/note-taking-app/](https://orafael.dev/note-taking-app/)
+Check out the live version of the application here: [https://note-taking-app.orafael.dev/](https://note-taking-app.orafael.dev/)
 
 ## 🏗️ Architectural Highlights
 
