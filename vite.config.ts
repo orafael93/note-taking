@@ -18,7 +18,7 @@ export default defineConfig({
       },
     },
   ],
-  base: "/note-taking-app",
+  base: "/",
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
