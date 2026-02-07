@@ -43,7 +43,7 @@ export default () => {
     }
 
     setCreateNewAccountMessage(
-      "We couldn't find any account with the provided email address. Please create a new one."
+      "We couldn't find any account with the provided email address. Please create a new one.",
     );
   };
 
@@ -129,22 +129,6 @@ export default () => {
         >
           Login
         </S.Button>
-
-        <p
-          style={{
-            fontSize: "14px",
-            marginTop: "40px",
-            textAlign: "center",
-            color: "var(--color-neutral-600)",
-          }}
-        >
-          Or login with:
-        </p>
-
-        <S.OutlineButton style={{ marginTop: "1rem" }}>
-          <GoogleIcon />
-          Google
-        </S.OutlineButton>
 
         <S.NoAccountText>
           No account yet?

@@ -108,22 +108,6 @@ export default () => {
           Sign up
         </S.Button>
 
-        <p
-          style={{
-            fontSize: "14px",
-            marginTop: "40px",
-            textAlign: "center",
-            color: "var(--color-neutral-600)",
-          }}
-        >
-          Or login with:
-        </p>
-
-        <S.OutlineButton style={{ marginTop: "1rem" }}>
-          <GoogleIcon />
-          Google
-        </S.OutlineButton>
-
         <S.AlreadyHaveAccount>
           Already have an account?
           <button onClick={() => navigate("/login")}>Login</button>
