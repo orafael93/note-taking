@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import { Logo } from "@/components/Logo";
 import { Input } from "@/components/Input";
-import { GoogleIcon } from "@/components/Icons";
 import { useNotesStore } from "@/store/notes";
 import { useValidateEmail } from "@/hooks/useValidateEmail";
 
