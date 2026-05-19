@@ -125,4 +125,4 @@ A fully responsive design that adapts perfectly to mobile screens.
 **Rafael Pereira**
 
 - Email: orafaeldev@gmail.com
-- GitHub: [@orafael93](https://github.com/orafael93)
+- GitHub: [@orafaeldev](https://github.com/orafaeldev)
